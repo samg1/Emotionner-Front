@@ -2,8 +2,22 @@ import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
+import axios from 'axios'; 
 
 class UserRegistration extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+          campName: "",
+          campLastname: "",
+          campEmail:"",
+          campBdate:"",
+          campOcupation:"",
+          campPassword: ""
+        }
+      }
+
     render(){
         return(
             <div className="container ">
@@ -18,25 +32,35 @@ class UserRegistration extends Component{
                                <Form className='form-singin'>
                                     <FormGroup>
                                         <Label>Nombre</Label>
-                                        <Input className='form-control' type="text" placeholder="Introduzca su nombre " required></Input>
+                                        <Input className='form-control' type="text" placeholder="Introduzca su nombre " required
+                                        value={this.state.campName} onChange={(value)=> this.setState({campName:value.target.value})}></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Apellido</Label>
-                                        <Input className='form-control' type="text" placeholder="Introduzca su apellido " required></Input>
+                                        <Input className='form-control' type="text" placeholder="Introduzca su apellido " required
+                                        value={this.state.campLastname} onChange={(value)=> this.setState({campLastname:value.target.value})}></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Fecha de nacimiento</Label>
-                                        <Input className='form-control' type="date" placeholder="Introduzca su fecha de nacimiento " required></Input>
+                                        <Input className='form-control' type="date" placeholder="Introduzca su fecha de nacimiento " required
+                                        value={this.state.campBdate} onChange={(value)=> this.setState({campBdate:value.target.value})}></Input>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label>Ocupación</Label>
+                                        <Input className='form-control' type="text" placeholder="Introduzca su ocupación" required
+                                        value={this.state.campOcupation} onChange={(value)=> this.setState({campOcupation:value.target.value})}></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Correo Electronico</Label>
-                                        <Input className='form-control' type="email" placeholder="Introduzca su correo " required></Input>
+                                        <Input className='form-control' type="email" placeholder="Introduzca su correo " required
+                                        value={this.state.campEmail} onChange={(value)=> this.setState({campEmail:value.target.value})}></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Contraseña</Label>
-                                        <Input className='form-control' type="password" placeholder="Introduzca su contraseña" required></Input>
+                                        <Input className='form-control' type="password" placeholder="Introduzca su contraseña" required
+                                        value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})}></Input>
                                     </FormGroup>
-                                    <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}}>Registrarse</button>
+                                    <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
                             </Form>
                             </div>
                         </div>
@@ -46,6 +70,58 @@ class UserRegistration extends Component{
             )
         
     }
+
+    sendSave(){
+
+        if (this.state.campName=="") {
+          alert("Introduzca su nombre")
+        }
+        else if (this.state.campLastname=="") {
+           alert("Introduzca su apellido")
+        }
+        else if (this.state.campEmail=="") {
+           alert("Introduzca su correo electrónico")
+        }
+        else if (this.state.campBdate=="") {
+           alert("Introduzca su fecha de nacimiento")
+        }
+        else if (this.state.campOcupation=="") {
+           alert("Introduzca su ocupación")
+        }
+        else if (this.state.campPassword=="") {
+            alert("Introduzca una contraseña")
+         }
+        else {
+     
+          const baseUrl = "http://localhost:8080/users/createUser"
+
+          const datapost = {
+            name : this.state.campName,
+            lastname : this.state.campLastname,
+            email : this.state.campEmail,
+            birthdate : this.state.campBdate,
+            ocupation  : this.state.campOcupation,
+            premium : 'false',
+            password : this.state.campPassword
+          }
+
+          console.log(datapost)
+     
+          axios.post(baseUrl,datapost)
+          .then(response=>{
+            if (response.data.success===true) {
+              alert(response.data.message)
+            }
+            else {
+              alert(response.data.message)
+            }
+          }).catch(error=>{
+            alert("Error 34 "+error)
+          })
+     
+        }
+     
+      }
     
 }
 export default UserRegistration
