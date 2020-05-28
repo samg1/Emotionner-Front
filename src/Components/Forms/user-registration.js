@@ -76,11 +76,11 @@ class UserRegistration extends Component{
         if (this.state.campName=="") {
           alert("Introduzca su nombre")
         }
+        else if (!validateEmail(this.state.campEmail)) {
+            alert("El correo ingresado no es valido")
+         }
         else if (this.state.campLastname=="") {
            alert("Introduzca su apellido")
-        }
-        else if (this.state.campEmail=="") {
-           alert("Introduzca su correo electrónico")
         }
         else if (this.state.campBdate=="") {
            alert("Introduzca su fecha de nacimiento")
@@ -88,6 +88,9 @@ class UserRegistration extends Component{
         else if (this.state.campOcupation=="") {
            alert("Introduzca su ocupación")
         }
+        else if (this.state.campEmail=="") {
+            alert("Introduzca su correo electrónico")
+         }
         else if (this.state.campPassword=="") {
             alert("Introduzca una contraseña")
          }
@@ -125,3 +128,9 @@ class UserRegistration extends Component{
     
 }
 export default UserRegistration
+
+function validateEmail(email) 
+    {
+        var re = /\S+@\S+\.\S+/;
+        return re.test(email);
+    }
