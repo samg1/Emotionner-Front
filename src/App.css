@@ -82,7 +82,6 @@
 }
 
 
-
 .user-img{
   display: flex;
   align-items: center;
@@ -94,8 +93,7 @@
 
 html, body, #root, #root>div {
   height: 100%;
-
-
+  
 }
 body{
   background: rgb(165,216,255);
@@ -107,4 +105,7 @@ body{
   background: rgb(165,216,255);
   background: linear-gradient(45deg, rgba(165,216,255,1) 0%, rgba(179,179,241,1) 100%);
 }
+
+
+
 

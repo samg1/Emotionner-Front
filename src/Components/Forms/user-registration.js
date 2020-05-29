@@ -47,8 +47,13 @@ class UserRegistration extends Component{
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Ocupación</Label>
-                                        <Input className='form-control' type="text" placeholder="Introduzca su ocupación" required
-                                        value={this.state.campOcupation} onChange={(value)=> this.setState({campOcupation:value.target.value})}></Input>
+                                        <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campOcupation} onChange={(value)=> this.setState({campOcupation:value.target.value})}>
+                                        <option value="">Ocupación</option>
+                                        <option>Estudiante</option>
+                                        <option>Trabajo a tiempo completo</option>
+                                        <option>Trabajo a medio tiempo</option>
+                                        <option>Freelancer</option>
+                                        </Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Correo Electronico</Label>
@@ -85,7 +90,7 @@ class UserRegistration extends Component{
         else if (this.state.campBdate==="") {
            alert("Introduzca su fecha de nacimiento")
         }
-        else if (this.state.campOcupation==="") {
+        else if (this.state.campOcupation=="" || this.state.campOcupation=="Ocupación") {
            alert("Introduzca su ocupación")
         }
         else if (this.state.campEmail==="") {
