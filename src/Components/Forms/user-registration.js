@@ -73,25 +73,25 @@ class UserRegistration extends Component{
 
     sendSave(){
 
-        if (this.state.campName=="") {
+        if (this.state.campName==="") {
           alert("Introduzca su nombre")
         }
         else if (!validateEmail(this.state.campEmail)) {
             alert("El correo ingresado no es valido")
          }
-        else if (this.state.campLastname=="") {
+        else if (this.state.campLastname==="") {
            alert("Introduzca su apellido")
         }
-        else if (this.state.campBdate=="") {
+        else if (this.state.campBdate==="") {
            alert("Introduzca su fecha de nacimiento")
         }
-        else if (this.state.campOcupation=="") {
+        else if (this.state.campOcupation==="") {
            alert("Introduzca su ocupación")
         }
-        else if (this.state.campEmail=="") {
+        else if (this.state.campEmail==="") {
             alert("Introduzca su correo electrónico")
          }
-        else if (this.state.campPassword=="") {
+        else if (this.state.campPassword==="") {
             alert("Introduzca una contraseña")
          }
         else {
