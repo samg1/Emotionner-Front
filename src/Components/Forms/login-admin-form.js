@@ -19,7 +19,7 @@ class LoginAdminForm extends Component{
                                     <Label>Contraseña</Label>
                                     <Input className='form-control' type="password" placeholder="Introduzca su contraseña" required></Input>
                                 </FormGroup>
-                                <button className="btn btn-lg btn-primary btn-block text-uppercase">Iniciar Sesión</button>
+                                <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}}>Iniciar Sesión</button>
                         </Form>
                         </div>
                     </div>
