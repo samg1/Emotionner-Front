@@ -65,7 +65,7 @@ class UserRegistration extends Component{
                                         <Input className='form-control' type="password" placeholder="Introduzca su contraseña" required
                                         value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})}></Input>
                                     </FormGroup>
-                                    <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
+                                    <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
                             </Form>
                             </div>
                         </div>
@@ -124,7 +124,7 @@ class UserRegistration extends Component{
               alert(response.data.message)
             }
           }).catch(error=>{
-            alert("Error 34 "+error)
+            alert(""+error)
           })
      
         }
