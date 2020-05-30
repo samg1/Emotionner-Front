@@ -47,7 +47,7 @@ class UserRegistration extends Component{
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Ocupación</Label>
-                                        <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campOcupation} onChange={(value)=> this.setState({campOcupation:value.target.value})}>
+                                        <Input type="select"  value={this.state.campOcupation} onChange={(value)=> this.setState({campOcupation:value.target.value})}>
                                         <option value="">Ocupación</option>
                                         <option>Estudiante</option>
                                         <option>Trabajo a tiempo completo</option>
@@ -65,7 +65,7 @@ class UserRegistration extends Component{
                                         <Input className='form-control' type="password" placeholder="Introduzca su contraseña" required
                                         value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})}></Input>
                                     </FormGroup>
-                                    <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
+                                    <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
                             </Form>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ class UserRegistration extends Component{
          }
         else {
      
-          const baseUrl = "http://localhost:8080/users/createUser"
+          const baseUrl = "https://emotionner-project.herokuapp.com/users/createUser"
 
           const datapost = {
             name : this.state.campName,
@@ -114,7 +114,7 @@ class UserRegistration extends Component{
           }
 
           console.log(datapost)
-     
+          
           axios.post(baseUrl,datapost)
           .then(response=>{
             if (response.data.success===true) {

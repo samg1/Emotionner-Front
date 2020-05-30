@@ -17,4 +17,4 @@ ReactDOM.render(
 // Learn more about service workers: https://bit.ly/CRA-PWA
 //serviceWorker.unregister();
   // Para registrar nuestro serviceWorker cambiar por:
-  serviceWorker.register();
+ serviceWorker.register();
