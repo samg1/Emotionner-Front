@@ -65,7 +65,7 @@ class UserRegistration extends Component{
                                         <Input className='form-control' type="password" placeholder="Introduzca su contraseña" required
                                         value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})}></Input>
                                     </FormGroup>
-                                    <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
+                                    <button className="btn btn-lg btn-block text-uppercase btn-light" type="button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Registrarse</button>
                             </Form>
                             </div>
                         </div>
@@ -101,7 +101,7 @@ class UserRegistration extends Component{
          }
         else {
      
-          const baseUrl = "http://localhost:8080/users/createUser"
+          const baseUrl = "https://emotionner-project.herokuapp.com/users/createUser"
 
           const datapost = {
             name : this.state.campName,
@@ -124,7 +124,7 @@ class UserRegistration extends Component{
               alert(response.data.message)
             }
           }).catch(error=>{
-            alert("Error 34 "+error)
+            alert(""+error)
           })
      
         }
