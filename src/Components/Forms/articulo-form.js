@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenFancy} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 
-class article extends Component{
+class CreateArticle extends Component{
 
     constructor(props){
         super(props);
@@ -138,4 +138,4 @@ class article extends Component{
       }
     
 }
-export default article
+export default CreateArticle
