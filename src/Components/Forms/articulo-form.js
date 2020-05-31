@@ -70,9 +70,10 @@ class article extends Component{
                                         <CustomInput type="file" id="exampleCustomFileBrowser" name="customFile" />
                                     </FormGroup>
                                     <FormGroup>
-                                        <Label>Ocupación</Label>
+                                        <Label>Selección de Premium</Label>
                                         <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campPremium} onChange={(value)=> this.setState({campPremium:value.target.value})}>
-                                        <option value="">Premium</option>
+                                        <option value="">Seleccione</option>
+                                        <option>Premium</option>
                                         <option>No premium</option>
                                         </Input>
                                     </FormGroup>
@@ -101,6 +102,9 @@ class article extends Component{
         else if (this.state.campAuthor=="") {
            alert("Introduzca el autor")
         }
+        else if (this.state.campPremium=="") {
+            alert("Introduzca el tipo de usuario en premium")
+         }
         else if (this.state.campPremium=="Premium") {
             this.state.campPremium="true"
          }

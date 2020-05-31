@@ -14,7 +14,9 @@ class UserRegistration extends Component{
           campEmail:"",
           campBdate:"",
           campOcupation:"",
-          campPassword: ""
+          campPassword: "",
+          article: "",
+          emotion:""
         }
       }
 
@@ -128,8 +130,34 @@ class UserRegistration extends Component{
           })
      
         }
+
+        axios.get('https://emotionner-project.herokuapp.com/articles/lastArticle')
+        .then(response => {
+              this.state.article = response.data;
+        })
+        .catch(e => {
+        // Podemos mostrar los errores en la consola
+        console.log(e);
+        })
+
+        axios.post("https://emotionner-project.herokuapp.com/articles/relation", {
+          articleid:this.state.article.id, 
+          emotionid: this.state.emotion
+          }
+          .then(response=>{
+            if (response.data.success===true) {
+              alert(response.data.message)
+            }
+            else {
+              alert(response.data.message)
+            }
+          }).catch(error=>{
+            alert(""+error)
+          })
      
-      }
+        )}
+
+      
     
 }
 export default UserRegistration

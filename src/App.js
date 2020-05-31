@@ -9,7 +9,14 @@ import Navbar from './Components/Elements/navbar'
 function App() {
   return (
     <div>
-      <CreateArticle/>
+      <Navbar/>
+      <div class="container">
+        <div class= "row">
+          <div class="col">
+          <CreateArticle/>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
