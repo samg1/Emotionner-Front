@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {
   Collapse,
   Navbar,
@@ -8,11 +9,7 @@ import {
   button,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+
 } from 'reactstrap';
 
 const Navbar_ = (props) => {

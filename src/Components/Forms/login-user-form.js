@@ -26,7 +26,7 @@ class LoginUserForm extends Component{
                                     </FormGroup>
                                     <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}}>Iniciar Sesión</button>
                                     <div className="text-center">
-                                        <a href="/sing-up">¿No tienes cuenta? Regístrate ahora</a>
+                                        <a href="/singUp">¿No tienes cuenta? Regístrate ahora</a>
                                     </div>
                             </Form>
                             </div>

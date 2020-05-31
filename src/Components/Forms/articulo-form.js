@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenFancy} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
+import {Container, Row, Col} from 'react-bootstrap'
 
 class CreateArticle extends Component{
 
@@ -19,70 +20,71 @@ class CreateArticle extends Component{
 
     render(){
         return(
-            <div className="container ">
-                <div className= 'row '>
-                    <div className='col-sm-12 col-md-12 col-lg-12 mx-auto'>
-                        <div className='card card-signin my-5'>
-                            <div className='card-body'>
-                                <div className='form-icon'>
-                                    <span ><FontAwesomeIcon icon={faPenFancy} /></span>
-                                </div>
-                               <h5 className='card-title text-center text-uppercase'>Crear un artículo</h5>
-                               <Form className='form-singin'>
-                                    <FormGroup>
-                                        <Label>Título</Label>
-                                        <Input className='form-control' type="title" placeholder="Introduzca el título del artículo "
-                                        value={this.state.campTitle} onChange={(value)=> this.setState({campTitle:value.target.value})}></Input>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label for="exampleText">Breve descripción del artículo</Label>
-                                        <Input type="textarea" name="text" id="exampleText" 
-                                        value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}>></Input>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label for="exampleText">Artículo</Label>
-                                        <Input type="textarea" name="text" id="exampleText"
-                                        value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}>></Input>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label>Autor</Label>
-                                        <Input className='form-control' type="title" placeholder="Introduzca el autor del artículo "
-                                        value={this.state.campAuthor} onChange={(value)=> this.setState({campAuthor:value.target.value})}>></Input>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label>Ánimo</Label>
-                                        <Input type="select" id="exampleCustomSelect" name="customSelect">
-                                        <option value="">Ánimo</option>
-                                        <option>Feliz</option>
-                                        <option>Bien</option>
-                                        <option>Triste</option>
-                                        <option>Enojado</option>
-                                        <option>Ansioso</option>
-                                        <option>Estresado</option>
-                                        </Input>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label for="exampleCustomFileBrowser">Selecciona una imágen</Label>
-                                        <CustomInput type="file" id="exampleCustomFileBrowser" name="customFile" />
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label for="exampleCustomFileBrowser">Selecciona una imágen</Label>
-                                        <CustomInput type="file" id="exampleCustomFileBrowser" name="customFile" />
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label>Ocupación</Label>
-                                        <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campPremium} onChange={(value)=> this.setState({campPremium:value.target.value})}>
-                                        <option value="">Premium</option>
-                                        <option>No premium</option>
-                                        </Input>
-                                    </FormGroup>
-                                    <button className="btn btn-lg btn-block text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
-                            </Form>
-                            </div>
-                        </div>
+          <Container fluid="md">
+            <Row>
+              <Col>
+              <div className='card card-signin my-5'>
+                <div className='card-body'>
+                    <div className='form-icon'>
+                        <span ><FontAwesomeIcon icon={faPenFancy} /></span>
                     </div>
+                    <h5 className='card-title text-center text-uppercase'>Crear un artículo</h5>
+                    <Form className='form-singin'>
+                        <FormGroup>
+                            <Label>Título</Label>
+                            <Input className='form-control' type="title" placeholder="Introduzca el título del artículo "
+                            value={this.state.campTitle} onChange={(value)=> this.setState({campTitle:value.target.value})}></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleText">Breve descripción del artículo</Label>
+                            <Input type="textarea" name="text" id="exampleText" 
+                            value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}>></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleText">Artículo</Label>
+                            <Input type="textarea" name="text" id="exampleText"
+                            value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}>></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Autor</Label>
+                            <Input className='form-control' type="title" placeholder="Introduzca el autor del artículo "
+                            value={this.state.campAuthor} onChange={(value)=> this.setState({campAuthor:value.target.value})}>></Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Ánimo</Label>
+                            <Input type="select" id="exampleCustomSelect" name="customSelect">
+                            <option value="">Ánimo</option>
+                            <option>Feliz</option>
+                            <option>Bien</option>
+                            <option>Triste</option>
+                            <option>Enojado</option>
+                            <option>Ansioso</option>
+                            <option>Estresado</option>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleCustomFileBrowser">Selecciona una imágen</Label>
+                            <CustomInput type="file" id="exampleCustomFileBrowser" name="customFile" />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label for="exampleCustomFileBrowser">Selecciona una imágen</Label>
+                            <CustomInput type="file" id="exampleCustomFileBrowser" name="customFile" />
+                        </FormGroup>
+                        <FormGroup>
+                            <Label>Ocupación</Label>
+                            <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campPremium} onChange={(value)=> this.setState({campPremium:value.target.value})}>
+                            <option value="">Premium</option>
+                            <option>No premium</option>
+                            </Input>
+                        </FormGroup>
+                        <button className="btn btn-lg btn-block text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
+                </Form>
                 </div>
-            </div>
+                </div>
+
+              </Col>
+            </Row>
+          </Container>
             )
         
     }
