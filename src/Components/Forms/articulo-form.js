@@ -103,6 +103,9 @@ class CreateArticle extends Component{
         else if (this.state.campAuthor=="") {
            alert("Introduzca el autor")
         }
+        else if (this.state.campPremium=="") {
+            alert("Introduzca el tipo de usuario en premium")
+         }
         else if (this.state.campPremium=="Premium") {
             this.state.campPremium="true"
          }
