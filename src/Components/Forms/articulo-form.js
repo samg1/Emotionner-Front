@@ -14,7 +14,9 @@ class CreateArticle extends Component{
           campContent: "",
           campDescription:"",
           campAuthor:"",
-          campPremium:""
+          campPremium:"", 
+          article: "",
+          campEmotion: ""
         }
       }
 
@@ -52,7 +54,8 @@ class CreateArticle extends Component{
                         </FormGroup>
                         <FormGroup>
                             <Label>Ánimo</Label>
-                            <Input type="select" id="exampleCustomSelect" name="customSelect">
+                            <Input type="select" id="exampleCustomSelect" name="customSelect"
+                            value={this.state.campEmotion} onChange={(value)=> this.setState({campEmotion:value.target.value})}>
                             <option value="">Ánimo</option>
                             <option>Feliz</option>
                             <option>Bien</option>
@@ -113,6 +116,26 @@ class CreateArticle extends Component{
          else if (this.state.campPremium=="No premium") {
             this.state.campPremium="false"
          }
+         else if (this.state.campEmotion=="") {
+            alert("Introduzca una emoción asociada al artículo")
+         }
+         else if (this.state.campEmotion=="Feliz") {
+            this.state.campEmotion=1
+         }
+         else if (this.state.campEmotion=="Bien") {
+            this.state.campEmotion=11
+         }
+         else if (this.state.campEmotion=="Triste") {
+            this.state.campEmotion=21
+         }else if (this.state.campEmotion=="Enojado") {
+            this.state.campEmotion=31
+         }
+         else if (this.state.campEmotion=="Ansioso") {
+            this.state.campEmotion=41
+         }
+         else if (this.state.campEmotion=="Estresado") {
+            this.state.campEmotion=51
+         }
         else {
      
           const baseUrl = "https://emotionner.herokuapp.com/articles/createArticle"
@@ -140,6 +163,29 @@ class CreateArticle extends Component{
           })
      
         }
+
+        axios.get("https://emotionner.herokuapp.com/articles/lastArticle")
+        .then(response => {
+            this.state.article = response.data;
+        })
+        .catch(e => {
+            console.log(e);
+        })
+
+        axios.post("https://emotionner.herokuapp.com/articles/addEmotion", {
+            articleid: this.state.article.id,
+            emotionid: this.state.campEmotion
+        })
+        .then(response => {
+            if(response.data.success===true) {
+                alert(response.data.message)
+            }
+            else {
+                alert(response.data.message)
+            }
+        }).catch(e => {
+            alert(""+e)
+        })
      
       }
     
