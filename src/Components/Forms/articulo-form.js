@@ -153,7 +153,6 @@ class CreateArticle extends Component{
           axios.post(baseUrl,datapost)
           .then(response=>{
             if (response.data.success===true) {
-              alert(response.data.message)
             }
             else {
               alert(response.data.message)
@@ -171,6 +170,9 @@ class CreateArticle extends Component{
         .catch(e => {
             console.log(e);
         })
+
+        console.log(this.state.article)
+        console.log(this.state.campEmotion)
 
         axios.post("https://emotionner.herokuapp.com/articles/addEmotion", {
             articleid: this.state.article.id,
