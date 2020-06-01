@@ -1,8 +1,5 @@
 {
   "hosting": {
-    "headers": [
-      { "source":"/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] }
-    ],
     "public": "build",
     "ignore": [
       "firebase.json",
@@ -14,6 +11,13 @@
         "source": "**",
         "destination": "/index.html"
       }
-    ]
+    ],
+    "headers": [ {
+      "source" : "index.html",
+      "headers" : [ {
+        "key" : "Access-Control-Allow-Origin",
+        "value" : "*"
+      } ]
+    } ]
   }
 }

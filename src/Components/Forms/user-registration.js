@@ -103,7 +103,7 @@ class UserRegistration extends Component{
          }
         else {
      
-          const baseUrl = "https://emotionner-project.herokuapp.com/users/createUser"
+          const url = "https://emotionner.herokuapp.com/users/createUser"
 
           const datapost = {
             name : this.state.campName,
@@ -117,7 +117,7 @@ class UserRegistration extends Component{
 
           console.log(datapost)
           
-          axios.post(baseUrl,datapost)
+          axios.post(url,datapost)
           .then(response=>{
             if (response.data.success===true) {
               alert(response.data.message)
@@ -131,31 +131,7 @@ class UserRegistration extends Component{
      
         }
 
-        axios.get('https://emotionner-project.herokuapp.com/articles/lastArticle')
-        .then(response => {
-              this.state.article = response.data;
-        })
-        .catch(e => {
-        // Podemos mostrar los errores en la consola
-        console.log(e);
-        })
-
-        axios.post("https://emotionner-project.herokuapp.com/articles/relation", {
-          articleid:this.state.article.id, 
-          emotionid: this.state.emotion
-          }
-          .then(response=>{
-            if (response.data.success===true) {
-              alert(response.data.message)
-            }
-            else {
-              alert(response.data.message)
-            }
-          }).catch(error=>{
-            alert(""+error)
-          })
-     
-        )}
+        }
 
       
     

@@ -71,9 +71,10 @@ class CreateArticle extends Component{
                             <CustomInput type="file" id="exampleCustomFileBrowser" name="customFile" />
                         </FormGroup>
                         <FormGroup>
-                            <Label>Ocupación</Label>
+                            <Label>Selección de Premium</Label>
                             <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campPremium} onChange={(value)=> this.setState({campPremium:value.target.value})}>
-                            <option value="">Premium</option>
+                            <option value=""> Seleccione</option>
+                            <option>Premium</option>
                             <option>No premium</option>
                             </Input>
                         </FormGroup>
@@ -114,7 +115,7 @@ class CreateArticle extends Component{
          }
         else {
      
-          const baseUrl = "https://emotionner-project.herokuapp.com/articles/createArticle"
+          const baseUrl = "https://emotionner.herokuapp.com/articles/createArticle"
 
           const datapost = {
             title : this.state.campTitle,
