@@ -15,7 +15,7 @@ class CreateArticle extends Component{
           campDescription:"",
           campAuthor:"",
           campPremium:"", 
-          article: [],
+          article: {},
           campEmotion: ""
         }
       }
