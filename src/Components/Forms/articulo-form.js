@@ -82,6 +82,7 @@ class CreateArticle extends Component{
                             </Input>
                         </FormGroup>
                         <button className="btn btn-lg btn-block text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
+                        
                 </Form>
                 </div>
                 </div>
@@ -163,6 +164,7 @@ class CreateArticle extends Component{
      
         }
 
+        /*
         axios.get("https://emotionner.herokuapp.com/articles/lastArticle")
         .then(response => {
             this.state.article = response.data;
@@ -170,7 +172,7 @@ class CreateArticle extends Component{
         .catch(e => {
             console.log(e);
         })
-
+        */
         console.log(this.state.article)
         console.log(this.state.campEmotion)
 
