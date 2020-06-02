@@ -144,7 +144,7 @@ class CreateArticle extends Component{
             author : this.state.campAuthor,
             image : this.state.campImagen,
             premium : this.state.campPremium,
-            emocionid : this.state.campEmotion
+            emotionid : this.state.campEmotion
           }
 
           console.log(datapost)
