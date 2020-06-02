@@ -22,7 +22,8 @@
     "react-router": "^5.2.0",
     "react-scripts": "^3.4.1",
     "react-sidebar": "^3.0.2",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.4.1",
+    "validator": "^13.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

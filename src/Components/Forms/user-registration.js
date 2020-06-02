@@ -1,4 +1,4 @@
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Button, Form, Input, FormGroup, Label} from 'reactstrap';
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
@@ -15,8 +15,6 @@ class UserRegistration extends Component{
           campBdate:"",
           campOcupation:"",
           campPassword: "",
-          article: "",
-          emotion:""
         }
       }
 
@@ -80,10 +78,7 @@ class UserRegistration extends Component{
 
     sendSave(){
 
-        if (this.state.campName==="") {
-          alert("Introduzca su nombre")
-        }
-        else if (!validateEmail(this.state.campEmail)) {
+        if (!validateEmail(this.state.campEmail)) {
             alert("El correo ingresado no es valido")
          }
         else if (this.state.campLastname==="") {
