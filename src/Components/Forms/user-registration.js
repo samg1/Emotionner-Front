@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
 
+import AuthService from "../../Services/auth.service";
+
+
 class UserRegistration extends Component{
 
     constructor(props){

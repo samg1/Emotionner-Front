@@ -79,6 +79,7 @@ class CreateArticle extends Component{
                             </Input>
                         </FormGroup>
                         <button className="btn btn-lg btn-block text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
+                        
                 </Form>
                 </div>
                 </div>
