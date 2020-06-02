@@ -153,6 +153,7 @@ class CreateArticle extends Component{
           axios.post(baseUrl,datapost)
           .then(response=>{
             if (response.data.success===true) {
+                alert(response.data.message)
             }
             else {
               alert(response.data.message)
