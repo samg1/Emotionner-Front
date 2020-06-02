@@ -84,72 +84,73 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="col-md-12">
-        <div className="card card-container">
-          <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
-          />
+        <div className= 'container fluid'>
+            <div className= 'row align-items-center'>
+                <div className = 'col-sm-9 col-md-7 col-lg-5 mx-auto'>
+                <div className='card card-signin my-5'>
+                    <div className='card-body'>
+                        <div className='form-icon'>
+                            <span ><FontAwesomeIcon icon={faUser} /></span>
+                        </div>
+                            <h5 className='card-title text-center text-uppercase'>Iniciar Sesión</h5>
+                            <Form className='form-singin'
+                                onSubmit={this.handleLogin}
+                                ref={c => {
+                                  this.form = c;
+                                }}
+                            >
+                                    <FormGroup>
+                                        <Label>Correo Electronico</Label>
+                                        <Input className='form-control' type="email" placeholder="Introduzca su correo "
+                                            name = "username"
+                                            value={this.state.username}
+                                            onChange={this.onChangeUsername}
+                                            validations={[required]}
+                                        ></Input>
+                                    </FormGroup>
+                                    <FormGroup>
+                                        <Label>Contraseña</Label>
+                                        <Input className='form-control' type="password" placeholder="Introduzca su contraseña" 
+                                            name="password"
+                                            value={this.state.password}
+                                            onChange={this.onChangePassword}
+                                            validations={[required]} 
+                                        required></Input>
+                                    </FormGroup>
+                                    <div className="form-group">
+                                            <button
+                                            className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}}
+                                            disabled={this.state.loading}
+                                            >
+                                            {this.state.loading && (
+                                                <span className="spinner-border spinner-border-sm"></span>
+                                            )}
+                                            <span>Login</span>
+                                            </button>
+                                    </div>
 
-          <Form
-            onSubmit={this.handleLogin}
-            ref={c => {
-              this.form = c;
-            }}
-          >
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <Input
-                type="text"
-                className="form-control"
-                name="username"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-                validations={[required]}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <Input
-                type="password"
-                className="form-control"
-                name="password"
-                value={this.state.password}
-                onChange={this.onChangePassword}
-                validations={[required]}
-              />
-            </div>
-
-            <div className="form-group">
-              <button
-                className="btn btn-primary btn-block"
-                disabled={this.state.loading}
-              >
-                {this.state.loading && (
-                  <span className="spinner-border spinner-border-sm"></span>
-                )}
-                <span>Login</span>
-              </button>
-            </div>
-
-            {this.state.message && (
-              <div className="form-group">
-                <div className="alert alert-danger" role="alert">
-                  {this.state.message}
+                                        {this.state.message && (
+                                            <div className="form-group">
+                                            <div className="alert alert-danger" role="alert">
+                                                {this.state.message}
+                                            </div>
+                                            </div>
+                                        )}
+                                        <CheckButton
+                                            style={{ display: "none" }}
+                                            ref={c => {
+                                            this.checkBtn = c;
+                                            }}
+                                        />
+                                    <div className="text-center">
+                                        <a href="/singUp">¿No tienes cuenta? Regístrate ahora</a>
+                                    </div>
+                            </Form>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            )}
-            <CheckButton
-              style={{ display: "none" }}
-              ref={c => {
-                this.checkBtn = c;
-              }}
-            />
-          </Form>
+            </div>
         </div>
-      </div>
     );
   }
 }
