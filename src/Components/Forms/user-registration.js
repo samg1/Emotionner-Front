@@ -4,7 +4,7 @@ import React,{ useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
-import { Link } from '@reach/router';
+
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -46,7 +46,7 @@ const SignUp = () => {
     }
   };
 
-  sendSave = () => {
+  const sendSave = () => {
 
     if (name === "") {
       alert("Introduzca su nombre")
