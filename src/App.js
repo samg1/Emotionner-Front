@@ -15,18 +15,10 @@ function App() {
   
   return (
     <>
-    <div className= 'container fluid'>
+    <div>
       <UserProvider>
         <Application />
       </UserProvider>
-      <Router>
-        <Switch>
-          <Route exact path="/admin" component={LoginAdminForm} />
-          <Route exact path="/addArticle" component={CreateArticle} />
-          <Route exact path={["/", "/home"]} component={Login} />
-          <Route exact path="/singUp" component={UserRegistration} />
-      </Switch>
-      </Router>
     
     </div>
     </>
