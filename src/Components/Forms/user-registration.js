@@ -118,7 +118,7 @@ class UserRegistration extends Component{
           }
 
           console.log(datapost)
-          
+          //Hola
           axios.post(url,datapost)
           .then(response=>{
             if (response.data.success===true) {
