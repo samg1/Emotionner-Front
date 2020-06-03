@@ -98,6 +98,12 @@ body{
   width: 140px;
 }
 
+.container-fluid{
+  margin:0;
+  padding: 0; 
+}
+
+
 
 
 
