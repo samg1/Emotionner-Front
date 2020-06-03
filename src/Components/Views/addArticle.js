@@ -6,7 +6,7 @@ import CreateArticle from '../Forms/articulo-form';
 class addArticleView extends Component{
     render(){
         return(
-            <div className="container">
+            <div>
             <Navbar_/>
             <div className='container'>
                 <div className='row'>
