@@ -1,6 +1,6 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 //import React, {Component} from 'react';
-import React,{ useState } from 'react';
+import React,{ useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
@@ -16,8 +16,16 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
 
 
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+  const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
+    try{
+      const {user} = await auth.createUserWithEmailAndPassword(email, password);
+      generateUserDocument(user, {name});
+    }
+    catch(error){
+      setError('Error Signing up ');
+    }
+
     setName("");
     setLastname("");
     setEmail("");
@@ -29,19 +37,19 @@ const SignUp = () => {
 
   const onChangeHandler = event => {
     const { name, value } = event.currentTarget;
-    if (name === "name") {
+    if (name === "userName") {
       setName(value);
-    }else if (name === "lastname") {
+    }else if (name === "userLastname") {
       setLastname(value);
-    }else if (name === "email") {
+    }else if (name === "userEmail") {
       setEmail(value);
-    }else if ( name === "birthdate") {
+    }else if ( name === "userBirthdate") {
       setBirthdate(value);
-    }else if (name === "ocupation") {
+    }else if (name === "userOcupation") {
       setOcupation(value);
-    }else if (name === "premium") {
+    }else if (name === "userPremium") {
       setPremium(null);
-    }else if (name === "password") {
+    }else if (name === "userPassword") {
       setPassword(value);
     }
   };
@@ -121,22 +129,22 @@ const SignUp = () => {
                        <Form className='form-singin'>
                             <FormGroup>
                                 <Label>Nombre</Label>
-                                <Input className='form-control' type="text" placeholder="Introduzca su nombre " name="name" 
+                                <Input className='form-control' type="text" placeholder="Introduzca su nombre " name="userName" 
                                 value={name} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Apellido</Label>
-                                <Input className='form-control' type="text" placeholder="Introduzca su apellido " name="lastname" 
+                                <Input className='form-control' type="text" placeholder="Introduzca su apellido " name="userLastname" 
                                 value={lastname} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Fecha de nacimiento</Label>
-                                <Input className='form-control' type="date" placeholder="Introduzca su fecha de nacimiento " name="birthdate" 
+                                <Input className='form-control' type="date" placeholder="Introduzca su fecha de nacimiento " name="userBirthdate" 
                                 value={birthdate} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Ocupación</Label>
-                                <Input type="select"  name="ocupation" value={ocupation} onChange={event => onChangeHandler(event)}>
+                                <Input type="select"  name="userOcupation" value={ocupation} onChange={event => onChangeHandler(event)}>
                                 <option value="">Ocupación</option>
                                 <option>Estudiante</option>
                                 <option>Trabajo a tiempo completo</option>
@@ -146,17 +154,17 @@ const SignUp = () => {
                             </FormGroup>
                             <FormGroup>
                                 <Label>Correo Electronico</Label>
-                                <Input className='form-control' type="email" placeholder="Introduzca su correo " name = "email"
+                                <Input className='form-control' type="email" placeholder="Introduzca su correo " name = "userEmail"
                                 value={email} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Contraseña</Label>
-                                <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="password"
+                                <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="userPassword"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=> sendSave()} 
+                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick = {()=> sendSave()} 
                               onClick={event => {
-                                createUserWithEmailAndPasswordHandler(event, email, password)
+                                createUserWithEmailAndPasswordHandler(event, email, password);
                               }}
                             >
                               Registrarse 
