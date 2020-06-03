@@ -162,10 +162,10 @@ const SignUp = () => {
                                 <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="userPassword"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick = {()=> sendSave()} 
-                              onClick={event => {
+                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick =" {() => sendSave() ;
+                              {event => {
                                 createUserWithEmailAndPasswordHandler(event, email, password);
-                              }}
+                              }}"
                             >
                               Registrarse 
                             </button>
