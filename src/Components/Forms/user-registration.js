@@ -46,7 +46,7 @@ const SignUp = () => {
     }
   };
 
-  sendSave = () => {
+  const sendSave = () => {
 
     if (name === "") {
       alert("Introduzca su nombre")
@@ -154,9 +154,9 @@ const SignUp = () => {
                                 <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="password"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()} 
+                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=> sendSave()} 
                               onClick={event => {
-                                createUserWithEmailAndPasswordHandler(event, email, password);
+                                createUserWithEmailAndPasswordHandler(event, email, password)
                               }}
                             >
                               Registrarse 
