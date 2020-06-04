@@ -8,6 +8,7 @@ import LoginUserForm from './Components/Forms/login-user-form';
 import LoginAdminForm from './Components/Forms/login-admin-form';
 import UserRegistration from './Components/Forms/user-registration';
 import CreateArticle from './Components/Forms/articulo-form';
+import addArticleView from './Components/Views/addArticle';
 
 
 class App extends Component {
@@ -17,11 +18,12 @@ class App extends Component {
 
     return (
       <Router>
-          <div className="container mt-3">
+          <div>
             <Switch>
               <Route exact path={["/", "/home"]} component={LoginUserForm} />
               <Route exact path="/singUp" component={UserRegistration} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/addArticle" component={addArticleView} />
             </Switch>
           </div>
       </Router>
