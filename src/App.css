@@ -162,7 +162,7 @@ a:focus {
 .sidebar-nav > li a {
   display: block;
   text-decoration: none;
-  color: #0000008e;
+  color: #000000;
   font-weight: 600;
   font-size: 18px;
 }
@@ -172,6 +172,7 @@ a:focus {
   color: #000000;
   background: #ffffff9d;;
 }
+
 .sidebar-nav > li > a i.fa {
   font-size: 24px;
   width: 60px;
@@ -340,6 +341,7 @@ a:focus {
     margin-right: 250px;
   }
 }
+
 
 
 

@@ -2,9 +2,8 @@ import React, {useState} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 
-
-
 const Sidebar_ = (props) => {
+
     const $button  = document.querySelector('#sidebar-toggle');
     const $wrapper = document.querySelector('#wrapper');
 
@@ -19,27 +18,27 @@ const Sidebar_ = (props) => {
     <div id="wrapper">
 
   <aside id="sidebar-wrapper">
-    <div class="sidebar-brand">
+    <div className="sidebar-brand">
       <h2>Emotionner</h2>
     </div>
-    <ul class="sidebar-nav">
-      <li class="active">
-        <a href="#"><i class="fa fa-home" ></i>Home</a>
+    <ul className="sidebar-nav">
+      <li>
+        <a  href="#" ><i className="fa fa-home" ></i>Home</a>
       </li>
       <li>
-        <a href="#"><i class="fa fa-plug"></i>Plugins</a>
+        <a  href="/addArticle" ><i className="fa fa-edit"></i>Artículo</a>
       </li>
       <li>
-        <a href="#"><i class="fa fa-user"></i>Users</a>
+        <a  href="#" ><i className="fa fa-user"></i>Users</a>
       </li>
     </ul>
   </aside>
 
   <div id="navbar-wrapper">
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a href="#" class="navbar-brand" id="sidebar-toggle"><i class="fa fa-bars"></i></a>
+    <nav className="navbar navbar-inverse">
+      <div className="container-fluid">
+        <div className="navbar-header">
+          <a href="#" className="navbar-brand" id="sidebar-toggle"><i className="fa fa-bars"></i></a>
         </div>
       </div>
     </nav>
