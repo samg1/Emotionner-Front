@@ -9,7 +9,6 @@ import addArticleView from "./Components/Views/addArticle";
 import Login from "./Components/Forms/login-user-form";
 import UserRegistration from "./Components/Forms/user-registration";
 import CreateArticle from './Components/Forms/articulo-form';
-import addArticleView from './Components/Views/addArticle';
 import Navbar_ from './Components/Elements/navbar';
 
 function App() {
