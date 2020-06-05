@@ -21,6 +21,7 @@ Calendario
 /*
 Cositas viejas:
 */
+
 .login-form{
   width: 100%;
   max-width: 330px;
@@ -516,7 +517,6 @@ input {
 .a-link-color:hover{
   color:white;
 }
-
 
 
 body{

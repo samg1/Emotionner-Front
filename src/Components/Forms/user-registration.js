@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
+import { withRouter } from "react-router";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -204,6 +205,6 @@ const SignUp = () => {
 
 
 }; 
-export default SignUp;
+export default withRouter(SignUp);
 
 

@@ -6,8 +6,6 @@ import UserProvider from "./Providers/userProvider";
 import Application from "./Components/aplication";
 import Calendario from "./Components/Elements/calendar";
 
-
-
 function App() {
   
   return (
