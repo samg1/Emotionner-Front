@@ -109,6 +109,11 @@ input, button {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
 }
 
+.wrap-background {
+  background: #ededed;
+  height: 100vh;
+}
+
 .cont {
   overflow: hidden;
   position: relative;

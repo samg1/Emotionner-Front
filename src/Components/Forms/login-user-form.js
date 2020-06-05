@@ -31,6 +31,7 @@ const Login = () => {
 
     return (
         <>
+        <div className="wrap-background">
         <div className="cont">
             <div className="form sign-in">
                 <h2>¡Bienvenido de Vuelta!</h2>
@@ -78,6 +79,7 @@ const Login = () => {
                 </div>
     
             </div>
+        </div>
         </div>
         </>
     );
