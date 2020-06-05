@@ -2,6 +2,7 @@ import firebase from "firebase";
 import "firebase/auth";
 import "firebase/firestore";
 import { functions } from "firebase";
+import React from 'react';
 
 const firebaseConfig = {
     apiKey: "AIzaSyBoDNvkzGV1ZW_KAaS7gGEjduyr9Kfk_G8",
@@ -16,7 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-export const firebaseApp = firebase.initializeApp(firebaseConfig);
+export default firebase;
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
@@ -61,3 +62,4 @@ const getUserDocument = async uid => {
     console.error("Error fetching user", error);
   }
 };
+

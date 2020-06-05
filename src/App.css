@@ -7,6 +7,7 @@
 /*
 Cositas viejas:
 */
+
 .login-form{
   width: 100%;
   max-width: 330px;
@@ -504,13 +505,13 @@ input {
 }
 
 
-/*
 body{
   background: rgb(165,216,255);
   background: linear-gradient(45deg, rgba(165,216,255,1) 0%, rgba(179,179,241,1) 100%);
   background-size: 200% 200%;
+  overflow-x: hidden;
 
 }
-*/
+
 
 

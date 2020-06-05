@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { auth } from "./../../firebase";
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
+import { withRouter, Redirect } from "react-router";
+import { AuthContext } from "../Authorization/Auth";
 
 const Login = () => {
 
@@ -28,6 +30,13 @@ const Login = () => {
             setPassword(value);
         }
     };
+
+
+    const { currentUser } = useContext(AuthContext);
+
+    if (currentUser){
+        return <Redirect to="/profilePage" />;
+    }
 
     return (
         <>
@@ -83,8 +92,10 @@ const Login = () => {
         </div>
         </>
     );
+
 }; 
-export default Login;
+export default withRouter(Login);
+
 
 
 

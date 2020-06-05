@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenFancy} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import {Container, Row, Col} from 'react-bootstrap'
-import withAuthorization from '../../Providers/withAuthorization'
+
 
 
 class CreateArticle extends Component{
@@ -80,9 +80,9 @@ class CreateArticle extends Component{
                             <option>No premium</option>
                             </Input>
                         </FormGroup>
-                        <div className="row ">
-                        <div className= "col" style={{marginLeft:'35%'}}>
-                          <button className="btn btn-lg text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
+                        <div className="form-group">
+                        <div className= "d-flex justify-content-center">
+                          <button className="btn btn-md text-uppercase btn-light " type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
                         </div>
                         </div>
                 </Form>
