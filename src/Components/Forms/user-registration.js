@@ -4,7 +4,7 @@ import React,{ useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
-
+import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -14,16 +14,48 @@ const SignUp = () => {
   const [ocupation, setOcupation] = useState("");
   const [premium, setPremium] = useState(null);
   const [password, setPassword] = useState("");
+   const [error, setError] = useState(null);
 
 
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+  const createUserWithEmailAndPasswordHandler = async (event, email, password, name
+    , lastname, birthdate, ocupation) => {
     event.preventDefault();
-    setName("");
-    setLastname("");
+    try{
+      const {user} = await auth.createUserWithEmailAndPassword(email, password);
+      generateUserDocument(user);
+      const url = "https://emotionner.herokuapp.com/users/createUser"
+
+      const datapost = {
+        name : name,
+        lastname : lastname,
+        email : email,
+        birthdate : birthdate,
+        ocupation  : ocupation,
+        premium : 'false',
+        password : password
+      }
+
+      console.log(datapost)
+      
+      axios.post(url,datapost)
+      .then(response=>{
+        if (response.data.success===true) {
+          alert(response.data.message)
+          window.location.replace("https://emotionner.web.app/");
+        }
+        else {
+          alert(response.data.message)
+        }
+      }).catch(error=>{
+        alert(""+error)
+      })
+ 
+    }
+    catch(error){
+      setError('Error Signing up with email and password');
+    }
+      
     setEmail("");
-    setBirthdate("");
-    setOcupation("");
-    setPremium(null);
     setPassword("");
   };
 
@@ -154,9 +186,10 @@ const SignUp = () => {
                                 <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="password"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()} 
+                            <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>sendSave()} 
                               onClick={event => {
-                                createUserWithEmailAndPasswordHandler(event, email, password);
+                                createUserWithEmailAndPasswordHandler(event, email, password, name
+                                  , lastname, birthdate, ocupation);
                               }}
                             >
                               Registrarse 
