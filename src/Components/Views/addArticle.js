@@ -7,8 +7,8 @@ import CreateArticle from '../Forms/articulo-form';
 class addArticleView extends Component{
     render(){
         return(
-            <>
-            <Sidebar/>
+            <div>
+            <Navbar_/>
             <div className='container'>
                 <div className='row justify-content-end'>
                     <div className='col col-md-10'>
@@ -16,7 +16,7 @@ class addArticleView extends Component{
                     </div>
                 </div>
             </div>
-        </>
+        </div>
         )
     }
  
