@@ -4,15 +4,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import UserProvider from "./Providers/userProvider";
 import Application from "./Components/aplication";
+import Calendario from "./Components/Elements/calendar";
+
+
 
 function App() {
   
   return (
     <>
-      <UserProvider>
-        <Application />
-      </UserProvider>
+    <div className= 'container'>
+      <div className='row align-content-center'>
+        <div className='col colm-md-8'>
+        <Calendario/>
+        </div>
+      </div>
+    </div>
+    
+     
+
     </>
+    
   );
 }
 
