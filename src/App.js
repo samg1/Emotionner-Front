@@ -16,12 +16,9 @@ function App() {
   
   return (
     <>
-    <div>
       <UserProvider>
         <Application />
       </UserProvider>
-    
-    </div>
     </>
   );
 }

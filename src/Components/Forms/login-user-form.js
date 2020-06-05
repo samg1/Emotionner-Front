@@ -4,8 +4,99 @@ import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 
-
 const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+
+    const signInWithEmailAndPasswordHandler = (event,email, password) => {
+        event.preventDefault();
+        auth.signInWithEmailAndPassword(email, password).catch(error => {
+        setError("Error al ingresar a la cuenta!");
+          console.error("Error al ingresar a la cuenta", error);
+        });
+    };
+      
+    const onChangeHandler = (event) => {
+        const {name, value} = event.currentTarget;
+        
+        if(name === 'userEmail') {
+            setEmail(value);
+        }
+        else if(name === 'userPassword'){
+            setPassword(value);
+        }
+    };
+
+    return (
+        <>
+        <div className="wrap-background">
+        <div className="cont">
+            <div className="form sign-in">
+                <h2>¡Bienvenido de Vuelta!</h2>
+                <Form>
+                    <FormGroup>
+                        <label>
+                            <span>Correo Electrónico</span>
+                            <input  type = "email" placeholder="Introduzca su correo"
+                                name = "userEmail"
+                                value = {email}
+                                id = "userEmail"
+                                onChange = {(event) => onChangeHandler(event)}
+                                required
+                            ></input>
+                        </label>
+                    </FormGroup>
+                    <FormGroup>
+                        <label>
+                            <span>Contraseña</span>
+                            <input  type = "password" placeholder = "Introduzca su contraseña"
+                                name = "userPassword"
+                                value = {password}
+                                id = "userPassword"
+                                onChange = {(event) => onChangeHandler(event)}
+                                required
+                            ></input>
+                        </label>
+                    </FormGroup>
+                    <button  type="button" className="submit" style={{backgroundColor:'#b79ced'}} onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
+                        Iniciar Sesión
+                    </button>    
+                </Form>             
+            </div>
+            <div className="sub-cont">
+                <div className="img">
+                    <div className="img__text m--up">
+                        <h2>¿Nuevo por Aquí?</h2>
+                        <p>¡Regístrate Ahora!</p>
+                    </div>
+                    <div className="img__btn">
+                        <span className="m--up">    
+                            <a className="a-link-color" href="/singUp">Registrarse</a>
+                        </span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        </div>
+        </>
+    );
+}; 
+export default Login;
+
+
+
+
+
+
+
+
+
+
+/**
+ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -77,7 +168,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
-  );
+    );
 };
 
 export default Login;
@@ -85,3 +176,5 @@ export default Login;
 
 
 
+
+ */
