@@ -1,73 +1,131 @@
-import {Button, FormGroup, Label} from 'reactstrap';
+import React, {useState} from "react";
+import { auth } from "./../../firebase";
+import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
-import React, { Component } from "react";
-import Form from "react-validation/build/form";
-import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
 
+const Login = () => {
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
 
-const required = value => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
-
-export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.handleLogin = this.handleLogin.bind(this);
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-
-    this.state = {
-      username: "",
-      password: "",
-      loading: false,
-      message: ""
+    const signInWithEmailAndPasswordHandler = (event,email, password) => {
+        event.preventDefault();
+        auth.signInWithEmailAndPassword(email, password).catch(error => {
+        setError("Error al ingresar a la cuenta!");
+          console.error("Error al ingresar a la cuenta", error);
+        });
     };
-  }
+      
+    const onChangeHandler = (event) => {
+        const {name, value} = event.currentTarget;
+        
+        if(name === 'userEmail') {
+            setEmail(value);
+        }
+        else if(name === 'userPassword'){
+            setPassword(value);
+        }
+    };
 
-  onChangeUsername(e) {
-    this.setState({
-      username: e.target.value
-    });
-  }
-
-  onChangePassword(e) {
-    this.setState({
-      password: e.target.value
-    });
-  }
-
-  handleLogin(e) {
-    e.preventDefault();
-
-    this.setState({
-      message: "",
-      loading: true
-    });
-
-    this.form.validateAll();
-
-    if (this.checkBtn.context._errors.length === 0) {
-     
-    } else {
-      this.setState({
-        loading: false
-      });
-    }
-  }
-
-  render() {
     return (
-        <div className= 'container fluid'>
+        <>
+        <div className="wrap-background">
+        <div className="cont">
+            <div className="form sign-in">
+                <h2>¡Bienvenido de Vuelta!</h2>
+                <Form>
+                    <FormGroup>
+                        <label>
+                            <span>Correo Electrónico</span>
+                            <input  type = "email" placeholder="Introduzca su correo"
+                                name = "userEmail"
+                                value = {email}
+                                id = "userEmail"
+                                onChange = {(event) => onChangeHandler(event)}
+                                required
+                            ></input>
+                        </label>
+                    </FormGroup>
+                    <FormGroup>
+                        <label>
+                            <span>Contraseña</span>
+                            <input  type = "password" placeholder = "Introduzca su contraseña"
+                                name = "userPassword"
+                                value = {password}
+                                id = "userPassword"
+                                onChange = {(event) => onChangeHandler(event)}
+                                required
+                            ></input>
+                        </label>
+                    </FormGroup>
+                    <button  type="button" className="submit" style={{backgroundColor:'#b79ced'}} onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
+                        Iniciar Sesión
+                    </button>    
+                </Form>             
+            </div>
+            <div className="sub-cont">
+                <div className="img">
+                    <div className="img__text m--up">
+                        <h2>¿Nuevo por Aquí?</h2>
+                        <p>¡Regístrate Ahora!</p>
+                    </div>
+                    <div className="img__btn">
+                        <span className="m--up">    
+                            <a className="a-link-color" href="/singUp">Registrarse</a>
+                        </span>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+        </div>
+        </>
+    );
+}; 
+export default Login;
+
+
+
+
+
+
+
+
+
+
+/**
+ const Login = () => {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState(null);
+
+    const signInWithEmailAndPasswordHandler = (event,email, password) => {
+        event.preventDefault();
+        auth.signInWithEmailAndPassword(email, password).catch(error => {
+        setError("Error al ingresar a la cuenta!");
+          console.error("Error al ingresar a la cuenta", error);
+        });
+      };
+      
+      const onChangeHandler = (event) => {
+          const {name, value} = event.currentTarget;
+        
+          if(name === 'userEmail') {
+              setEmail(value);
+          }
+          else if(name === 'userPassword'){
+            setPassword(value);
+          }
+      };
+   
+
+  return (
+    <div className= 'container fluid'>
             <div className= 'row align-items-center'>
+            {error !== null && <div className = "py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
                 <div className = 'col-sm-9 col-md-7 col-lg-5 mx-auto'>
                 <div className='card card-signin my-5'>
                     <div className='card-body'>
@@ -75,55 +133,32 @@ export default class Login extends Component {
                             <span ><FontAwesomeIcon icon={faUser} /></span>
                         </div>
                             <h5 className='card-title text-center text-uppercase'>Iniciar Sesión</h5>
-                            <Form className='form-singin'
-                                onSubmit={this.handleLogin}
-                                ref={c => {
-                                  this.form = c;
-                                }}
-                            >
+                            <Form>
                                     <FormGroup>
                                         <Label>Correo Electronico</Label>
                                         <Input className='form-control' type="email" placeholder="Introduzca su correo "
-                                            name = "username"
-                                            value={this.state.username}
-                                            onChange={this.onChangeUsername}
-                                            validations={[required]}
+                                            name="userEmail"
+                                            value = {email}
+                                            id="userEmail"
+                                            onChange = {(event) => onChangeHandler(event)}
+                                            required
                                         ></Input>
                                     </FormGroup>
                                     <FormGroup>
                                         <Label>Contraseña</Label>
                                         <Input className='form-control' type="password" placeholder="Introduzca su contraseña" 
-                                            name="password"
-                                            value={this.state.password}
-                                            onChange={this.onChangePassword}
-                                            validations={[required]} 
+                                            name="userPassword"
+                                            value = {password}
+                                            placeholder="Your Password"
+                                            id="userPassword"
+                                            onChange = {(event) => onChangeHandler(event)}
                                         required></Input>
                                     </FormGroup>
                                     <div className="form-group">
-                                            <button
-                                            className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}}
-                                            disabled={this.state.loading}
-                                            >
-                                            {this.state.loading && (
-                                                <span className="spinner-border spinner-border-sm"></span>
-                                            )}
-                                            <span>Login</span>
-                                            </button>
+                                    <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
+                                                  Iniciar Sesion
+                                    </button>
                                     </div>
-
-                                        {this.state.message && (
-                                            <div className="form-group">
-                                            <div className="alert alert-danger" role="alert">
-                                                {this.state.message}
-                                            </div>
-                                            </div>
-                                        )}
-                                        <CheckButton
-                                            style={{ display: "none" }}
-                                            ref={c => {
-                                            this.checkBtn = c;
-                                            }}
-                                        />
                                     <div className="text-center">
                                         <a href="/singUp">¿No tienes cuenta? Regístrate ahora</a>
                                     </div>
@@ -134,5 +169,12 @@ export default class Login extends Component {
             </div>
         </div>
     );
-  }
-}
+};
+
+export default Login;
+
+
+
+
+
+ */

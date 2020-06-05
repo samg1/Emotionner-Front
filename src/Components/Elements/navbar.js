@@ -24,14 +24,8 @@ const Navbar_ = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">Usuarios</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="">Artículos</NavLink>
-            </NavItem>
           </Nav>
-          <button className="btn btn-light btn-outline-secondary" style={{color:'00000'}}>Cerrar Sesión</button>
+  
         </Collapse>
       </Navbar>
     </div>
