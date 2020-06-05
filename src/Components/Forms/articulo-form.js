@@ -5,6 +5,7 @@ import { faPenFancy} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import {Container, Row, Col} from 'react-bootstrap'
 
+
 class CreateArticle extends Component{
 
     constructor(props){
@@ -78,8 +79,11 @@ class CreateArticle extends Component{
                             <option>No premium</option>
                             </Input>
                         </FormGroup>
-                        <button className="btn btn-lg btn-block text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
-                        
+                        <div className="row ">
+                        <div className= "col" style={{marginLeft:'35%'}}>
+                          <button className="btn btn-lg text-uppercase btn-light" type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
+                        </div>
+                        </div>
                 </Form>
                 </div>
                 </div>
