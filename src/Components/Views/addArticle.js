@@ -16,7 +16,7 @@ class addArticleView extends Component{
                     </div>
                 </div>
             </div>
-        </div>
+        </>
         )
     }
  
