@@ -31,12 +31,15 @@ const Login = () => {
         }
     };
 
+    /*
 
     const { currentUser } = useContext(AuthContext);
 
     if (currentUser){
-        return <Redirect to="/profilePage" />;
+        return <Redirect to="/" />;
     }
+
+    */
 
     return (
         <>
