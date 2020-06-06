@@ -5,7 +5,209 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
 
+const SignUp = () => {
 
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [email, setEmail] = useState("");
+  const [birthdate, setBirthdate] = useState("");
+  const [ocupation, setOcupation] = useState("");
+  const [premium, setPremium] = useState(null);
+  const [password, setPassword] = useState("");
+
+
+  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+    event.preventDefault();
+    setName("");
+    setLastname("");
+    setEmail("");
+    setBirthdate("");
+    setOcupation("");
+    setPremium(null);
+    setPassword("");
+  };
+
+  const onChangeHandler = event => {
+    const { name, value } = event.currentTarget;
+    if (name === "name") {
+      setName(value);
+    }else if (name === "lastname") {
+      setLastname(value);
+    }else if (name === "email") {
+      setEmail(value);
+    }else if ( name === "birthdate") {
+      setBirthdate(value);
+    }else if (name === "ocupation") {
+      setOcupation(value);
+    }else if (name === "premium") {
+      setPremium(null);
+    }else if (name === "password") {
+      setPassword(value);
+    }
+  };
+
+  const sendSave = () => {
+
+    if (name === "") {
+      alert("Introduzca su nombre")
+    }
+    else if (!validateEmail(email)) {
+        alert("El correo ingresado no es valido")
+    }
+    else if (lastname === "") {
+       alert("Introduzca su apellido")
+    }
+    else if (birthdate  === "") {
+       alert("Introduzca su fecha de nacimiento")
+    }
+    else if (ocupation === "" || ocupation === "Ocupación") {
+       alert("Introduzca su ocupación")
+    }
+    else if (email === "") {
+        alert("Introduzca su correo electrónico")
+    }
+    else if (password === "") {
+        alert("Introduzca una contraseña")
+    }
+    else {
+ 
+      const url = "https://emotionner.herokuapp.com/users/createUser"
+
+      const datapost = {
+        name : name,
+        lastname : lastname,
+        email : email,
+        birthdate : birthdate,
+        ocupation  : ocupation,
+        premium : 'false',
+        password : password
+      }
+
+      console.log(datapost)
+      
+      axios.post(url,datapost)
+      .then(response=>{
+        if (response.data.success===true) {
+          alert(response.data.message)
+          window.location.replace("https://emotionner.web.app/");
+        }
+        else {
+          alert(response.data.message)
+        }
+      }).catch(error=>{
+        alert(""+error)
+      })
+ 
+    }
+  }; 
+
+  function validateEmail(email) 
+  {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+
+  return(
+    <>
+      <div className="wrap-background">
+        <div className="cont-reg">
+          <div className="sub-cont-reg">
+            <div className="img-reg">
+              <div className="img__text m--in">
+                <h2 className="motiv-reg-ph">Hoy puede ser el</h2>
+                <p className="motiv-reg-ph">COMIENZO</p>
+                <p className="motiv-reg-ph">de todo lo que te</p>
+                <p className="motiv-reg-ph bold">PROPONGAS</p>
+              </div>
+            </div>
+          </div>
+          <div className="form sign-up">
+            <Form>
+              <FormGroup>
+                <label>
+                  <span>Nombre</span>
+                  <input type="text" className="input-1 input-2"
+                    placeholder="Introduzca su nombre" 
+                    name="name" 
+                    value={name} 
+                    onChange={event => onChangeHandler(event)}
+                  ></input>
+                </label>
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  <span>Apellido</span>
+                  <input type="text" className="input-1 input-2"
+                    placeholder="Introduzca su apellido" 
+                   
+                  ></input>
+                </label>
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  <span>Correo Electrónico</span>
+                  <input type="email" className="input-1 input-2"
+                    placeholder="Introduzca su correo" 
+                  
+                  ></input>
+                </label>
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  <span>Fecha de Nacimiento</span>
+                  <input type="date" className="input-1 input-2"
+                    placeholder="Introduzca su fecha de nacimiento" 
+                    name="birthdate" 
+                    value={birthdate} 
+                    onChange={event => onChangeHandler(event)}
+                  ></input>
+                </label>
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  <span>Ocupación</span>
+                  <Input type="select" name="ocupation" value={ocupation} onChange={event => onChangeHandler(event)} className="input-1 input-2">
+                    <option value="">Ocupación</option>
+                    <option>Estudiante</option>
+                    <option>Trabajo a tiempo completo</option>
+                    <option>Trabajo a medio tiempo</option>
+                    <option>Freelancer</option>
+                  </Input>
+                </label>
+              </FormGroup>
+              <FormGroup>
+                <label>
+                  <span>Contraseña</span>
+                  <input type="password" className="input-1 input-2"
+                    placeholder="Introduzca su contraseña" 
+                    name="password"
+                    value={password} 
+                    onChange={event => onChangeHandler(event)}
+                  ></input>
+                </label>
+              </FormGroup>
+              <button type="button" className="submit" style={{backgroundColor:'#b79ced'}}
+                onClick={()=>sendSave()} 
+                onClick={event => {
+                  createUserWithEmailAndPasswordHandler(event, email, password);
+                }}
+              >
+                Registrarse
+              </button>
+            </Form>           
+          </div>
+        
+        </div>
+      </div>
+    </>
+  );
+};
+export default SignUp;
+
+/**
+
+ */
+/*
 const SignUp = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
@@ -172,5 +374,6 @@ const SignUp = () => {
 
 }; 
 export default SignUp;
+*/
 
 
