@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Calendar, momentLocalizer } from 'react-big-calendar';
+import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import CalendarToolbar from './toolbar';
 
 
 const localizer = momentLocalizer(moment);
@@ -21,8 +22,8 @@ class Calendario extends Component {
       {
           id: 1,
           title: 'Long Event',
-          start: new Date(2020, 3, 7),
-          end: new Date(2020, 3, 10),
+          start: new Date(2020, 6, 7),
+          end: new Date(2020, 6, 10),
       },
       {
           id: 2,
@@ -40,12 +41,16 @@ class Calendario extends Component {
     return (
         <div className="calendar-container">
           <Calendar
-            events={this.state.events}
-            startAccessor="start"
-            endAccessor="end"
-            defaultDate={moment().toDate()}
+            selectable
             localizer={localizer}
-          />
+            events={this.state.events}
+            defaultView={Views.MONTH}
+            scrollToTime={new Date(1970, 1, 1, 6)}
+            onSelectEvent={event => alert(event.title)}
+            components = {{toolbar : CalendarToolbar}}
+            onSelectSlot={this.handleSelect}
+            dayLayoutAlgorithm={this.state.dayLayoutAlgorithm}
+        />
         </div>
     );
   }

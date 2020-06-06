@@ -15,7 +15,9 @@ Calendario
   min-height: max-content;
   height: calc(100vh - 100px);
   width: 100%;
-  margin: auto
+  margin: auto;
+  box-shadow: 0 0.5rem 1rem 0 rgba(102, 99, 99, 0.8);
+  
 }
 
 /*
