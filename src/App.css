@@ -113,9 +113,7 @@ Registro:
   background-image: url('https://wallpapercave.com/wp/wp3082483.jpg');
   background-size: cover;
 }
-.sub-cont-reg{
-  
-}
+
 .sign-up{
   transform: translateX(250px);
 }
@@ -133,10 +131,9 @@ Registro:
 .motiv-reg-ph{
   font-size: 400;
   color: white;
-  text-shadow: 2px 2px 4px #000000;
+  text-shadow: 2px 2px 4px #242323;
 
 }
-
 
 
 /*
