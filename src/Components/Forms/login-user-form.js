@@ -39,25 +39,25 @@ const Login = () => {
                     <FormGroup>
                         <label>
                             <span>Correo Electrónico</span>
-                            <input  type = "email" placeholder="Introduzca su correo" className="input-1 input-2"
+                            <Input  type = "email" placeholder="Introduzca su correo" className="input-1 input-2"
                                 name = "userEmail"
                                 value = {email}
                                 id = "userEmail"
                                 onChange = {(event) => onChangeHandler(event)}
                                 required
-                            ></input>
+                            ></Input>
                         </label>
                     </FormGroup>
                     <FormGroup>
                         <label>
                             <span>Contraseña</span>
-                            <input  type = "password" placeholder = "Introduzca su contraseña" className="input-1 input-2"
+                            <Input  type = "password" placeholder = "Introduzca su contraseña" className="input-1 input-2"
                                 name = "userPassword"
                                 value = {password}
                                 id = "userPassword"
                                 onChange = {(event) => onChangeHandler(event)}
                                 required
-                            ></input>
+                            ></Input>
                         </label>
                     </FormGroup>
                     <button  type="button" className="submit" style={{backgroundColor:'#b79ced'}} onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>

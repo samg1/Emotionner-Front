@@ -126,41 +126,41 @@ const SignUp = () => {
               <FormGroup>
                 <label>
                   <span>Nombre</span>
-                  <input type="text" className="input-1 input-2"
+                  <Input type="text" className="input-1 input-2"
                     placeholder="Introduzca su nombre" 
                     name="name" 
                     value={name} 
                     onChange={event => onChangeHandler(event)}
-                  ></input>
+                  ></Input>
                 </label>
               </FormGroup>
               <FormGroup>
                 <label>
                   <span>Apellido</span>
-                  <input type="text" className="input-1 input-2"
+                  <Input type="text" className="input-1 input-2"
                     placeholder="Introduzca su apellido" 
                    
-                  ></input>
+                  ></Input>
                 </label>
               </FormGroup>
               <FormGroup>
                 <label>
                   <span>Correo Electrónico</span>
-                  <input type="email" className="input-1 input-2"
+                  <Input type="email" className="input-1 input-2"
                     placeholder="Introduzca su correo" 
                   
-                  ></input>
+                  ></Input>
                 </label>
               </FormGroup>
               <FormGroup>
                 <label>
                   <span>Fecha de Nacimiento</span>
-                  <input type="date" className="input-1 input-2"
+                  <Input type="date" className="input-1 input-2"
                     placeholder="Introduzca su fecha de nacimiento" 
                     name="birthdate" 
                     value={birthdate} 
                     onChange={event => onChangeHandler(event)}
-                  ></input>
+                  ></Input>
                 </label>
               </FormGroup>
               <FormGroup>
@@ -178,18 +178,18 @@ const SignUp = () => {
               <FormGroup>
                 <label>
                   <span>Contraseña</span>
-                  <input type="password" className="input-1 input-2"
+                  <Input type="password" className="input-1 input-2"
                     placeholder="Introduzca su contraseña" 
                     name="password"
                     value={password} 
                     onChange={event => onChangeHandler(event)}
-                  ></input>
+                  ></Input>
                 </label>
               </FormGroup>
               <button type="button" className="submit" style={{backgroundColor:'#b79ced'}}
                 onClick={()=>sendSave()} 
                 onClick={event => {
-                  createUserWithEmailAndPasswordHandler(event, email, password);
+                  createUserWithEmailAndPasswordHandler(event, email, password, name, lastname, birthdate, ocupation);
                 }}
               >
                 Registrarse
@@ -200,7 +200,7 @@ const SignUp = () => {
         </div>
       </div>
     </>
-  );
+  )
 };
 export default SignUp;
 
