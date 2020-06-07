@@ -1,9 +1,82 @@
-
+/**
+* Body
+*/
 #root{
   height: 100vh;
   width: 100vw;
 }
 
+body{
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(217deg, #b39bea, #abcafa, #b5cff7, #a483f0);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 47s ease infinite;
+    -moz-animation: AnimationName 47s ease infinite;
+    animation: AnimationName 47s ease infinite
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 84%}
+  50%{background-position:100% 17%}
+  100%{background-position:0% 84%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 84%}
+  50%{background-position:100% 17%}
+  100%{background-position:0% 84%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 84%}
+  50%{background-position:100% 17%}
+  100%{background-position:0% 84%}
+}
+
+/*
+Calendario
+*/
+
+.calendar-container{
+  background-color:  #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: max-content;
+  height: calc(100vh - 100px);
+  width: 100%;
+  margin: auto;
+  box-shadow: 0 0.5rem 1rem 0 rgba(102, 99, 99, 0.8);
+  margin: 30px;
+  border-radius: 5px;
+  
+}
+
+.calendar-header{
+  background-color:#abcafa;
+}
+.calendar-text > h2{
+  text-transform: uppercase;
+  color: #121314;
+  font-weight: 400;
+}
+.calendar-button > button{
+  text-transform: uppercase;
+  color: #121314;
+  font-weight: 400;
+  width: fit-content;
+  height: fit-content;
+}
+
+.calendar-button {
+  background-color: #abcafa;
+}
+.calendar-sm-toolbar > button{
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 400;
+  width: fit-content;
+  height: fit-content;
+}
 /*
 Cositas viejas:
 */
@@ -99,6 +172,41 @@ Cositas viejas:
   width: 140px;
 }
 
+/*
+Registro:
+*/
+.img-reg{
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  padding-top: 360px;
+  background-image: url('https://wallpapercave.com/wp/wp3082483.jpg');
+  background-size: cover;
+}
+
+.sign-up{
+  transform: translateX(250px);
+}
+.cont-reg {
+  overflow: hidden;
+  position: relative;
+  width: 900px;
+  height: 700px;
+  margin: 0 auto 100px;
+  background: #fff;
+  top: 110px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+.motiv-reg-ph{
+  font-size: 400;
+  color: white;
+  text-shadow: 2px 2px 4px #242323;
+}
 /*SIDEBAR*/
 
 a {
@@ -347,7 +455,7 @@ a:focus {
 /*
 Login: 
 */
-input, button {
+.input-1, button {
   border: none;
   outline: none;
   background: none;
@@ -356,7 +464,6 @@ input, button {
 
 .wrap-background {
   background: #ededed;
-  height: 100vh;
 }
 
 .cont {
@@ -418,7 +525,7 @@ button {
   width: 100%;
   padding: 0 20px;
   text-align: center;
-  color: #fff;
+  color: #1f2122;
   transition: transform 1.2s ease-in-out;
 }
 .img__text h2 {
@@ -438,11 +545,11 @@ button {
   height: 36px;
   margin: 0 auto;
   background: transparent;
-  color: #fff;
+  color: #1f2122;
   text-transform: uppercase;
   font-size: 15px;
   cursor: pointer;
-  border: 2px solid #fff;
+  border: 2px solid #1f2122;
   border-radius: 30px;
 }
 
@@ -475,7 +582,7 @@ label span {
   color: #cfcfcf;
   text-transform: uppercase;
 }
-input {
+.input-2 {
   display: block;
   width: 100%;
   margin-top: 5px;
@@ -498,20 +605,14 @@ input {
 }
 
 .a-link-color{
-  color: white;
+  color: #1f2122;
 }
 .a-link-color:hover{
-  color:white;
+  color:#969696;
 }
 
 
-body{
-  background: rgb(165,216,255);
-  background: linear-gradient(45deg, rgba(165,216,255,1) 0%, rgba(179,179,241,1) 100%);
-  background-size: 200% 200%;
-  overflow-x: hidden;
 
-}
 
 /* FOOTER */
 
