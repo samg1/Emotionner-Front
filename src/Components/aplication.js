@@ -10,6 +10,7 @@ import addArticleView from "./Views/addArticle";
 import CreateArticle from "../Components/Forms/articulo-form";
 import {AuthProvider} from '../Components/Authorization/Auth';
 import PrivateRoute from '../Components/Authorization/privateRoute';
+import TasksForm from '../Components/Forms/Tasks'
 
 
 function Application() {
@@ -23,6 +24,7 @@ function Application() {
         <Route exact path={["/", "/home"]} component={Login} />
         <Route exact path="/singUp" component={UserRegistration} />
         <PrivateRoute exact path="/profilePage" component={ProfilePage} />
+        <Route exact path={"/PRUEBA"} component={TasksForm}/>
       </Router>
       </AuthProvider>
       
