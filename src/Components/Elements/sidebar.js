@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
+import {auth} from '../../firebase';
 
 const Sidebar_ = (props) => {
-
     const $button  = document.querySelector('#sidebar-toggle');
     const $wrapper = document.querySelector('#wrapper');
 
@@ -29,7 +29,7 @@ const Sidebar_ = (props) => {
         <a  href="/addArticle" ><i className="fa fa-edit"></i>Artículo</a>
       </li>
       <li>
-        <a  href="#" ><i className="fa fa-user"></i>Users</a>
+        <a href="/" onClick = {() => {auth.signOut()}}><i className="fa fa-user"></i>Cerrar Sesión</a>
       </li>
     </ul>
   </aside>

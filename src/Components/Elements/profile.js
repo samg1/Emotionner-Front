@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
 import { UserContext } from '../../Providers/userProvider';
 import {auth} from '../../firebase';
+import { AuthContext } from "../Authorization/Auth";
 
 
 const ProfilePage = () => {
   const user = useContext(UserContext);
-  const {displayName, email} = user;
-  console.log(user);
+  const {email} = user;
   
-
   return (
     <div className= 'container fluid'>
       <div className= 'row align-items-center'>
