@@ -1,15 +1,42 @@
-
+/**
+* Body
+*/
 #root{
   height: 100vh;
   width: 100vw;
 }
 
+body{
+  background: linear-gradient(217deg, #b39bea, #abcafa, #b5cff7, #a483f0);
+  background-size: 800% 800%;
+
+  -webkit-animation: AnimationName 47s ease infinite;
+    -moz-animation: AnimationName 47s ease infinite;
+    animation: AnimationName 47s ease infinite
+}
+
+@-webkit-keyframes AnimationName {
+  0%{background-position:0% 84%}
+  50%{background-position:100% 17%}
+  100%{background-position:0% 84%}
+}
+@-moz-keyframes AnimationName {
+  0%{background-position:0% 84%}
+  50%{background-position:100% 17%}
+  100%{background-position:0% 84%}
+}
+@keyframes AnimationName {
+  0%{background-position:0% 84%}
+  50%{background-position:100% 17%}
+  100%{background-position:0% 84%}
+}
 
 /*
 Calendario
 */
+
 .calendar-container{
-  background-color:  #fff ;
+  background-color:  #fff;
   display: flex;
   flex-direction: column;
   min-height: max-content;
@@ -17,9 +44,36 @@ Calendario
   width: 100%;
   margin: auto;
   box-shadow: 0 0.5rem 1rem 0 rgba(102, 99, 99, 0.8);
+  margin: 30px;
+  border-radius: 5px;
   
 }
 
+.calendar-header{
+  background-color:#abcafa;
+}
+.calendar-text > h2{
+  text-transform: uppercase;
+  color: #121314;
+  font-weight: 400;
+}
+.calendar-button > button{
+  text-transform: uppercase;
+  color: #121314;
+  font-weight: 400;
+  width: fit-content;
+  height: fit-content;
+}
+.calendar-button {
+  background-color: #abcafa;
+}
+.calendar-sm-toolbar > button{
+  text-transform: uppercase;
+  color: #ffffff;
+  font-weight: 400;
+  width: fit-content;
+  height: fit-content;
+}
 /*
 Cositas viejas:
 */
@@ -521,13 +575,7 @@ input {
 }
 
 
-body{
-  background: rgb(165,216,255);
-  background: linear-gradient(45deg, rgba(165,216,255,1) 0%, rgba(179,179,241,1) 100%);
-  background-size: 200% 200%;
-  overflow-x: hidden;
 
-}
 
 
 

@@ -27,31 +27,62 @@ export default class CalendarToolbar extends Toolbar {
 		return (
             <>
             <div className='container-fluid'>
-            <div class="row  d-sm-flex p-1 " style={{backgroundColor: "lightblue"}}>
-                <span class="col-sm p-1 text-center"  >
-                    <button type="button" onClick={this.view.bind(null, 'month')}>MES</button>
+                {/**
+                 * Toolbar en pantallas sm
+                 */}
+            <div className=" row d-none d-sm-flex d-md-none calendar-header">
+                <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
+                    <button type="button" onClick={() => this.navigate('PREV')} ><i class="fa fa-arrow-left"></i></button>
                 </span>
-                <span class="col-sm p-1 text-center" >
-                    <button type="button" onClick={this.view.bind(null, 'week')}>SEMANA</button>
+                <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
+                    <button type="button" onClick={() => this.navigate('TODAY')} ><i class="fa fa-circle"></i></button>
                 </span>
-                <span class="col-sm p-1 text-center"  >
-                    <button type="button" onClick={this.view.bind(null, 'day')}>DIA</button>
-                </span>
-            </div>
-            <div class="row d-sm-flex p-1 " style={{backgroundColor: " #b79ced"}}>
-                <span class="col-sm p-1 text-center"  >
-                    <button type="button" onClick={() => this.navigate('PREV')}><i class="fa fa-arrow-left"></i></button>
-                </span>    
-                <span class="col-sm p-1 text-center" >
-                    <button type="button" onClick={() => this.navigate('TODAY')}>HOY</button>
-                </span>
-                <span class="col-sm p-1 text-center" >
+                <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
                     <button type="button" onClick={() => this.navigate('NEXT')}><i class="fa fa-arrow-right"></i></button>
                 </span>
             </div>
-            <div class="row  d-sm-flex p-1 " style={{backgroundColor: "lightblue"}}>
-                <div className='col-sm p-1 text-center'>
-                    <h5>{this.props.label}</h5>
+              {/**
+                 * Toolbar en pantallas xs
+                 */}
+            <div className=" row d-none d-flex d-sm-none calendar-header ">
+                <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
+                    <button type="button" onClick={() => this.navigate('PREV')}><i class="fa fa-arrow-left"></i></button>
+                </span>
+                <span className="col col-sm-4 p-1 calendar-sm-toolbar "  >
+                    <button type="button" onClick={() => this.navigate('TODAY')}><i class="fa fa-circle"></i></button>
+                </span>
+                <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
+                    <button type="button" onClick={() => this.navigate('NEXT')}><i class="fa fa-arrow-right"></i></button>
+                </span>
+            </div>
+              {/**
+                 * Toolbar en pantallas md, lg y xl
+                 */}
+            <div className="row d-none d-md-flex p-1 calendar-header">
+                <span className="col-sm p-1 calendar-sm-toolbar "  >
+                    <button type="button" onClick={() => this.navigate('PREV')}><i class="fa fa-arrow-left"></i></button>
+                </span>    
+                <span className="col-sm p-1 calendar-sm-toolbar" >
+                    <button type="button" onClick={() => this.navigate('TODAY')}><i class="fa fa-circle"></i></button>
+                </span>
+                <span className="col-sm p-1 calendar-sm-toolbar" >
+                    <button type="button" onClick={() => this.navigate('NEXT')}><i class="fa fa-arrow-right"></i></button>
+                </span>
+            </div>
+            <div className="row  d-none d-md-flex p-1 calendar-header">
+                <span className="col-sm p-1 text-center calendar-button"  >
+                    <button type="button" onClick={this.view.bind(null, 'month')}>MES</button>
+                </span>
+                <span className="col-sm p-1 text-center calendar-button" >
+                    <button type="button" onClick={this.view.bind(null, 'week')}>SEMANA</button>
+                </span>
+                <span className="col-sm p-1 text-center calendar-button"  >
+                    <button type="button" onClick={this.view.bind(null, 'day')}>DIA</button>
+                </span>
+            </div>
+            <div className="row  d-sm-flex p-1 calendar-header">
+                <div className='col-sm p-1 text-center calendar-text'>
+                    <h2>{this.props.label}</h2>
                 </div>
             </div>
      
