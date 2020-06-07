@@ -7,6 +7,8 @@
 }
 
 body{
+  height: 100vh;
+  width: 100vw;
   background: linear-gradient(217deg, #b39bea, #abcafa, #b5cff7, #a483f0);
   background-size: 800% 800%;
 
@@ -462,7 +464,6 @@ Login:
 
 .wrap-background {
   background: #ededed;
-  height: 100vh;
 }
 
 .cont {
@@ -524,7 +525,7 @@ button {
   width: 100%;
   padding: 0 20px;
   text-align: center;
-  color: #fff;
+  color: #1f2122;
   transition: transform 1.2s ease-in-out;
 }
 .img__text h2 {
@@ -544,11 +545,11 @@ button {
   height: 36px;
   margin: 0 auto;
   background: transparent;
-  color: #fff;
+  color: #1f2122;
   text-transform: uppercase;
   font-size: 15px;
   cursor: pointer;
-  border: 2px solid #fff;
+  border: 2px solid #1f2122;
   border-radius: 30px;
 }
 
@@ -604,10 +605,10 @@ label span {
 }
 
 .a-link-color{
-  color: white;
+  color: #1f2122;
 }
 .a-link-color:hover{
-  color:white;
+  color:#969696;
 }
 
 

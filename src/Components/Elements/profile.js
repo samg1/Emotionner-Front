@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { UserContext } from '../../Providers/userProvider';
 import {auth} from '../../firebase';
 import { AuthContext } from "../Authorization/Auth";
+import Calendario from "../Elements/calendar";
 
 
 const ProfilePage = () => {
@@ -9,7 +10,7 @@ const ProfilePage = () => {
   const {email} = user;
   
   return (
-    <div className= 'container fluid'>
+    <div className= 'container'>
       <div className= 'row align-items-center'>
         <div className= 'col-sm-9 col-md-7 col-lg-5 mx-auto'>
           <div className='card card-signin my-5'>
@@ -22,6 +23,11 @@ const ProfilePage = () => {
 
         </div>
       </div>
+      <div className='row align-content-center'>
+        <div className='col colm-md-8'>
+        <Calendario/>
+        </div>
+    </div>
     </div>
   ) 
 };
