@@ -1,6 +1,6 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 //import React, {Component} from 'react';
-import React,{ useState } from 'react';
+import React,{ useContext, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
@@ -18,63 +18,37 @@ const SignUp = () => {
    const [error, setError] = useState(null);
 
 
-  const createUserWithEmailAndPasswordHandler = async (event, email, password, name
-    , lastname, birthdate, ocupation) => {
+  const createUserWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
-      generateUserDocument(user);
-      const url = "https://emotionner.herokuapp.com/users/createUser"
-
-      const datapost = {
-        name : name,
-        lastname : lastname,
-        email : email,
-        birthdate : birthdate,
-        ocupation  : ocupation,
-        premium : 'false',
-        password : password
-      }
-
-      console.log(datapost)
-      
-      axios.post(url,datapost)
-      .then(response=>{
-        if (response.data.success===true) {
-          alert(response.data.message)
-          window.location.replace("https://emotionner.web.app/");
-        }
-        else {
-          alert(response.data.message)
-        }
-      }).catch(error=>{
-        alert(""+error)
-      })
- 
+      generateUserDocument(user, {name});
     }
     catch(error){
-      setError('Error Signing up with email and password');
+      setError('Error Signing up ');
     }
-      
+
+    setName("");
+    setLastname("");
     setEmail("");
     setPassword("");
   };
 
   const onChangeHandler = event => {
     const { name, value } = event.currentTarget;
-    if (name === "name") {
+    if (name === "userName") {
       setName(value);
-    }else if (name === "lastname") {
+    }else if (name === "userLastname") {
       setLastname(value);
-    }else if (name === "email") {
+    }else if (name === "userEmail") {
       setEmail(value);
-    }else if ( name === "birthdate") {
+    }else if ( name === "userBirthdate") {
       setBirthdate(value);
-    }else if (name === "ocupation") {
+    }else if (name === "userOcupation") {
       setOcupation(value);
-    }else if (name === "premium") {
+    }else if (name === "userPremium") {
       setPremium(null);
-    }else if (name === "password") {
+    }else if (name === "userPassword") {
       setPassword(value);
     }
   };
@@ -154,22 +128,22 @@ const SignUp = () => {
                        <Form className='form-singin'>
                             <FormGroup>
                                 <Label>Nombre</Label>
-                                <Input className='form-control' type="text" placeholder="Introduzca su nombre " name="name" 
+                                <Input className='form-control' type="text" placeholder="Introduzca su nombre " name="userName" 
                                 value={name} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Apellido</Label>
-                                <Input className='form-control' type="text" placeholder="Introduzca su apellido " name="lastname" 
+                                <Input className='form-control' type="text" placeholder="Introduzca su apellido " name="userLastname" 
                                 value={lastname} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Fecha de nacimiento</Label>
-                                <Input className='form-control' type="date" placeholder="Introduzca su fecha de nacimiento " name="birthdate" 
+                                <Input className='form-control' type="date" placeholder="Introduzca su fecha de nacimiento " name="userBirthdate" 
                                 value={birthdate} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Ocupación</Label>
-                                <Input type="select"  name="ocupation" value={ocupation} onChange={event => onChangeHandler(event)}>
+                                <Input type="select"  name="userOcupation" value={ocupation} onChange={event => onChangeHandler(event)}>
                                 <option value="">Ocupación</option>
                                 <option>Estudiante</option>
                                 <option>Trabajo a tiempo completo</option>
@@ -179,19 +153,18 @@ const SignUp = () => {
                             </FormGroup>
                             <FormGroup>
                                 <Label>Correo Electronico</Label>
-                                <Input className='form-control' type="email" placeholder="Introduzca su correo " name = "email"
+                                <Input className='form-control' type="email" placeholder="Introduzca su correo " name = "userEmail"
                                 value={email} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
                             <FormGroup>
                                 <Label>Contraseña</Label>
-                                <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="password"
+                                <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="userPassword"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>sendSave()} 
-                              onClick={event => {
-                                createUserWithEmailAndPasswordHandler(event, email, password, name
-                                  , lastname, birthdate, ocupation);
-                              }}
+                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick =" {() => sendSave() ;
+                              {event => {
+                                createUserWithEmailAndPasswordHandler(event, email, password);
+                              }}"
                             >
                               Registrarse 
                             </button>
