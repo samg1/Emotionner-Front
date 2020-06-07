@@ -48,7 +48,7 @@ const Login = () => {
                     <FormGroup>
                         <label>
                             <span>Correo Electrónico</span>
-                            <input  type = "email" placeholder="Introduzca su correo"
+                            <input  type = "email" placeholder="Introduzca su correo" className="input-1 input-2"
                                 name = "userEmail"
                                 value = {email}
                                 id = "userEmail"
@@ -60,7 +60,7 @@ const Login = () => {
                     <FormGroup>
                         <label>
                             <span>Contraseña</span>
-                            <input  type = "password" placeholder = "Introduzca su contraseña"
+                            <input  type = "password" placeholder = "Introduzca su contraseña" className="input-1 input-2"
                                 name = "userPassword"
                                 value = {password}
                                 id = "userPassword"

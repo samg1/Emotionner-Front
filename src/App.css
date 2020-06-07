@@ -170,6 +170,41 @@ Cositas viejas:
   width: 140px;
 }
 
+/*
+Registro:
+*/
+.img-reg{
+  overflow: hidden;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 260px;
+  height: 100%;
+  padding-top: 360px;
+  background-image: url('https://wallpapercave.com/wp/wp3082483.jpg');
+  background-size: cover;
+}
+
+.sign-up{
+  transform: translateX(250px);
+}
+.cont-reg {
+  overflow: hidden;
+  position: relative;
+  width: 900px;
+  height: 700px;
+  margin: 0 auto 100px;
+  background: #fff;
+  top: 110px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+.motiv-reg-ph{
+  font-size: 400;
+  color: white;
+  text-shadow: 2px 2px 4px #242323;
+}
 /*SIDEBAR*/
 
 a {
@@ -418,7 +453,7 @@ a:focus {
 /*
 Login: 
 */
-input, button {
+.input-1, button {
   border: none;
   outline: none;
   background: none;
@@ -546,7 +581,7 @@ label span {
   color: #cfcfcf;
   text-transform: uppercase;
 }
-input {
+.input-2 {
   display: block;
   width: 100%;
   margin-top: 5px;
