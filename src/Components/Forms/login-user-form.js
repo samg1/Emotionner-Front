@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import { auth } from "./../../firebase";
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
+import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
+import { withRouter } from "react-router";
 
 const Login = () => {
 
@@ -123,9 +124,8 @@ export default Login;
    
 
   return (
-    <div className= 'container fluid'>
+    <div className= 'container'>
             <div className= 'row align-items-center'>
-            {error !== null && <div className = "py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
                 <div className = 'col-sm-9 col-md-7 col-lg-5 mx-auto'>
                 <div className='card card-signin my-5'>
                     <div className='card-body'>
@@ -168,13 +168,10 @@ export default Login;
                 </div>
             </div>
         </div>
-    );
+  );
 };
 
 export default Login;
+*/
 
 
-
-
-
- */

@@ -4,9 +4,9 @@ import React,{ useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
+import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
 
 const SignUp = () => {
-
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -14,63 +14,14 @@ const SignUp = () => {
   const [ocupation, setOcupation] = useState("");
   const [premium, setPremium] = useState(null);
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
 
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+  const createUserWithEmailAndPasswordHandler = async (event, email, password, name, lastname, birthdate, ocupation) => {
     event.preventDefault();
-    setName("");
-    setLastname("");
-    setEmail("");
-    setBirthdate("");
-    setOcupation("");
-    setPremium(null);
-    setPassword("");
-  };
-
-  const onChangeHandler = event => {
-    const { name, value } = event.currentTarget;
-    if (name === "name") {
-      setName(value);
-    }else if (name === "lastname") {
-      setLastname(value);
-    }else if (name === "email") {
-      setEmail(value);
-    }else if ( name === "birthdate") {
-      setBirthdate(value);
-    }else if (name === "ocupation") {
-      setOcupation(value);
-    }else if (name === "premium") {
-      setPremium(null);
-    }else if (name === "password") {
-      setPassword(value);
-    }
-  };
-
-  const sendSave = () => {
-
-    if (name === "") {
-      alert("Introduzca su nombre")
-    }
-    else if (!validateEmail(email)) {
-        alert("El correo ingresado no es valido")
-    }
-    else if (lastname === "") {
-       alert("Introduzca su apellido")
-    }
-    else if (birthdate  === "") {
-       alert("Introduzca su fecha de nacimiento")
-    }
-    else if (ocupation === "" || ocupation === "Ocupación") {
-       alert("Introduzca su ocupación")
-    }
-    else if (email === "") {
-        alert("Introduzca su correo electrónico")
-    }
-    else if (password === "") {
-        alert("Introduzca una contraseña")
-    }
-    else {
- 
+    try{
+      const {user} = await auth.createUserWithEmailAndPassword(email, password);
+      generateUserDocument(user);
       const url = "https://emotionner.herokuapp.com/users/createUser"
 
       const datapost = {
@@ -223,9 +174,6 @@ const SignUp = () => {
     setName("");
     setLastname("");
     setEmail("");
-    setBirthdate("");
-    setOcupation("");
-    setPremium(null);
     setPassword("");
   };
 
@@ -356,9 +304,10 @@ const SignUp = () => {
                                 <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="password"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='submit' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()} 
+                            <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>sendSave()} 
                               onClick={event => {
-                                createUserWithEmailAndPasswordHandler(event, email, password);
+                                createUserWithEmailAndPasswordHandler(event, email, password, name
+                                  , lastname, birthdate, ocupation);
                               }}
                             >
                               Registrarse 
@@ -374,6 +323,5 @@ const SignUp = () => {
 
 }; 
 export default SignUp;
-*/
 
 
