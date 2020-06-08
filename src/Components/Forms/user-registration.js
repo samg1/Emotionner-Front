@@ -16,7 +16,6 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
-
   const createUserWithEmailAndPasswordHandler = async (event, email, password, name, lastname, birthdate, ocupation) => {
     event.preventDefault();
     try{
@@ -50,6 +49,87 @@ const SignUp = () => {
       })
  
     }
+    catch(error){
+      setError('Error Signing up with email and password');
+    }
+      
+    setEmail("");
+    setPassword("");
+  };
+
+  const onChangeHandler = event => {
+    const { name, value } = event.currentTarget;
+    if (name === "name") {
+      setName(value);
+    }else if (name === "lastname") {
+      setLastname(value);
+    }else if (name === "email") {
+      setEmail(value);
+    }else if ( name === "birthdate") {
+      setBirthdate(value);
+    }else if (name === "ocupation") {
+      setOcupation(value);
+    }else if (name === "premium") {
+      setPremium(null);
+    }else if (name === "password") {
+      setPassword(value);
+    }
+  };
+
+  const sendSave = () => {
+
+    if (name === "") {
+      alert("Introduzca su nombre")
+    }
+    else if (!validateEmail(email)) {
+        alert("El correo ingresado no es valido")
+    }
+    else if (lastname === "") {
+       alert("Introduzca su apellido")
+    }
+    else if (birthdate  === "") {
+       alert("Introduzca su fecha de nacimiento")
+    }
+    else if (ocupation === "" || ocupation === "Ocupación") {
+       alert("Introduzca su ocupación")
+    }
+    else if (email === "") {
+        alert("Introduzca su correo electrónico")
+    }
+    else if (password === "") {
+        alert("Introduzca una contraseña")
+    }
+    else {
+ 
+      const url = "https://emotionner.herokuapp.com/users/createUser"
+
+      const datapost = {
+        name : name,
+        lastname : lastname,
+        email : email,
+        birthdate : birthdate,
+        ocupation  : ocupation,
+        premium : 'false',
+        password : password
+      }
+
+      console.log(datapost)
+      
+      axios.post(url,datapost)
+      .then(response=>{
+        if (response.data.success===true) {
+          alert(response.data.message)
+          window.location.replace("https://emotionner.web.app/");
+        }
+        else {
+          alert(response.data.message)
+        }
+      }).catch(error=>{
+        alert(""+error)
+      })
+ 
+    }
+
   }; 
 
   function validateEmail(email) 
@@ -57,6 +137,7 @@ const SignUp = () => {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
+  
 
   return(
     <>
@@ -155,9 +236,7 @@ const SignUp = () => {
 };
 export default SignUp;
 
-/**
 
- */
 /*
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -323,5 +402,4 @@ const SignUp = () => {
 
 }; 
 export default SignUp;
-
-
+*/

@@ -3,7 +3,7 @@ import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
-import { withRouter } from "react-router";
+
 
 const Login = () => {
 
