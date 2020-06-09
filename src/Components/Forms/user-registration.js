@@ -137,7 +137,6 @@ const SignUp = () => {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
-  
 
   return(
     <>
@@ -146,14 +145,13 @@ const SignUp = () => {
           <div className="sub-cont-reg">
             <div className="img-reg">
               <div className="img__text m--in">
-                <h2 className="motiv-reg-ph">Hoy puede ser el</h2>
-                <p className="motiv-reg-ph">COMIENZO</p>
-                <p className="motiv-reg-ph">de todo lo que te</p>
-                <p className="motiv-reg-ph bold">PROPONGAS</p>
+                <h2 className="motiv-reg-ph">Hoy puede ser el comienzo de todo lo que te propongas</h2>                
               </div>
+              <div className="logo-text"></div>
             </div>
           </div>
-          <div className="form sign-up">
+          <div className="form-reg sign-up">
+          <h2 className="reg-h2">¡Regístrate ya!</h2>
             <Form>
               <FormGroup>
                 <label>
@@ -236,7 +234,7 @@ const SignUp = () => {
 };
 export default SignUp;
 
-
+/**<img alt="Logo" className="textt_img"></img> */
 /*
 const SignUp = () => {
   const [name, setName] = useState("");
