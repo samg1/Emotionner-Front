@@ -1,10 +1,8 @@
-import React, {useState} from "react";
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser} from '@fortawesome/free-solid-svg-icons'
+import React, {useState, useContext} from "react";
+import {Form, FormGroup,Input} from 'reactstrap';
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
-
-import { withRouter } from "react-router";
+import {AuthContext} from '../Authorization/Auth';
+import { withRouter, Redirect } from "react-router";
 import Footer from '../Elements/footerOutside'
 
 const Login = () => {
@@ -19,6 +17,7 @@ const Login = () => {
         setError("Error al ingresar a la cuenta!");
           console.error("Error al ingresar a la cuenta", error);
         });
+        
     };
       
     const onChangeHandler = (event) => {
@@ -31,6 +30,10 @@ const Login = () => {
             setPassword(value);
         }
     };
+    const {currentUser} = useContext(AuthContext);
+    if(currentUser){
+        return <Redirect to ='/calendar'/>
+    }
 
     return (
         <>

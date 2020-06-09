@@ -30,7 +30,6 @@ return(
               <li><a href="#">Amanda Gonzalez</a></li>
               <li><a href="#">Andrea Charles</a></li>
               <li><a href="#">Orly Dahan</a></li>
-              <li><a href="#">José Cisneros</a></li>
             </ul>
           </div>
           </div>
