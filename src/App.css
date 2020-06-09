@@ -861,7 +861,10 @@ label span {
   padding: 5px 5px;
   position: relative;
   cursor: pointer;
+  border-left: solid;
+  border-left-color: #a360b1; ;
 }
+
 .buttonArrow .link {
   font-family: "Rubik", sans-serif;
   background-color: transparent;
@@ -880,7 +883,7 @@ label span {
 }
 .buttonArrow .link:before {
   content: "";
-  background-color: #a360b1;
+  background-color: #a360b100;
   width: 3px;
   height: 100%;
   position: absolute;
