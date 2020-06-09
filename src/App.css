@@ -890,6 +890,7 @@ label span {
   border-radius: 50px;
   transition: all 0.3s ease-in-out;
 }
+
 .buttonArrow .link:after {
   content: "";
   width: 14px;
@@ -906,6 +907,7 @@ label span {
   transform: translateX(-42px) rotate(45deg);
   transition: all 0.3s 0.2s ease-in-out;
 }
+
 .buttonArrow:before {
   content: "";
   background-color: white;
@@ -1016,3 +1018,64 @@ label span {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+p{
+margin:0
+}
+
+.increible{
+  font-size: 45px;
+  color: rgb(120, 190, 236);
+}
+
+.increible:hover{
+  color: rgb(50, 129, 182);
+}
+
+.bien{
+  font-size: 45px;
+  color: rgb(61, 221, 69);
+}
+
+.bien:hover{
+  color: rgb(59, 143, 27);
+}
+
+.triste{
+  font-size: 45px;
+  color: rgb(252, 217, 62);
+}
+
+.triste:hover{
+  color: rgb(190, 173, 14);
+}
+
+.enojado{
+  font-size: 45px;
+  color: rgb(243, 74, 74);
+}
+
+.enojado:hover{
+  color: rgb(173, 20, 20);
+}
+
+.ansioso{
+  font-size: 45px;
+  color: rgb(81, 101, 190);
+}
+
+.ansioso:hover{
+  color: rgb(32, 15, 110);
+}
+
+.estresado{
+  font-size: 45px;
+  color: rgb(241, 134, 46);
+}
+
+.estresado:hover{
+  color: rgb(197, 96, 1);
+}
+
+
+

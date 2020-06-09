@@ -40,7 +40,7 @@ const Navbar_ = (props) => {
             </NavItem>
           </Nav>
           <div className=''>
-          <NavLink href="" type='button' style={{fontWeight:'lighter'}, {fontSize:'18px'}}className='btn-md btn-light' onClick = {() => {auth.signOut()}}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
+          <NavLink href="" type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}}className='btn-md btn-light' onClick = {() => {auth.signOut()}}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
           </div>
         </Collapse>
       </Navbar>
