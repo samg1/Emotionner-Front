@@ -13,6 +13,7 @@ body{
   width: 100vw;
   background: linear-gradient(217deg, #b39bea, #abcafa, #b5cff7, #a483f0);
   background-size: 800% 800%;
+  overflow-x: hidden;
 
   -webkit-animation: AnimationName 47s ease infinite;
     -moz-animation: AnimationName 47s ease infinite;

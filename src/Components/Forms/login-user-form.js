@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
 
+import { withRouter } from "react-router";
+import Footer from '../Elements/footerOutside'
 
 const Login = () => {
 
@@ -82,10 +84,13 @@ const Login = () => {
             </div>
         </div>
         </div>
+        <Footer/>
         </>
-    );
-}; 
-export default Login;
+  );
+};
+
+export default withRouter(Login);
+
 
 
 
@@ -124,6 +129,7 @@ export default Login;
    
 
   return (
+      <>
     <div className= 'container'>
             <div className= 'row align-items-center'>
                 <div className = 'col-sm-9 col-md-7 col-lg-5 mx-auto'>
@@ -168,10 +174,12 @@ export default Login;
                 </div>
             </div>
         </div>
+        <Footer/>
+        </>
   );
 };
 
-export default Login;
+export default withRouter(Login);
+
+
 */
-
-

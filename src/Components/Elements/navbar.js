@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import {auth} from '../../firebase';
+
 import {
   Collapse,
   Navbar,
@@ -24,11 +26,22 @@ const Navbar_ = (props) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-
+          <NavItem>
+              <NavLink href="">Tus emociones</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="">Tus tareas</NavLink>
+            </NavItem>
             <NavItem>
               <NavLink href="">Artículos</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="">Estadísticas</NavLink>
+            </NavItem>
           </Nav>
+          <div className=''>
+          <NavLink href="" type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}}className='btn-md btn-light' onClick = {() => {auth.signOut()}}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
+          </div>
         </Collapse>
       </Navbar>
     </div>
