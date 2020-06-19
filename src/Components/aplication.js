@@ -7,11 +7,9 @@ import ProfilePage from "../Components/Elements/profile";
 import { UserContext } from "../Providers/userProvider";
 import LoginAdminForm from "../Components/Forms/login-admin-form";
 import addArticleView from "./Views/addArticle";
-import CreateArticle from "../Components/Forms/articulo-form";
 import {AuthProvider} from '../Components/Authorization/Auth';
 import PrivateRoute from '../Components/Authorization/privateRoute';
-import TasksForm from '../Components/Forms/Tasks'
-import CalendarView from '../Components/Views/calendar'
+import CalendarView from './Views/calendarView';
 
 
 function Application() {
@@ -22,7 +20,7 @@ function Application() {
 
       <Router>
         <Route exact path="/admin" component={LoginAdminForm} />
-        <PrivateRoute exact path="/addArticle" component={addArticleView} />
+        <Route exact path="/admin/addArticle" component={addArticleView} />
         <Route exact path={["/", "/home"]} component={Login} />
         <Route exact path="/singUp" component={UserRegistration} />
         <PrivateRoute exact path="/profilePage" component={ProfilePage} />

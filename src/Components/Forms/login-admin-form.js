@@ -1,17 +1,29 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
-import { withRouter } from "react-router";
+import { withRouter, Redirect, Switch } from "react-router";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser} from '@fortawesome/free-solid-svg-icons'
+
+let admins=[
+    {username: 'admin', campPassword:'admin'},
+    {username: 'admin2', campPassword: '1234'}
+]
+
+
 
 class LoginAdminForm extends Component{
+   
     constructor(props) {
         super(props)
        
         this.state = {
             username : '',
-            campPassword: ''  
+            campPassword: '' ,
+            redirect: false 
         }
         
     }
+    
     handleChange = (e) => {
         const {name, value}= e.target;
         this.setState({... this.state, [name]: value });
@@ -23,12 +35,22 @@ class LoginAdminForm extends Component{
         else if (this.state.campPassword==="") {
               alert("La contraseña ingresada no es valida")
         } else {
-            if(this.state.username ==="admin" && this.state.campPassword==="admin"){
-                window.location.replace("https://emotionner.web.app/addArticle");
-            }else{
+            console.log(this.state)
+            var user =admins.find(x=>x.username === this.state.username && x.campPassword===this.state.campPassword)
+            console.log(user)
+            if(!user){
+                console.log("Los datos ingresados no son validos")
                 alert("Los datos ingresados no son validos")
+                console.log("Los datos ingresados son validos")
+                this.redirect()
+            
             }
         }
+    }
+    redirect(){
+            var link = window.location.href+'/addArticle';
+            console.log (link);
+            return window.location.replace(link)
     }
     render(){
         return(
@@ -37,6 +59,9 @@ class LoginAdminForm extends Component{
                 <div className='col-sm-9 col-md-7 col-lg-5 mx-auto'>
                     <div className='card card-signin my-5'>
                         <div className='card-body'>
+                        <div className='form-icon'>
+                            <span ><FontAwesomeIcon icon={faUser} /></span>
+                        </div>
                            <h5 className='card-title text-center text-uppercase'>Bienvenido Administrador</h5>
                            <Form className='form-singin'>
                                 <FormGroup>
@@ -47,7 +72,9 @@ class LoginAdminForm extends Component{
                                     <Label>Contraseña</Label>
                                     <Input className='form-control' type="text"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
                                 </FormGroup>
-                                <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>this.singIn()}>Iniciar Sesión</button>
+                                <div style={{margin: '20px'}}>
+                                <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced', padding: '5px'}} onClick={()=>this.singIn()}>Iniciar Sesión</button>
+                                </div>
                         </Form>
                         </div>
                     </div>
@@ -60,4 +87,4 @@ class LoginAdminForm extends Component{
     }
     
 }
-export default withRouter(LoginAdminForm);
+export default LoginAdminForm;
