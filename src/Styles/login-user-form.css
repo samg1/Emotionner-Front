@@ -6,7 +6,9 @@
   }
   
   .wrap-background {
-   /* background: #ededed;*/
+    background: #ededed;
+    height: 100%;
+    width: 100%;
   }
   
   .cont {

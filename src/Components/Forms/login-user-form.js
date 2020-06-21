@@ -83,9 +83,26 @@ const Login = () => {
             </div>
         </div>
         </div>
+        <div style={{margin:'0', backgroundColor:'#ededed'}}>
+            <p style={{color:'#ededed'}}>.</p>
+            <p style={{color:'#ededed'}}>.</p>
+            <p style={{color:'#ededed'}}>.</p>
+            <p style={{color:'#ededed'}}>.</p>
+        </div>
         <Footer/>
         </>
   );
 };
 
 export default withRouter(Login);
+
+
+
+
+
+
+
+
+
+
+

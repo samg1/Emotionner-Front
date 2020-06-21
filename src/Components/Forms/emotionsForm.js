@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Modal from "react-bootstrap/Modal";
 import 'font-awesome/css/font-awesome.min.css';
-import all from '../Forms/all'
-import { Button, Form, FormGroup, Label, Col, Row, Input, FormText } from 'reactstrap';
+import all from '../Forms/all';
+import { Button, Form, FormGroup, Label, Col, Row, Input} from 'reactstrap';
 
 const EmotionsForm = () => {
     const [isOpen, setIsOpen] = React.useState(false);

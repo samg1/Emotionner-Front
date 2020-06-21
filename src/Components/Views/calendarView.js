@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import Navbar_ from '../Elements/navbar';
 import Calendario from '../Elements/calendar';
 import Footer from '../Elements/footerInside'
-import TasksForm from '../../Components/Forms/Tasks'
-import EmotionsForm from '../../Components/Forms/emotionsForm'
+import TasksForm from '../Forms/Tasks'
+import EmotionsForm from '../Forms/emotionsForm'
 
 
 class CalendarView extends Component{
