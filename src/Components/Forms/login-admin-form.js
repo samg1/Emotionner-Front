@@ -1,5 +1,6 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
+import { withRouter } from "react-router";
 
 class LoginAdminForm extends Component{
     constructor(props) {
@@ -59,4 +60,4 @@ class LoginAdminForm extends Component{
     }
     
 }
-export default LoginAdminForm
+export default withRouter(LoginAdminForm);

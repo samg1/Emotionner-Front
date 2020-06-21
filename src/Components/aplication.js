@@ -8,22 +8,28 @@ import { UserContext } from "../Providers/userProvider";
 import LoginAdminForm from "../Components/Forms/login-admin-form";
 import addArticleView from "./Views/addArticle";
 import CreateArticle from "../Components/Forms/articulo-form";
+import {AuthProvider} from '../Components/Authorization/Auth';
+import PrivateRoute from '../Components/Authorization/privateRoute';
+import TasksForm from '../Components/Forms/Tasks'
+import CalendarView from '../Components/Views/calendar'
 
 
 function Application() {
   const user = useContext(UserContext);
   return (
-        user ?
-        <ProfilePage />
-      :
+
+    <AuthProvider>
+
       <Router>
-      <Route exact path="/admin" component={LoginAdminForm} />
-        <Route exact path="/addArticle" component={addArticleView} />
+        <Route exact path="/admin" component={LoginAdminForm} />
+        <PrivateRoute exact path="/addArticle" component={addArticleView} />
         <Route exact path={["/", "/home"]} component={Login} />
         <Route exact path="/singUp" component={UserRegistration} />
+        <PrivateRoute exact path="/profilePage" component={ProfilePage} />
+        <PrivateRoute exact path="/calendar" component={CalendarView} />
       </Router>
       
-      
+      </AuthProvider>
   );
 }
 

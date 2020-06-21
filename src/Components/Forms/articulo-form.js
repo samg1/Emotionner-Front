@@ -80,6 +80,7 @@ class CreateArticle extends Component{
                             <option>No premium</option>
                             </Input>
                         </FormGroup>
+                        <label></label>
                         <div className="form-group">
                         <div className= "d-flex justify-content-center">
                           <button className="btn btn-md text-uppercase btn-light " type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>

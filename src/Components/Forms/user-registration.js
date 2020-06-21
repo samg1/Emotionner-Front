@@ -1,12 +1,11 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
-//import React, {Component} from 'react';
 import React,{ useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
 import { withRouter } from "react-router";
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
-//import Footer from '../Elements/footerOutside';
+import Footer from '../Elements/footerOutside';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -181,22 +180,13 @@ const SignUp = () => {
                 <span>Apellido</span>
                 <Input type="text" className="input-1 input-2"
                   placeholder="Introduzca su apellido" 
-                  lastname="lastname"
+                  name="lastname"
                   value={lastname}
                   onChange={event => onChangeHandler(event)}
                 ></Input>
               </FormGroup>
               <FormGroup className="label-1">
-                  <span>Correo Electrónico</span>
-                  <Input type="email" className="input-1 input-2"
-                    placeholder="Introduzca su correo"
-                    name="email"
-                    value={email}
-                    onChange={event => onChangeHandler(event)}
-                  ></Input>
-              </FormGroup>
-              <FormGroup className="label-1">
-                  <span>Fecha de Nacimiento</span>
+                <span>Fecha de Nacimiento</span>
                   <Input type="date" className="input-1 input-2"
                     placeholder="Introduzca su fecha de nacimiento" 
                     name="birthdate" 
@@ -213,6 +203,15 @@ const SignUp = () => {
                     <option>Trabajo a medio tiempo</option>
                     <option>Freelancer</option>
                   </Input>
+              </FormGroup>
+              <FormGroup className="label-1">
+                  <span>Correo Electrónico</span>
+                  <Input type="email" className="input-1 input-2"
+                    placeholder="Introduzca su correo"
+                    name="email"
+                    value={email}
+                    onChange={event => onChangeHandler(event)}
+                  ></Input>
               </FormGroup>
               <FormGroup className="label-1">
                   <span>Contraseña</span>

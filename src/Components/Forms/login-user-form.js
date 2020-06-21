@@ -3,8 +3,7 @@ import {Form, FormGroup,Input} from 'reactstrap';
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
 import {AuthContext} from '../Authorization/Auth';
 import { withRouter, Redirect } from "react-router";
-//import Footer from '../Elements/footerOutside'
-
+import Footer from '../Elements/footerOutside'
 
 const Login = () => {
 
@@ -18,6 +17,7 @@ const Login = () => {
         setError("Error al ingresar a la cuenta!");
           console.error("Error al ingresar a la cuenta", error);
         });
+        
     };
       
     const onChangeHandler = (event) => {
@@ -43,7 +43,6 @@ const Login = () => {
                 <h2>¡Bienvenido de Vuelta!</h2>
                 <Form>
                     <FormGroup className="label-1">
-            
                         <span>Correo Electrónico</span>
                         <Input  type = "email" placeholder="Introduzca su correo" className="input-1 input-2"
                             name = "userEmail"
@@ -52,19 +51,16 @@ const Login = () => {
                             onChange = {(event) => onChangeHandler(event)}
                             required
                         ></Input>
-                        
                     </FormGroup>
                     <FormGroup className="label-1">
-            
                         <span>Contraseña</span>
-                        <Input  type = "password" placeholder = "Introduzca su contraseña" className="input-1 input-2"
+                         <Input  type = "password" placeholder = "Introduzca su contraseña" className="input-1 input-2"
                             name = "userPassword"
                             value = {password}
                             id = "userPassword"
                             onChange = {(event) => onChangeHandler(event)}
                             required
-                        ></Input>
-                        
+                         ></Input>
                     </FormGroup>
                     <button  type="button" className="submit" style={{backgroundColor:'#b79ced'}} onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
                         Iniciar Sesión
@@ -87,7 +83,9 @@ const Login = () => {
             </div>
         </div>
         </div>
+        <Footer/>
         </>
-    );
-}; 
+  );
+};
+
 export default withRouter(Login);

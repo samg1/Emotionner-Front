@@ -1,5 +1,6 @@
 import footer from 'bootstrap';
 import React, {Component} from 'react';
+import all from '../Forms/all'
 
 const Footer = (props) => {
 return(
@@ -29,7 +30,6 @@ return(
               <li><a href="#">Amanda Gonzalez</a></li>
               <li><a href="#">Andrea Charles</a></li>
               <li><a href="#">Orly Dahan</a></li>
-              <li><a href="#">José Cisneros</a></li>
             </ul>
           </div>
           </div>
@@ -44,10 +44,10 @@ return(
 
           <div className="col-md-4 col-sm-6 col-xs-12">
             <ul className="social-icons">
-              <li><a className="facebook" href="#"><i className="fa fa-facebook"></i></a></li>
-              <li><a className="twitter" href="#"><i className="fa fa-twitter"></i></a></li>
-              <li><a className="dribbble" href="#"><i className="fa fa-dribbble"></i></a></li>
-              <li><a className="linkedin" href="#"><i className="fa fa-linkedin"></i></a></li>   
+              <li><a className="facebook" href="#"><i className="fab fa-facebook"></i></a></li>
+              <li><a className="twitter" href="#"><i className="fab fa-twitter"></i></a></li>
+              <li><a className="dribbble" href="#"><i className="fab fa-dribbble"></i></a></li>
+              <li><a className="linkedin" href="#"><i className="fab fa-linkedin"></i></a></li>   
             </ul>
           </div>
         </div>
