@@ -40,7 +40,7 @@ const Login = () => {
         <div className="wrap-background">
         <div className="cont">
             <div className="form sign-in">
-                <h2>¡Bienvenido de Vuelta!</h2>
+                <h2 className="h2">¡Bienvenido de Vuelta!</h2>
                 <Form>
                     <FormGroup className="label-1">
                         <span>Correo Electrónico</span>
@@ -70,7 +70,7 @@ const Login = () => {
             <div className="sub-cont">
                 <div className="img">
                     <div className="img__text m--up">
-                        <h2>¿Nuevo por Aquí?</h2>
+                        <h2 className="h2">¿Nuevo por Aquí?</h2>
                         <p>¡Regístrate Ahora!</p>
                     </div>
                     <div className="img__btn">

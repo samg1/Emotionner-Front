@@ -165,7 +165,7 @@ const SignUp = () => {
             </div>
           </div>
           <div className="form-reg sign-up">
-          <h2 className="reg-h2">¡Regístrate ya!</h2>
+          <h2 className="h2">¡Regístrate ya!</h2>
             <Form>
               <FormGroup className="label-1">
                 <span>Nombre</span>
@@ -235,6 +235,20 @@ const SignUp = () => {
         
         </div>
       </div>
+      <div style={{margin:'0', backgroundColor:'#ededed'}}>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+        <p style={{color:'#ededed'}}>.</p>
+      </div>
+      <Footer/>
     </>
   )
 };
