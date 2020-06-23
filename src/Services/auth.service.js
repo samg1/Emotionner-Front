@@ -5,7 +5,8 @@ import axios from "axios";
 /**
  * API URL
  */
-const API_URL = "http://localhost:8080/";
+const API_URL ="https://emotionner.herokuapp.com/";
+//const API_URL = "http://localhost:8080/";
 /**
  * Registration method
  * @param {*} username 
