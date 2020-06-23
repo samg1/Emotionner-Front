@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Calendar, momentLocalizer, Views } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import CalendarToolbar from './toolbar';
+import AuthService from '../../Services/auth.service';
 require('moment/locale/es.js');
 
-const localizer = momentLocalizer(moment);
 
-class Calendario extends Component {
-  constructor() {
-    super();
-    const now = new Date();
-    const events = [
+const Calendario = () => {
+  const currentUser = AuthService.getCurrentUser();
+  const localizer = momentLocalizer(moment);
+  const now = new Date();
+  console.log(currentUser)
+  const events = [
       {
           id: 0,
           title: 'Tarea 1',
@@ -39,28 +40,30 @@ class Calendario extends Component {
       },
       
     ]
-    this.state = {
-      events
-    };
-    }
 
-  render() {
-    return (
-        <div className="calendar-container">
+  return (
+    <div className='container'>
+      <div className ='row'>
+        <h3>{currentUser.username}</h3>
+      </div>
+      <div className='row'>
+      <div className="calendar-container">
           <Calendar
             selectable
             localizer={localizer}
-            events={this.state.events}
+            events={events}
             defaultView={Views.MONTH}
             scrollToTime={new Date(1970, 1, 1, 6)}
             onSelectEvent={event => alert(event.title)}
             components = {{toolbar : CalendarToolbar}}
-            onSelectSlot={this.handleSelect}
-            dayLayoutAlgorithm={this.state.dayLayoutAlgorithm}
+            //onSelectSlot={handleSelect}
+            //dayLayoutAlgorithm={dayLayoutAlgorithm}
         />
-        </div>
-    );
-  }
-}
+      </div>
+      </div>
+    </div>
+    
+  );
+};
 
-export default Calendario
+export default Calendario;

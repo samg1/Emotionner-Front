@@ -56,7 +56,8 @@ const SignUp = () => {
       .then(response=>{
         if (response.data.success===true) {
           alert(response.data.message)
-          window.location.replace("https://emotionner.web.app/");
+          var link = window.location.href+'/';
+          window.location.replace(link);
         }
         else {
           alert(response.data.message)
@@ -67,7 +68,7 @@ const SignUp = () => {
       setEmail("");
       setPassword("");
     } else {
-      alert("Ha ocurrido un error al iniciar sesion")
+      alert("Ha ocurrido un error al registrarse, intente de nuevo")
     }
       
     
@@ -227,4 +228,4 @@ const SignUp = () => {
 
 
 }; 
-export default withRouter(SignUp);
+export default SignUp;

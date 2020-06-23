@@ -1,6 +1,5 @@
-import footer from 'bootstrap';
-import React, {Component} from 'react';
-import all from '../Forms/all'
+import React from 'react';
+
 
 const Footer = (props) => {
 return(
@@ -11,7 +10,7 @@ return(
             <h6 style = {{letterSpacing: '2px'}, {color:'#fff'}}>ACERCA DE NOSOTROS</h6>
             <p className="text-justify">Conocernos emocionalmente es una parte muy importante
             de nuestro desarrollo personal y el no hacerlo promete afectar nuestro bienestar tanto físico como mental.
-            Creemos que la vida no tiene que ser tan difícil; 
+            Creemos que la vida no tiene que ser tan difícil
             Emotionner es una aplicación que busca batallar la ansiedad y el estrés 
             ayudándote a planear tu día paso a paso. </p>
           </div>
@@ -44,10 +43,10 @@ return(
 
           <div className="col-md-4 col-sm-6 col-xs-12">
             <ul className="social-icons">
-              <li><a className="facebook" href="#"><i className="fab fa-facebook"></i></a></li>
-              <li><a className="twitter" href="#"><i className="fab fa-twitter"></i></a></li>
-              <li><a className="dribbble" href="#"><i className="fab fa-dribbble"></i></a></li>
-              <li><a className="linkedin" href="#"><i className="fab fa-linkedin"></i></a></li>   
+              <li><a className="facebook" ><i className="fab fa-facebook"></i></a></li>
+              <li><a className="twitter" ><i className="fab fa-twitter"></i></a></li>
+              <li><a className="dribbble"><i className="fab fa-dribbble"></i></a></li>
+              <li><a className="linkedin"><i className="fab fa-linkedin"></i></a></li>   
             </ul>
           </div>
         </div>

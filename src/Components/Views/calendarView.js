@@ -1,20 +1,19 @@
-import React, {Component} from 'react';
-import Navbar_ from '../Elements/navbar';
+import React from 'react';
 import Calendario from '../Elements/calendar';
 import Footer from '../Elements/footerInside'
 import TasksForm from '../Forms/Tasks'
 import EmotionsForm from '../Forms/emotionsForm'
 
 
-class CalendarView extends Component{
-    render(){
+
+
+const CalendarView = () =>{
+    
         return(
             <>
-            <Navbar_/>
             <div className='container'>
                 <div className ='row'>
                     <div className='col-1'>
-                        
                     </div>
                     <div className ='col-4' style={{paddingTop:'25px'}}>
                         <TasksForm/>
@@ -35,9 +34,7 @@ class CalendarView extends Component{
             </div>
             <Footer/>
         </>
-        )
-    }
- 
+        );
 
-
-} export default CalendarView
+};
+export default CalendarView

@@ -42,17 +42,17 @@ class CreateArticle extends Component{
                         <FormGroup>
                             <Label for="exampleText">Breve descripción del artículo</Label>
                             <Input type="textarea" name="text" id="exampleText" 
-                            value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}>></Input>
+                            value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for="exampleText">Artículo</Label>
                             <Input type="textarea" name="text" id="exampleText"
-                            value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}>></Input>
+                            value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label>Autor</Label>
                             <Input className='form-control' type="title" placeholder="Introduzca el autor del artículo "
-                            value={this.state.campAuthor} onChange={(value)=> this.setState({campAuthor:value.target.value})}>></Input>
+                            value={this.state.campAuthor} onChange={(value)=> this.setState({campAuthor:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label>Ánimo</Label>
@@ -70,7 +70,7 @@ class CreateArticle extends Component{
                         <FormGroup>
                             <Label>Imágen</Label>
                             <Input className='form-control' type="Imágen" placeholder="Introduzca una imágen para el artículo"
-                            value={this.state.campImagen} onChange={(value)=> this.setState({campImagen:value.target.value})}>></Input>
+                            value={this.state.campImagen} onChange={(value)=> this.setState({campImagen:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label>Selección de Premium</Label>

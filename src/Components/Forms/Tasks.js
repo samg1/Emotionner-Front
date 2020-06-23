@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Modal from "react-bootstrap/Modal";
-import { Button, Form, FormGroup, Label, Col, Row, Input, FormText } from 'reactstrap';
+import { Form, FormGroup, Label, Col, Row, Input} from 'reactstrap';
 
 const TaskForm = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -59,7 +59,7 @@ const TaskForm = () => {
           <Modal.Footer>
               
              <div className="d-flex justify-content-center">
-                <a href="#" class="btn-horizontal"><span>Guardar</span></a>
+                <a class="btn-horizontal"><span>Guardar</span></a>
             </div>
 
           </Modal.Footer>
