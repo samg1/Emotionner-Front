@@ -50,7 +50,7 @@ const EmotionsForm = () => {
                 </Row>
                 <div style={{marginBottom:'20px'}}>
                 </div>
-                <Row>
+                <Row form>
                 <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Enojado</p>
@@ -69,6 +69,13 @@ const EmotionsForm = () => {
                             <a  href=""className='estresado d-flex justify-content-center'><i className="far fa-tired"></i></a>
                         </FormGroup>
                     </Col>
+                </Row>
+                <div style={{marginBottom:'20px'}}>
+                </div>
+                <Row form className='d-flex justify-content-center'>
+                    <p for="exampleText">¿Quieres expresarte mejor?</p>
+                    <Input type="textarea" name="text" id="exampleText"></Input>
+                  
                 </Row>
             </div>
             </Form>

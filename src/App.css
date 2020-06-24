@@ -55,7 +55,7 @@ Calendario
 }
 
 .calendar-header{
-  background-color:#abcafa;
+  background-color:#dd6b91;
 }
 .calendar-text > h2{
   text-transform: uppercase;
@@ -68,10 +68,11 @@ Calendario
   font-weight: 400;
   width: fit-content;
   height: fit-content;
+  background-color:#dd6b91;
 }
 
 .calendar-button {
-  background-color: #abcafa;
+  background-color:#dd6b91;
 }
 .calendar-sm-toolbar > button{
   text-transform: uppercase;
@@ -678,11 +679,7 @@ Login:
   position: relative;
   cursor: pointer;
   border-left: solid;
-<<<<<<< HEAD
   border-left-color: #a360b1; ;
-=======
-  border-left-color: #a360b1;
->>>>>>> Amanda-new
 }
 
 .buttonArrow .link {
@@ -884,11 +881,11 @@ margin:0
 
 .ansioso{
   font-size: 45px;
-  color: rgb(81, 101, 190);
+  color: rgb(247, 99, 155);
 }
 
 .ansioso:hover{
-  color: rgb(32, 15, 110);
+  color: rgb(204, 41, 109);
 }
 
 .estresado{
@@ -898,4 +895,15 @@ margin:0
 
 .estresado:hover{
   color: rgb(197, 96, 1);
+}
+
+.blanco{
+  background-color: #ededed;
+}
+
+.navbar{
+  background-color: linear-gradient(217deg, #b39bea, #abcafa, #b5cff7, #a483f0);
+  box-shadow: 0 0.5rem 1rem 0 rgba(102, 99, 99, 0.295);
+  letter-spacing: 1px;
+
 }

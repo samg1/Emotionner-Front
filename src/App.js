@@ -30,7 +30,7 @@ const App = () => {
     <Router>
       <div>
         <nav className="navbar navbar-expand navbar-light bg-light">
-          <Link to={"/"} className="navbar-brand">
+          <Link to={"/"} className="navbar-brand" style={{fontWeight: "light"}}>
             Emotionner
           </Link>
           <div className="navbar-nav mr-auto">

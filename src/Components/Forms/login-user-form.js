@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import Footer from "../Elements/footerInside";
+import Footer from "../Elements/footerOutside";
 import AuthService from "../../Services/auth.service";
 import {FormGroup} from 'reactstrap';
 
@@ -68,10 +68,11 @@ const Login = (props) => {
 
   return (
     <>
+    <div className = "blanco">
     <div className="container">
     <div className="cont">
         <div className="form sign-in">
-            <h2>¡Bienvenido de Vuelta!</h2>
+            <h2 style={{fontWeight:"inherit"}}>¡Bienvenido de Vuelta!</h2>
             <Form onSubmit={handleLogin} ref={form}>
                 <FormGroup>
                     <label>
@@ -99,8 +100,8 @@ const Login = (props) => {
                     </label>
                 </FormGroup>
                 <FormGroup>
-                  <div className='row'>
-                    <button className="btn btn-primary" disabled={loading}>
+                  <div className='row' style={{marginTop:'5%'}}>
+                    <button className="btn btn-primary" style={{borderRadius:'50px', borderColor:'#a483f0', backgroundColor:'#a483f0'}} disabled={loading}>
                         {loading && (
                             <span className="spinner-border spinner-border-sm"></span>
                         )}
@@ -125,24 +126,24 @@ const Login = (props) => {
         <div className="sub-cont">
             <div className="img">
                 <div className="img__text m--up">
-                    <h2>¿Nuevo por Aquí?</h2>
-                    <p>¡Regístrate Ahora!</p>
+                    <h2 style={{fontStyle: 'oblique'}}>¿Nuevo por Aquí?</h2>
+                    <p style={{letterSpacing:'1px'}}>¡Regístrate Ahora!</p>
                 </div>
                 <div className="img__btn">
                     <span className="m--up">    
-                        <a className="a-link-color" href="/singUp">Registrarse</a>
+                        <a className="a-link-color" href="/singUp" style={{borderWidth: '1.5px'}}>Registrarse</a>
                     </span>
                 </div>
             </div>
-
         </div>
     </div>
     </div>
-    <div>
+    <div style={{color:'#ededed'}}>
         <p >.</p>
         <p >.</p>
         <p >.</p>
         <p >.</p>
+    </div>
     </div>
     <Footer/>
   </>
