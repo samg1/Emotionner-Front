@@ -55,7 +55,7 @@ Calendario
 }
 
 .calendar-header{
-  background-color:#dd6b91;
+  background-color:#f5c3d3;
 }
 .calendar-text > h2{
   text-transform: uppercase;
@@ -68,11 +68,11 @@ Calendario
   font-weight: 400;
   width: fit-content;
   height: fit-content;
-  background-color:#dd6b91;
+  background-color:#f5c3d3;
 }
 
 .calendar-button {
-  background-color:#dd6b91;
+  background-color:#f5c3d3;
 }
 .calendar-sm-toolbar > button{
   text-transform: uppercase;
