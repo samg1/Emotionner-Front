@@ -198,23 +198,6 @@ const Register = (props) => {
                       validations={[required]}
                     />
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="birthdate">Fecha de Nacimiento</label>
-                    <Input
-                      type="select"
-                      className="form-control"
-                      name="birthdate"
-                      value={ocupation}
-                      onChange={onChangeOcupation}
-                      validations={[required]}
-                      >
-                        <option value="">Ocupación</option>
-                        <option>Estudiante</option>
-                        <option>Trabajo a tiempo completo</option>
-                        <option>Trabajo a medio tiempo</option>
-                        <option>Freelancer</option>
-                      </Input>
-                  </div>
 
                   <div className="form-group">
                     <button className="btn btn-primary btn-block">Registrarse</button>

@@ -5,7 +5,7 @@ import "./App.css";
 import AuthService from "./Services/auth.service";
 import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
-import SignUp from "./Components/Forms/user-registration";
+import Register from "./Components/Forms/registration";
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -69,7 +69,7 @@ const App = () => {
           <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
-            <Route path="/singup" component={SignUp} />
+            <Route path="/singup" component={Register} />
           </Switch>
       </div>
     </Router>
