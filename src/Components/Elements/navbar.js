@@ -1,23 +1,14 @@
 import React, { useState } from 'react';
-
-import {auth} from '../../firebase';
-
-import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  button,
-  NavItem,
-  NavLink,
-
-} from 'reactstrap';
+import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
+import AuthService from './../../Services/auth.service'
 
 const Navbar_ = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const logOut = () => {
+    AuthService.logout();
+  };
 
   return (
     <div>
@@ -27,20 +18,20 @@ const Navbar_ = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
           <NavItem>
-              <NavLink href="">Tus emociones</NavLink>
+              <NavLink >Tus emociones</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="">Tus tareas</NavLink>
+              <NavLink>Tus tareas</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="">Artículos</NavLink>
+              <NavLink >Artículos</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="">Estadísticas</NavLink>
+              <NavLink>Estadísticas</NavLink>
             </NavItem>
           </Nav>
           <div className=''>
-          <NavLink href="" type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}}className='btn-md btn-light' onClick = {() => {auth.signOut()}}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
+          <NavLink type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}}className='btn-md btn-light' onClick = {logOut}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
           </div>
         </Collapse>
       </Navbar>

@@ -6,6 +6,7 @@ import { faUser} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'; 
 import { withRouter } from "react-router";
 import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
+import Footer from '../Elements/footerOutside';
 
 const SignUp = () => {
   const [name, setName] = useState("");
@@ -15,15 +16,28 @@ const SignUp = () => {
   const [ocupation, setOcupation] = useState("");
   const [premium, setPremium] = useState(null);
   const [password, setPassword] = useState("");
-   const [error, setError] = useState(null);
+  const [error, setError] = useState(null);
+  
 
 
   const createUserWithEmailAndPasswordHandler = async (event, email, password, name
     , lastname, birthdate, ocupation) => {
     event.preventDefault();
+    var bd;
     try{
       const {user} = await auth.createUserWithEmailAndPassword(email, password);
+      console.log(user)
       generateUserDocument(user);
+      bd =true 
+      console.log(bd)
+    }
+    catch(error){
+      setError('Error Signing up with email and password');
+      bd= false
+      console.log(bd)
+    }
+
+    if(bd){
       const url = "https://emotionner.herokuapp.com/users/createUser"
 
       const datapost = {
@@ -42,7 +56,8 @@ const SignUp = () => {
       .then(response=>{
         if (response.data.success===true) {
           alert(response.data.message)
-          window.location.replace("https://emotionner.web.app/");
+          var link = window.location.href+'/';
+          window.location.replace(link);
         }
         else {
           alert(response.data.message)
@@ -50,14 +65,13 @@ const SignUp = () => {
       }).catch(error=>{
         alert(""+error)
       })
- 
-    }
-    catch(error){
-      setError('Error Signing up with email and password');
+      setEmail("");
+      setPassword("");
+    } else {
+      alert("Ha ocurrido un error al registrarse, intente de nuevo")
     }
       
-    setEmail("");
-    setPassword("");
+    
   };
 
   const onChangeHandler = event => {
@@ -142,6 +156,7 @@ const SignUp = () => {
   }
 
   return(
+    <>
     <div className="container ">
         <div className= 'row '>
             <div className='col-sm-9 col-md-7 col-lg-5 mx-auto'>
@@ -187,7 +202,9 @@ const SignUp = () => {
                                 <Input className='form-control' type="password" placeholder="Introduzca su contraseña" name="password"
                                 value={password} onChange={event => onChangeHandler(event)}></Input>
                             </FormGroup>
-                            <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>sendSave()} 
+                            <FormGroup>
+                              <div style={{margin: '20px'}}>
+                              <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick={()=>sendSave()} 
                               onClick={event => {
                                 createUserWithEmailAndPasswordHandler(event, email, password, name
                                   , lastname, birthdate, ocupation);
@@ -195,16 +212,20 @@ const SignUp = () => {
                             >
                               Registrarse 
                             </button>
+                              </div>
+                            
+                            </FormGroup>
+                            
                     </Form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <Footer/>
+    </>
   )
 
 
 }; 
-export default withRouter(SignUp);
-
-
+export default SignUp;

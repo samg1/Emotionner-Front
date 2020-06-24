@@ -1,90 +1,183 @@
-import React, {useState} from "react";
-import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser} from '@fortawesome/free-solid-svg-icons'
-import { auth, signInWithGoogle, generateUserDocument } from "../../firebase";
-import { withRouter } from "react-router";
-import Footer from '../Elements/footerOutside'
+import React, { useState, useRef } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
+import Footer from "../Elements/footerInside";
+import AuthService from "../../Services/auth.service";
+import {FormGroup} from 'reactstrap';
 
-const Login = () => {
+const required = (value) => {
+  if (!value) {
+    return (
+      <div className="alert alert-danger" role="alert">
+        Este campo es requerido!
+      </div>
+    );
+  }
+};
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
+const Login = (props) => {
+  const form = useRef();
+  const checkBtn = useRef();
 
-    const signInWithEmailAndPasswordHandler = (event,email, password) => {
-        event.preventDefault();
-        auth.signInWithEmailAndPassword(email, password).catch(error => {
-        setError("Error al ingresar a la cuenta!");
-          console.error("Error al ingresar a la cuenta", error);
-          alert("Error al ingresar a la cuenta")
-        });
-      };
-      
-      const onChangeHandler = (event) => {
-          const {name, value} = event.currentTarget;
-        
-          if(name === 'userEmail') {
-              setEmail(value);
-          }
-          else if(name === 'userPassword'){
-            setPassword(value);
-          }
-      };
-   
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangePassword = (e) => {
+    const password = e.target.value;
+    setPassword(password);
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    setMessage("");
+    setLoading(true);
+
+    form.current.validateAll();
+
+    if (checkBtn.current.context._errors.length === 0) {
+      AuthService.login(email, password).then(
+        () => {
+          props.history.push("/profile");
+          window.location.reload();
+        },
+        (error) => {
+          const resMessage =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+
+          setLoading(false);
+          setMessage(resMessage);
+        }
+      );
+    } else {
+      setLoading(false);
+    }
+  };
 
   return (
-      <>
-    <div className= 'container'>
-            <div className= 'row align-items-center'>
-                <div className = 'col-sm-9 col-md-7 col-lg-5 mx-auto'>
-                <div className='card card-signin my-5'>
-                    <div className='card-body'>
-                        <div className='form-icon'>
-                            <span ><FontAwesomeIcon icon={faUser} /></span>
+    <>
+    <div className="container">
+    <div className="cont">
+        <div className="form sign-in">
+            <h2>¡Bienvenido de Vuelta!</h2>
+            <Form onSubmit={handleLogin} ref={form}>
+                <FormGroup>
+                    <label>
+                        <span>Correo Electrónico</span>
+                        <Input 
+                            type="text"
+                            className="form-control input-1 input-2"
+                            name="email"
+                            value={email}
+                            onChange={onChangeEmail}
+                            validations={[required]}
+                        ></Input>
+                    </label>
+                </FormGroup>
+                <FormGroup>
+                    <label>
+                        <span>Contraseña</span>
+                        <Input  type="password"
+                                className="form-control input-1 input-2"
+                                name="password"
+                                value={password}
+                                onChange={onChangePassword}
+                                validations={[required]}
+                        ></Input>
+                    </label>
+                </FormGroup>
+                <FormGroup>
+                  <div className='row'>
+                    <button className="btn btn-primary" disabled={loading}>
+                        {loading && (
+                            <span className="spinner-border spinner-border-sm"></span>
+                        )}
+                        <span>Login</span>
+                        </button>
+                  </div>
+                        
+                    </FormGroup>
+
+                    {message && (
+                        <div className="form-group">
+                        <div className="alert alert-danger" role="alert">
+                            {message}
                         </div>
-                            <h5 className='card-title text-center text-uppercase'>Iniciar Sesión</h5>
-                            <Form>
-                                    <FormGroup>
-                                        <Label>Correo Electronico</Label>
-                                        <Input className='form-control' type="email" placeholder="Introduzca su correo "
-                                            name="userEmail"
-                                            value = {email}
-                                            id="userEmail"
-                                            onChange = {(event) => onChangeHandler(event)}
-                                            required
-                                        ></Input>
-                                    </FormGroup>
-                                    <FormGroup>
-                                        <Label>Contraseña</Label>
-                                        <Input className='form-control' type="password" placeholder="Introduzca su contraseña" 
-                                            name="userPassword"
-                                            value = {password}
-                                            placeholder="Your Password"
-                                            id="userPassword"
-                                            onChange = {(event) => onChangeHandler(event)}
-                                        required></Input>
-                                    </FormGroup>
-                                    <div className="form-group">
-                                    <button className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced'}} onClick = {(event) => {signInWithEmailAndPasswordHandler(event, email, password)}}>
-                                                  Iniciar Sesion
-                                    </button>
-                                    </div>
-                                    <div className="text-center">
-                                        <a href="/singUp">¿No tienes cuenta? Regístrate ahora</a>
-                                    </div>
-                            </Form>
                         </div>
+                    )}
+                    <div>
+                      <CheckButton style={{ display: "none" }} ref={checkBtn} /> 
                     </div>
+            </Form>             
+        </div>
+        <div className="sub-cont">
+            <div className="img">
+                <div className="img__text m--up">
+                    <h2>¿Nuevo por Aquí?</h2>
+                    <p>¡Regístrate Ahora!</p>
+                </div>
+                <div className="img__btn">
+                    <span className="m--up">    
+                        <a className="a-link-color" href="/singUp">Registrarse</a>
+                    </span>
                 </div>
             </div>
+
         </div>
-        <Footer/>
-        </>
+    </div>
+    </div>
+    <div>
+        <p >.</p>
+        <p >.</p>
+        <p >.</p>
+        <p >.</p>
+    </div>
+    <Footer/>
+  </>
   );
 };
 
-export default withRouter(Login);
+export default Login;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

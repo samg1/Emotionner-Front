@@ -32,13 +32,13 @@ export default class CalendarToolbar extends Toolbar {
                  */}
             <div className=" row d-none d-sm-flex d-md-none calendar-header">
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
-                    <button type="button" onClick={() => this.navigate('PREV')} ><i class="fa fa-arrow-left"></i></button>
+                    <button type="button" onClick={() => this.navigate('PREV')} ><i className="fa fa-arrow-left"></i></button>
                 </span>
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
-                    <button type="button" onClick={() => this.navigate('TODAY')} ><i class="fa fa-circle"></i></button>
+                    <button type="button" onClick={() => this.navigate('TODAY')} ><i className="fa fa-circle"></i></button>
                 </span>
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
-                    <button type="button" onClick={() => this.navigate('NEXT')}><i class="fa fa-arrow-right"></i></button>
+                    <button type="button" onClick={() => this.navigate('NEXT')}><i className="fa fa-arrow-right"></i></button>
                 </span>
             </div>
               {/**
@@ -46,13 +46,13 @@ export default class CalendarToolbar extends Toolbar {
                  */}
             <div className=" row d-none d-flex d-sm-none calendar-header ">
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
-                    <button type="button" onClick={() => this.navigate('PREV')}><i class="fa fa-arrow-left"></i></button>
+                    <button type="button" onClick={() => this.navigate('PREV')}><i className="fa fa-arrow-left"></i></button>
                 </span>
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar "  >
-                    <button type="button" onClick={() => this.navigate('TODAY')}><i class="fa fa-circle"></i></button>
+                    <button type="button" onClick={() => this.navigate('TODAY')}><i className="fa fa-circle"></i></button>
                 </span>
                 <span className="col col-sm-4 p-1 calendar-sm-toolbar"  >
-                    <button type="button" onClick={() => this.navigate('NEXT')}><i class="fa fa-arrow-right"></i></button>
+                    <button type="button" onClick={() => this.navigate('NEXT')}><i className="fa fa-arrow-right"></i></button>
                 </span>
             </div>
               {/**
@@ -60,13 +60,13 @@ export default class CalendarToolbar extends Toolbar {
                  */}
             <div className="row d-none d-md-flex p-1 calendar-header">
                 <span className="col-sm p-1 calendar-sm-toolbar "  >
-                    <button type="button" onClick={() => this.navigate('PREV')}><i class="fa fa-arrow-left"></i></button>
+                    <button type="button" onClick={() => this.navigate('PREV')}><i className="fa fa-arrow-left"></i></button>
                 </span>    
                 <span className="col-sm p-1 calendar-sm-toolbar" >
-                    <button type="button" onClick={() => this.navigate('TODAY')}><i class="fa fa-circle"></i></button>
+                    <button type="button" onClick={() => this.navigate('TODAY')}><i className="fa fa-circle"></i></button>
                 </span>
                 <span className="col-sm p-1 calendar-sm-toolbar" >
-                    <button type="button" onClick={() => this.navigate('NEXT')}><i class="fa fa-arrow-right"></i></button>
+                    <button type="button" onClick={() => this.navigate('NEXT')}><i className="fa fa-arrow-right"></i></button>
                 </span>
             </div>
             <div className="row  d-none d-md-flex p-1 calendar-header">
