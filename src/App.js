@@ -6,7 +6,8 @@ import AuthService from "./Services/auth.service";
 import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
-import EmotionsView from "./Components/Forms/emotions";
+import agendaView from "./Components/Views/agendaView";
+import emotionsView from "./Components/Views/emotionsView"
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -41,8 +42,13 @@ const App = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to={"/agenda"} className="nav-link">
+                  Mi Agenda
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link to={"/emotions"} className="nav-link">
-                  Mis Emociones
+                  Mood Journal
                 </Link>
               </li>
               <li className="nav-item">
@@ -54,7 +60,7 @@ const App = () => {
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
+                <Link to={["/", "/login"]} className="nav-link">
                   Iniciar Sesión
                 </Link>
               </li>
@@ -71,7 +77,8 @@ const App = () => {
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
             <Route path="/singup" component={Register} />
-            <Route path="/emotions" component={EmotionsView} />
+            <Route path="/agenda" component={agendaView} />
+            <Route path="/emotions" component={emotionsView} />
           </Switch>
           
       </div>

@@ -55,8 +55,7 @@ const TaskForm = () => {
       const currentUser = AuthService.getCurrentUser();
       const userId = currentUser.id;
       var dias = 1; // Número de días a agregar
-      console.info(start)
-      console.info(end)
+    
       if (title==="") {
         alert("Porfavor ingrese todos los campos requeridos")
       }
