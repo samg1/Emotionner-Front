@@ -6,6 +6,7 @@ import AuthService from "./Services/auth.service";
 import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
+import EmotionsView from './Components/Views/emotionsView';
 
 const App = () => {
   const [showModeratorBoard, setShowModeratorBoard] = useState(false);
@@ -70,6 +71,7 @@ const App = () => {
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
             <Route path="/singup" component={Register} />
+            <Route path='/try' component={EmotionsView}/>
           </Switch>
       </div>
     </Router>
