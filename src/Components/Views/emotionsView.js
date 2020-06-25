@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import EmotionsHero from '../Elements/emotionsHero';
+import Quote from '../Elements/quote';
+import Footer from '../Elements/footerOutside'
+
 
 export default function MyTabs(props) {
   const [activeTab, setActiveTab] = useState('1');
@@ -117,6 +120,10 @@ export default function MyTabs(props) {
         <TabPane tabId="7"></TabPane>
       </TabContent>
     </div>
+    <div className='row'>
+        <Quote/>
+    </div>
+    <Footer/>
     </>
   );
 }

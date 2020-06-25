@@ -1,6 +1,6 @@
 @import "./Styles/login-user-form.css";
 @import "./Styles/user-registration.css";
-/**
+@import "~fontsource-barlow-condensed/index.css";
 * Body
 */
 #root{
@@ -995,7 +995,6 @@ section{
   margin: 50px;
 }
 
-
 /* follow me template */
 .made-with-love {
   margin-top: 40px;
@@ -1021,7 +1020,6 @@ section{
   text-decoration: underline;
 }
 
-
 /* for custom scrollbar for webkit browser*/
 
 ::-webkit-scrollbar {
@@ -1032,9 +1030,65 @@ section{
 } 
 ::-webkit-scrollbar-thumb {
     -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+
 }
 
+#ct{height:150px; 
+  width:370px;
+  border:1px solid #c341d4; 
+  border-width: 2px; 
+  margin: 100px auto;
+  text-align:center;
+  position:relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: large;
+  color:rgb(0, 0, 0);
+  padding:15px;}
+.claseSpan{
+  background:#ededed;
+  color:#000000;
+  padding:0 10px;
+  font-size:20px;
+  position:relative; 
+  top:-28px;
+  border-width: 2px;
+}
+.corner{height:30px;
+  width:30px;
+  border-radius:50%;
+  border:1px solid #fff;
+  transform:rotate(-45deg);  
+  position:absolute;
+  background:#ededed;
+  border-width: 2px;
+}
 
+#left_top{
+  top:-16px;
+  left:-16px;
+  border-color:transparent transparent #c341d4 transparent;
+  border-width: 2px;
+}
+#right_top{
+  top:-16px;
+  right:-16px;
+  border-color:transparent transparent transparent #c341d4;
+  border-width: 2px;
+}
+#left_bottom{
+  bottom:-16px;
+  left:-16px;
+  border-color:transparent #c341d4 transparent transparent ;
+  border-width: 2px;
+}
+#right_bottom{
+  bottom:-16px;
+  right:-16px;
+  border-color:#c341d4 transparent transparent transparent;
+  border-width: 2px;
+}
 
-
-
+.back-white{
+  background-color: #ededed;
+  width: 100%;
+}
