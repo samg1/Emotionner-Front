@@ -6,6 +6,7 @@ import AuthService from "./Services/auth.service";
 import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
+import EmotionsView from "./Components/Forms/emotions";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -40,6 +41,11 @@ const App = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to={"/emotions"} className="nav-link">
+                  Mis Emociones
+                </Link>
+              </li>
+              <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={logOut}>
                   Cerrar Sesión
                 </a>
@@ -61,12 +67,13 @@ const App = () => {
             </div>
           )}
         </nav>
-
-          <Switch>
+            <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
             <Route path="/singup" component={Register} />
+            <Route path="/emotions" component={EmotionsView} />
           </Switch>
+          
       </div>
     </Router>
   );

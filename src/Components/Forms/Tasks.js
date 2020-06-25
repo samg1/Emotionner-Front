@@ -41,10 +41,6 @@ const TaskForm = () => {
       setEnd(start)
     };
 
-    const onChangeEnd = (e) => {
-      const end = e.target.value;
-      setEnd(end);
-    };
     const onChangeHour = (e) => {
       const hour = e.target.value;
       setHour(hour);
@@ -107,20 +103,20 @@ const TaskForm = () => {
             <Form>
             <div className = "try"> 
             <FormGroup>
-                <Label for="title">Título de la tarea</Label>
+                <Label htmlFor="title">Título de la tarea</Label>
                 <Input type="text" name="title" id="title" placeholder="Tarea" value={title}
                       onChange={onChangeTitle} required/>
             </FormGroup>
             <FormGroup>
-                <Label for="description">Descripción (Opcional) </Label>
-                <Input type="description" name="description" id="description" placeholder="Descripción"
+                <Label htmlFor="description">Descripción (Opcional) </Label>
+                <Input type="text" name="description" id="description" placeholder="Descripción"
                 value={description}
                 onChange={onChangeDescription} required />
             </FormGroup>
                 <Row form>
                     <Col>
                         <FormGroup>
-                            <Label for="exampleEmail">Fecha</Label>
+                            <Label htmlFor="exampleEmail">Fecha</Label>
                             <Input type="date" name="start" id="start" placeholder="Fecha de inicio"
                             value={start}
                             onChange={onChangeStart} required

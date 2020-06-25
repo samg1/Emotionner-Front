@@ -1,11 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from "react-bootstrap/Modal";
 import 'font-awesome/css/font-awesome.min.css';
-import { Form, FormGroup, Col, Row} from 'reactstrap';
+import { Form, FormGroup, Col, Row, Input} from 'reactstrap';
 import all from '../Forms/all';
 
 const EmotionsForm = () => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [emotion, setEmotion ] = useState("");
+    const [description, setDescription] = useState("");
   
     const showModal = () => {
       setIsOpen(true);
@@ -14,7 +16,15 @@ const EmotionsForm = () => {
     const hideModal = () => {
       setIsOpen(false);
     };
-  
+    const onChangeEmotion = (e) => {
+      const emotion = e;
+      setEmotion(emotion); 
+      console.log(emotion)
+    };
+    const onChangeDescription = (e) => {
+      const description = e.target.value;
+      setDescription(description);
+    };
     return (
       <>
         <div className = 'buttonArrow fit-to-content'>
@@ -32,7 +42,7 @@ const EmotionsForm = () => {
                     <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Increíble</p>
-                            <a  className=' d-flex justify-content-center'><i className="increible far fa-grin-stars"></i></a>
+                            <a  className=' d-flex justify-content-center'  role="button" ><i className="increible far fa-grin-stars"></i></a>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
@@ -69,6 +79,15 @@ const EmotionsForm = () => {
                             <a className=' d-flex justify-content-center'><i className="estresado far fa-tired"></i></a>
                         </FormGroup>
                     </Col>
+                </Row>
+                <div style={{marginBottom:'20px'}}>
+                </div>
+                <Row form className='d-flex justify-content-center'>
+                    <p htmlFor="exampleText">¿Quieres expresarte mejor?</p>
+                    <Input  type="text-area" name="description" id="description" placeholder="Descripción"
+                    value={description}
+                    onChange={onChangeDescription} required></Input>
+                  
                 </Row>
             </div>
             </Form>

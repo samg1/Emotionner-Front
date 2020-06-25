@@ -67,7 +67,7 @@ class Calendario extends Component {
             events={tasks}
             defaultView={Views.MONTH}
             scrollToTime={new Date(1970, 1, 1, 6)}
-            onSelectEvent={event => alert(event.title)}
+            onSelectEvent={event => alert('Tarea: '+ event.title + '\n'+ 'Descripcion: '+ event.description)}
             components = {{toolbar : CalendarToolbar}}
             onSelectSlot={this.handleSelect}
             dayLayoutAlgorithm={this.state.dayLayoutAlgorithm}
