@@ -7,16 +7,16 @@ import axios from 'axios'
 import Footer from '../Elements/footerInside'
 
 /**
- * Emotions View where all agenda components are called
+ * Agenda View where all agenda components are called
  */
-class emotionsView extends Component {
+class agendaView extends Component {
   state = {
     items: []
   }
 
   /**
    * GetItems()
-   * @returns emotions in the database
+   * @returns tasks in the database
    */
 
   getItems(){
@@ -24,11 +24,11 @@ class emotionsView extends Component {
     const id = currentUser.id;
     console.log(id)
     //Axios call
-    axios.get(`https://emotionner.herokuapp.com/users/registeredEmotions/${id}`)
+    axios.get(`https://emotionner.herokuapp.com/users/tasks/${id}`)
         .then(response => {
           console.log('ANTES')
-          console.log(response.data)
-          let appointments = response.data;
+          console.log(response.data.tasks.tasks)
+          let appointments = response.data.tasks.tasks;
           this.setState({
             items : appointments
           })
@@ -77,7 +77,7 @@ class emotionsView extends Component {
       <Container className="container" style={{marginBottom: '20px'}}>
         <Row>
           <Col>
-            <h1 style={{margin: "20px 0"}}> Journal de Emociones</h1>
+            <h1 style={{margin: "20px 0"}}> Mi Agenda</h1>
           </Col>
         </Row>
         <Row>
@@ -97,4 +97,4 @@ class emotionsView extends Component {
   }
 }
 
-export default emotionsView
+export default agendaView

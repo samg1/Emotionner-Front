@@ -84,6 +84,7 @@ const Login = (props) => {
                             value={email}
                             onChange={onChangeEmail}
                             validations={[required]}
+                            autocomplete="off"
                         ></Input>
                     </label>
                 </FormGroup>
@@ -96,6 +97,7 @@ const Login = (props) => {
                                 value={password}
                                 onChange={onChangePassword}
                                 validations={[required]}
+                                autocomplete="off"
                         ></Input>
                     </label>
                 </FormGroup>

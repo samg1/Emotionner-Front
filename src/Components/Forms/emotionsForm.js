@@ -1,11 +1,13 @@
-import React, {Component} from 'react';
+import React, {useState} from 'react';
 import Modal from "react-bootstrap/Modal";
 import 'font-awesome/css/font-awesome.min.css';
+import { Form, FormGroup, Col, Row, Input} from 'reactstrap';
 import all from '../Forms/all';
-import { Button, Form, FormGroup, Label, Col, Row, Input} from 'reactstrap';
 
 const EmotionsForm = () => {
     const [isOpen, setIsOpen] = React.useState(false);
+    const [emotion, setEmotion ] = useState("");
+    const [description, setDescription] = useState("");
   
     const showModal = () => {
       setIsOpen(true);
@@ -14,7 +16,15 @@ const EmotionsForm = () => {
     const hideModal = () => {
       setIsOpen(false);
     };
-  
+    const onChangeEmotion = (e) => {
+      const emotion = e;
+      setEmotion(emotion); 
+      console.log(emotion)
+    };
+    const onChangeDescription = (e) => {
+      const description = e.target.value;
+      setDescription(description);
+    };
     return (
       <>
         <div className = 'buttonArrow fit-to-content'>
@@ -32,19 +42,19 @@ const EmotionsForm = () => {
                     <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Increíble</p>
-                            <a  href="" className='increible d-flex justify-content-center'><i className="far fa-grin-stars"></i></a>
+                            <a  className=' d-flex justify-content-center'  role="button" ><i className="increible far fa-grin-stars"></i></a>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Bien</p>
-                            <a  href="" className='bien d-flex justify-content-center'><i className="far fa-smile"></i></a>
+                            <a  className=' d-flex justify-content-center'><i className="bien far fa-smile"></i></a>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Triste</p>
-                            <a  href="" className='triste d-flex justify-content-center'><i className="far fa-sad-tear"></i></a>
+                            <a  className='triste d-flex justify-content-center'><i className="triste far fa-sad-tear"></i></a>
                         </FormGroup>
                     </Col>
                 </Row>
@@ -54,27 +64,34 @@ const EmotionsForm = () => {
                 <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Enojado</p>
-                            <a  href="" className='enojado d-flex justify-content-center'><i className="far fa-angry"></i></a>
+                            <a  className=' d-flex justify-content-center'><i className="enojado far fa-angry"></i></a>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Ansioso</p>
-                            <a  href="" className='ansioso d-flex justify-content-center'><i className="far fa-grimace"></i></a>
+                            <a className=' d-flex justify-content-center'><i className="ansioso far fa-grimace"></i></a>
                         </FormGroup>
                     </Col>
                     <Col md={4}>
                         <FormGroup>
                             <p className='d-flex justify-content-center'>Estresado</p>
-                            <a  href=""className='estresado d-flex justify-content-center'><i className="far fa-tired"></i></a>
+                            <a className=' d-flex justify-content-center'><i className="estresado far fa-tired"></i></a>
                         </FormGroup>
                     </Col>
                 </Row>
                 <div style={{marginBottom:'20px'}}>
                 </div>
                 <Row form className='d-flex justify-content-center'>
+<<<<<<< HEAD
                     <p for="exampleText">¿Quieres expresarte mejor?</p>
                     <Input type="textarea" name="text" id="exampleText"></Input>
+=======
+                    <p htmlFor="exampleText">¿Quieres expresarte mejor?</p>
+                    <Input  type="text-area" name="description" id="description" placeholder="Descripción"
+                    value={description}
+                    onChange={onChangeDescription} required></Input>
+>>>>>>> amanda-new
                   
                 </Row>
             </div>
@@ -84,7 +101,7 @@ const EmotionsForm = () => {
           <Modal.Footer>
               
              <div className="d-flex justify-content-center">
-                <a href="#" class="btn-horizontal"><span>Listo</span></a>
+                <a  className="btn-horizontal"><span>Listo</span></a>
             </div>
 
           </Modal.Footer>

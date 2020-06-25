@@ -6,11 +6,14 @@ import AuthService from "./Services/auth.service";
 import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
+<<<<<<< HEAD
 import EmotionsView from './Components/Views/emotionsView';
+=======
+import agendaView from "./Components/Views/agendaView";
+import emotionsView from "./Components/Views/emotionsView"
+>>>>>>> amanda-new
 
 const App = () => {
-  const [showModeratorBoard, setShowModeratorBoard] = useState(false);
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
 
   useEffect(() => {
@@ -18,8 +21,6 @@ const App = () => {
 
     if (user) {
       setCurrentUser(user);
-      setShowModeratorBoard(user.roles.includes("ROLE_MODERATOR"));
-      setShowAdminBoard(user.roles.includes("ROLE_ADMIN"));
     }
   }, []);
 
@@ -45,6 +46,16 @@ const App = () => {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link to={"/agenda"} className="nav-link">
+                  Mi Agenda
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/emotions"} className="nav-link">
+                  Mood Journal
+                </Link>
+              </li>
+              <li className="nav-item">
                 <a href="/login" className="nav-link" onClick={logOut}>
                   Cerrar Sesión
                 </a>
@@ -53,7 +64,7 @@ const App = () => {
           ) : (
             <div className="navbar-nav ml-auto">
               <li className="nav-item">
-                <Link to={"/login"} className="nav-link">
+                <Link to={["/", "/login"]} className="nav-link">
                   Iniciar Sesión
                 </Link>
               </li>
@@ -66,13 +77,18 @@ const App = () => {
             </div>
           )}
         </nav>
-
-          <Switch>
+            <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
             <Route path="/singup" component={Register} />
+<<<<<<< HEAD
             <Route path='/try' component={EmotionsView}/>
+=======
+            <Route path="/agenda" component={agendaView} />
+            <Route path="/emotions" component={emotionsView} />
+>>>>>>> amanda-new
           </Switch>
+          
       </div>
     </Router>
   );
