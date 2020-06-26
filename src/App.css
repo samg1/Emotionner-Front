@@ -1019,8 +1019,6 @@ td{
 
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 body{
-  background: -webkit-linear-gradient(left, #f1a9ff, #25b7c4);
-  background: linear-gradient(to right, #f0a4ff, #25b7c4);
   font-family: 'Roboto', sans-serif;
 }
 section{
