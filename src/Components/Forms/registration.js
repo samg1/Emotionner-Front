@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 
 import AuthService from "../../Services/auth.service";
+import Footer from "../Elements/footerInside";
 /**
  * Requeried method verifies that all the fields are filled in
  * @param {*} value 
@@ -131,6 +132,7 @@ const Register = (props) => {
   };
 
   return (
+    <>
     <div className="container">
       <div className="card card-signin my-5">
         <div className="card-body">
@@ -224,6 +226,8 @@ const Register = (props) => {
         
       </div>
     </div>
+    <Footer/>
+    </>
   );
 };
 

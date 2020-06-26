@@ -57,9 +57,18 @@ const getCurrentUser = () => {
   return JSON.parse(localStorage.getItem("user"));
 };
 
+const isAuth= (user)=>{
+    if(user){
+      return true
+    } else {
+      return false
+    }
+}
+
 export default {
   register,
   login,
   logout,
   getCurrentUser,
+  isAuth
 };

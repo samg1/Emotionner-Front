@@ -9,6 +9,8 @@ import Register from "./Components/Forms/registration";
 import agendaView from "./Components/Views/agendaView";
 import emotionsView from "./Components/Views/emotionsView";
 import Navbar_ from "./Components/Elements/navbar";
+import  PrivateRoute from "./Services/privateRoute";
+import HomePage from "./Components/Views/homePage";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -21,20 +23,18 @@ const App = () => {
     }
   }, []);
 
-  const logOut = () => {
-    AuthService.logout();
-  };
 
   return (
     <>
     <Navbar_/>
     <Router>
             <Switch>
-            <Route exact path={["/", "/login"]} component={Login} />
-            <Route path="/profile" component={CalendarioView} />
-            <Route path="/singup" component={Register} />
-            <Route path="/agenda" component={agendaView} />
-            <Route path="/emotions" component={emotionsView} />
+            <Route exact path={"/login"} component={Login} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/singup" component={Register} />
+            <PrivateRoute exact path="/profile" component={CalendarioView} />
+            <PrivateRoute exact path="/agenda" component={agendaView} />
+            <PrivateRoute exact path="/mood" component={emotionsView} />
           </Switch>
     </Router>
     </>

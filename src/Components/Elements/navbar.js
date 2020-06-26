@@ -46,10 +46,10 @@ const Navbar_ = (props) => {
           ): 
           <Nav className="mr-auto" navbar>  
           <NavItem>
-              <NavLink href="/singin">Iniciar Sesion</NavLink>
+              <NavLink href="/login">Iniciar Sesion</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/singout">Registrate</NavLink>
+              <NavLink href="/singup">Registrate</NavLink>
             </NavItem>
             </Nav>
             }
