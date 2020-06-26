@@ -7,7 +7,8 @@ import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
 import agendaView from "./Components/Views/agendaView";
-import emotionsView from "./Components/Views/emotionsView"
+import emotionsView from "./Components/Views/emotionsView";
+import Navbar_ from "./Components/Elements/navbar";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -25,54 +26,9 @@ const App = () => {
   };
 
   return (
+    <>
+    <Navbar_/>
     <Router>
-      <div>
-        <nav className="navbar navbar-expand navbar-light bg-light">
-          <Link to={"/"} className="navbar-brand">
-            Emotionner
-          </Link>
-          <div className="navbar-nav mr-auto">
-          </div>
-
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  Mi Calendario
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/agenda"} className="nav-link">
-                  Mi Agenda
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/emotions"} className="nav-link">
-                  Mood Journal
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={logOut}>
-                  Cerrar Sesión
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={["/", "/login"]} className="nav-link">
-                  Iniciar Sesión
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/singup"} className="nav-link">
-                  Crea una cuenta
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
             <Switch>
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
@@ -80,9 +36,8 @@ const App = () => {
             <Route path="/agenda" component={agendaView} />
             <Route path="/emotions" component={emotionsView} />
           </Switch>
-          
-      </div>
     </Router>
+    </>
   );
 };
 

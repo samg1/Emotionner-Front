@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import ModalForm from '../Forms/tasksModal'
-import TasksTable from '../Elements/taskTable'
+import ModalFormE from '../Forms/emotionsModal'
+import EmotionsTable from '../Elements/emotionsTable'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import Footer from '../Elements/footerInside'
@@ -62,10 +62,6 @@ class emotionsView extends Component {
     this.setState({ items: newArray })
   }
 
-  deleteItemFromState = (id) => {
-    const updatedItems = this.state.items.filter(item => item.id !== id)
-    this.setState({ items: updatedItems })
-  }
 
   componentDidMount(){
     this.getItems()
@@ -82,12 +78,12 @@ class emotionsView extends Component {
         </Row>
         <Row>
           <Col>
-            <TasksTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} />
+            <EmotionsTable items={this.state.items} updateState={this.updateState} deleteItemFromState={this.deleteItemFromState} />
           </Col>
         </Row>
         <Row>
           <Col>
-            <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState}/>
+            <ModalFormE buttonLabel="Add Item" addItemToState={this.addItemToState}/>
           </Col>
         </Row>
       </Container>

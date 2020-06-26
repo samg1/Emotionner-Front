@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
 import AuthService from './../../Services/auth.service'
 
 const Navbar_ = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setIsOpen(!isOpen);
+  const [currentUser, setCurrentUser] = useState(undefined);
+
+  useEffect(() => {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+  }, []);
+
   const logOut = () => {
     AuthService.logout();
   };
+
+  const toggle = () => setIsOpen(!isOpen);
+
 
   return (
     <div>
@@ -16,23 +28,35 @@ const Navbar_ = (props) => {
         <NavbarBrand href="/">Emotionner</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar>
+          {currentUser ? (
+          <Nav className="mr-auto" navbar>  
           <NavItem>
-              <NavLink >Tus emociones</NavLink>
+              <NavLink href="/profile" >Mi calendario</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>Tus tareas</NavLink>
+              <NavLink href="/agenda" >Mi agenda</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink >Artículos</NavLink>
+              <NavLink href="/mood" >Mi Mood Journal</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>Estadísticas</NavLink>
+            <NavLink href='/' type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}} className='btn-md btn-light' onClick = {logOut}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
             </NavItem>
-          </Nav>
-          <div className=''>
-          <NavLink type='button' style={{fontWeight:'lighter'}, {fontSize:'16px'}}className='btn-md btn-light' onClick = {logOut}><i className="fa fa-user"></i>   Cerrar Sesión</NavLink>
-          </div>
+            </Nav>
+          ): 
+          <Nav className="mr-auto" navbar>  
+          <NavItem>
+              <NavLink href="/singin">Iniciar Sesion</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/singout">Registrate</NavLink>
+            </NavItem>
+            </Nav>
+            }
+         
+          
+          
+          
         </Collapse>
       </Navbar>
     </div>
