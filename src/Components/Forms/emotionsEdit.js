@@ -107,13 +107,14 @@ class AddEditFormE extends React.Component {
   
     render() {
       return (
+        <div className = 'styleLetters'>
         <div className="try">
         <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd} autoComplete= 'off'>
           <FormGroup tag="fieldset">
-            <Label ><h2>¿Cómo te sientes?</h2></Label>
+            <Label ><h2 style={{fontWeight:'lighter', fontFamily:'Roboto, Sans Serif'}}>¿Cómo te sientes?</h2></Label>
             <div className='row'>
               <Col>
-                <FormGroup check>
+                <FormGroup check className='d-flex justify-content-start'>
                 <Label >  
                   <Input type="radio" name="increible" value='1' checked={this.state.emotionId === '1'}
                   onChange={this.changeEmotion}
@@ -126,7 +127,7 @@ class AddEditFormE extends React.Component {
               </FormGroup>
               </Col>
               <Col >
-                <FormGroup check>
+                <FormGroup check className='d-flex justify-content-start'>
                 <Label check>  
                   <Input type="radio" name="bien" value="11"
                   checked={this.state.emotionId === '11'}
@@ -142,7 +143,7 @@ class AddEditFormE extends React.Component {
             </div>
             <div className='row' >
             <Col>
-                <FormGroup check>
+                <FormGroup check className='d-flex justify-content-start'>
                 <Label check>  
                   <Input type="radio" name="triste" value="21"
                   checked={this.state.emotionId === '21'}
@@ -156,7 +157,7 @@ class AddEditFormE extends React.Component {
               </FormGroup>
               </Col>
               <Col >
-                <FormGroup check>
+                <FormGroup check className='d-flex justify-content-start'>
                 <Label check>  
                   <Input type="radio" name="enojado" value="31"
                   checked={this.state.emotionId === '31'}
@@ -172,7 +173,7 @@ class AddEditFormE extends React.Component {
             </div>
             <div className='row'>
             <Col>
-                <FormGroup check>
+                <FormGroup check className='d-flex justify-content-start'>
                 <Label check>  
                   <Input type="radio" name="ansioso" value="41"
                   checked={this.state.emotionId === '41'}
@@ -185,8 +186,8 @@ class AddEditFormE extends React.Component {
                 </Label>
               </FormGroup>
               </Col>
-              <Col >
-                <FormGroup check>
+              <Col>
+                <FormGroup check className='d-flex justify-content-start'>
                 <Label check>  
                   <Input type="radio" name="estresado" value="51"
                   checked={this.state.emotionId === '51'}
@@ -201,14 +202,17 @@ class AddEditFormE extends React.Component {
               </Col>
             </div>
           </FormGroup>
-          <FormGroup>
-            <Label for="last"><h4>¿Quieres expresarte mejor?</h4></Label>
+          <FormGroup >
+            <Label for="last"><h4 style={{fontWeight:'lighter', fontFamily:'Roboto, Sans Serif'}}>¿Quieres expresarte mejor?</h4></Label>
             <Input type="textarea" name="description" id="description" onChange={this.onChange} value={this.state.description === null ? '' : this.state.description}  />
           </FormGroup>
           <Col>
-          <Button className='btn-block' style={{marginTop: '20px', marginBottom:'20px'}}>Submit</Button>
+          <div className="d-flex justify-content-end">
+          <Button className='btn-horizontal d-flex justify-content-center' style={{marginTop: '20px', marginBottom:'20px', backgroundColor:'#fff', padding:'0px', fontWeight:'bold', letterSpacing: '2px'}}>Submit</Button>
+          </div>
           </Col>
         </Form>
+        </div>
         </div>
         
       );

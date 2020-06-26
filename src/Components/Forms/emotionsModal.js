@@ -18,17 +18,27 @@ class ModalFormE extends Component {
   }
 
   render() {
-      const closeBtn = <button className="close" onClick={this.toggle}>&times;</button>
+      const closeBtn = <button className="close d-flex justify-content-end" onClick={this.toggle}>&times;</button>
 
       const label = this.props.buttonLabel
 
       let button = ''
       let title = ''
 
+      title = label;
+
       if(label === 'Edit'){
-        button = <button type="button" class="btn btn-warning btn-sm" onClick={this.toggle } title='Editar'> {label}</button>
+        button = <>
+          <div className = 'buttonArrow' style={{marginTop:'25px'}}>
+              <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Editar'>{label}</a>
+          </div>
+        </>
       } else {
-        button = <button type="button" class="btn btn-success btn-sm" onClick={this.toggle } title='Añadir Estado de Animo'> {label}</button>
+        button = <>
+          <div className = 'buttonArrow' style={{marginTop:'25px'}}>
+              <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Añadir Estado de Animo'>{label}</a>
+          </div>
+        </>
       }
 
 

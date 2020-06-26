@@ -1,10 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import ModalForm from '../Forms/tasksModal'
 import TasksTable from '../Elements/taskTable'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import Footer from '../Elements/footerInside'
+import TasksHero from '../Elements/taskHero';
+import Taskquote from '../Elements/taskQuote';
+import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 
 /**
  * Agenda View where all agenda components are called
@@ -72,12 +75,24 @@ class agendaView extends Component {
   }
 
   render() {
+
+    const Example = (props) => {
+      const [activeTab, setActiveTab] = useState('1');
+    
+      const toggle = tab => {
+        if(activeTab !== tab) setActiveTab(tab);
+      }
+
+    };
+
     return (
       <>
+      <TasksHero/>
+      
       <Container className="container" style={{marginBottom: '20px'}}>
         <Row>
           <Col>
-            <h1 style={{margin: "20px 0"}}> Mi Agenda</h1>
+            <h1 style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'25px'}}> ¡DISFRUTA DE TUS PEQUEÑOS LOGROS!</h1>
           </Col>
         </Row>
         <Row>
@@ -86,15 +101,16 @@ class agendaView extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <ModalForm buttonLabel="Add Item" addItemToState={this.addItemToState}/>
+          <Col className = 'd-flex justify-content-end'>
+            <ModalForm buttonLabel="Añadir tarea" addItemToState={this.addItemToState}/>
           </Col>
         </Row>
       </Container>
+      <div className='row'>
+        <Taskquote/>
+      </div>
       <Footer/>
       </>
     )
   }
-}
-
-export default agendaView
+} export default agendaView;

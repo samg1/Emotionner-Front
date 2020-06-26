@@ -5,6 +5,8 @@ import EmotionsTable from '../Elements/emotionsTable'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import Footer from '../Elements/footerInside'
+import Quote from '../Elements/quote'
+import EmotionsHero from '../Elements/emotionsHero'
 
 /**
  * Emotions View where all agenda components are called
@@ -70,10 +72,11 @@ class emotionsView extends Component {
   render() {
     return (
       <>
+      <EmotionsHero/>
       <Container className="container" style={{marginBottom: '20px'}}>
         <Row>
           <Col>
-            <h1 style={{margin: "20px 0"}}> Journal de Emociones</h1>
+          <h1 style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'25px'}}> ¿Cómo te haz estado sintiendo?</h1>
           </Col>
         </Row>
         <Row>
@@ -82,11 +85,12 @@ class emotionsView extends Component {
           </Col>
         </Row>
         <Row>
-          <Col>
-            <ModalFormE buttonLabel="Add Item" addItemToState={this.addItemToState}/>
+          <Col className='d-flex justify-content-end'>
+            <ModalFormE buttonLabel="Registra tus emociones" addItemToState={this.addItemToState}/>
           </Col>
         </Row>
       </Container>
+      <Quote/>
       <Footer/>
       </>
     )
