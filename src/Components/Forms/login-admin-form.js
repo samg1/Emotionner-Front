@@ -41,14 +41,15 @@ class LoginAdminForm extends Component{
             if(!user){
                 console.log("Los datos ingresados no son validos")
                 alert("Los datos ingresados no son validos")
+                
+            }else{
                 console.log("Los datos ingresados son validos")
                 this.redirect()
-            
             }
         }
     }
     redirect(){
-            var link = window.location.href+'/addArticle';
+            var link = window.location.href+'/create';
             console.log (link);
             return window.location.replace(link)
     }

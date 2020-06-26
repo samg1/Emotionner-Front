@@ -7,7 +7,12 @@ import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
 import agendaView from "./Components/Views/agendaView";
-import emotionsView from "./Components/Views/emotionsView"
+import emotionsView from "./Components/Views/emotionsView";
+import Navbar_ from "./Components/Elements/navbar";
+import  PrivateRoute from "./Services/privateRoute";
+import HomePage from "./Components/Views/homePage";
+import LoginAdminForm from "./Components/Forms/login-admin-form";
+import addArticleView from "./Components/Views/addArticle";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -20,12 +25,12 @@ const App = () => {
     }
   }, []);
 
-  const logOut = () => {
-    AuthService.logout();
-  };
 
   return (
+    <>
+    <Navbar_/>
     <Router>
+<<<<<<< HEAD
       <div>
         <nav className="navbar navbar-expand navbar-light bg-light">
           <Link to={"/"} className="navbar-brand" style={{fontWeight: "light"}}>
@@ -73,16 +78,20 @@ const App = () => {
             </div>
           )}
         </nav>
+=======
+>>>>>>> amanda-new
             <Switch>
-            <Route exact path={["/", "/login"]} component={Login} />
-            <Route path="/profile" component={CalendarioView} />
-            <Route path="/singup" component={Register} />
-            <Route path="/agenda" component={agendaView} />
-            <Route path="/emotions" component={emotionsView} />
+            <Route exact path={"/login"} component={Login} />
+            <Route exact path="/" component={HomePage} />
+            <Route exact path="/singup" component={Register} />
+            <Route exact path="/admin" component={LoginAdminForm} />
+            <Route exact path="/admin/create" component={addArticleView} />
+            <PrivateRoute exact path="/profile" component={CalendarioView} />
+            <PrivateRoute exact path="/agenda" component={agendaView} />
+            <PrivateRoute exact path="/mood" component={emotionsView} />
           </Switch>
-          
-      </div>
     </Router>
+    </>
   );
 };
 

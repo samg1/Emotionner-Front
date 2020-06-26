@@ -114,30 +114,30 @@ class CreateArticle extends Component{
         else if (this.state.campPremium=="") {
             alert("Introduzca el tipo de usuario en premium")
          }
-        else if (this.state.campPremium=="Premium") {
+        else if (this.state.campPremium==="Premium") {
             this.state.campPremium="true"
          }
-         else if (this.state.campPremium=="No premium") {
+         else if (this.state.campPremium==="No premium") {
             this.state.campPremium="false"
          }
-         else if (this.state.campEmotion=="") {
+         else if (this.state.campEmotion==="") {
             alert("Introduzca una emoción asociada al artículo")
          }
-         else if (this.state.campEmotion=="Feliz") {
+         else if (this.state.campEmotion==="Feliz") {
             this.state.campEmotion=1
          }
-         else if (this.state.campEmotion=="Bien") {
+         else if (this.state.campEmotion==="Bien") {
             this.state.campEmotion=11
          }
-         else if (this.state.campEmotion=="Triste") {
+         else if (this.state.campEmotion==="Triste") {
             this.state.campEmotion=21
-         }else if (this.state.campEmotion=="Enojado") {
+         }else if (this.state.campEmotion==="Enojado") {
             this.state.campEmotion=31
          }
-         else if (this.state.campEmotion=="Ansioso") {
+         else if (this.state.campEmotion==="Ansioso") {
             this.state.campEmotion=41
          }
-         else if (this.state.campEmotion=="Estresado") {
+         else if (this.state.campEmotion==="Estresado") {
             this.state.campEmotion=51
          }
         else {
@@ -155,11 +155,13 @@ class CreateArticle extends Component{
           }
 
           console.log(datapost)
-     
+          
           axios.post(baseUrl,datapost)
           .then(response=>{
             if (response.data.success===true) {
                 alert(response.data.message)
+                window.location.reload()
+                
             }
             else {
               alert(response.data.message)
@@ -169,6 +171,7 @@ class CreateArticle extends Component{
           })
      
         }
+        
      
       }
     
