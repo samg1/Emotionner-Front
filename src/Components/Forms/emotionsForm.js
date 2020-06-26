@@ -83,15 +83,10 @@ const EmotionsForm = () => {
                 <div style={{marginBottom:'20px'}}>
                 </div>
                 <Row form className='d-flex justify-content-center'>
-<<<<<<< HEAD
-                    <p for="exampleText">¿Quieres expresarte mejor?</p>
-                    <Input type="textarea" name="text" id="exampleText"></Input>
-=======
                     <p htmlFor="exampleText">¿Quieres expresarte mejor?</p>
                     <Input  type="text-area" name="description" id="description" placeholder="Descripción"
                     value={description}
                     onChange={onChangeDescription} required></Input>
->>>>>>> amanda-new
                   
                 </Row>
             </div>

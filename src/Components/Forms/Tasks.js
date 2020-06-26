@@ -124,7 +124,7 @@ const TaskForm = () => {
                     </Col>
                 </Row>
             <FormGroup>
-                <Label for="exampleEmail">Hora (Opcional)</Label>
+                <Label for="exampleEmail">Horas (Opcional)</Label>
                 <Input type="time" name="time" id="time" placeholder="Hora"
                 value={time}
                 onChange={onChangeHour} 
@@ -135,11 +135,9 @@ const TaskForm = () => {
             </div>
           </Modal.Body>
           <Modal.Footer>
-              
-             <div className="d-flex justify-content-center">
-                <button type='button' className="btn-horizontal" onClick={()=>handleRegister()}>Guardar</button>
-            </div>
-
+          <div className="d-flex justify-content-end">
+              <a  className="btn-horizontal" onClick={()=>handleRegister()}><span>Guardar</span></a>
+          </div>
           </Modal.Footer>
         </Modal>
       </>

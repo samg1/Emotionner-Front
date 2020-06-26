@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, Col } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Col, Row} from 'reactstrap';
 import AuthService from '../../Services/auth.service';
 
 /**
@@ -101,7 +101,9 @@ class AddEditForm extends React.Component {
   
     render() {
       return (
+        <div className = 'styleLetters'>
         <Form onSubmit={this.props.item ? this.submitFormEdit : this.submitFormAdd} autoComplete= 'off'>
+        <div className = "try">
           <FormGroup>
             <Label for="first">Título de la tarea</Label>
             <Input type="text" name="title" id="title" onChange={this.onChange} value={this.state.title === null ? '' : this.state.title} />
@@ -110,18 +112,29 @@ class AddEditForm extends React.Component {
             <Label for="last">Description</Label>
             <Input type="text" name="description" id="description" onChange={this.onChange} value={this.state.description === null ? '' : this.state.description}  />
           </FormGroup>
-          <FormGroup>
-            <Label for="start">Fecha</Label>
-            <Input type="date" name="start" id="start" onChange={this.onChange} value={this.state.start === null ? '' : this.state.start}  />
-          </FormGroup>
-          <FormGroup>
-            <Label for="time">Hora (Opcional)</Label>
-            <Input type="time" name="time" id="time" onChange={this.onChange} value={this.state.time === null ? '' : this.state.time}  placeholder="Hora" />
-          </FormGroup>
+          <Row form>
+            <Col>
+              <FormGroup>
+                <Label for="start" className='d-flex justify-content-start'>Fecha</Label>
+                <Input type="date" name="start" id="start" onChange={this.onChange} value={this.state.start === null ? '' : this.state.start}  />
+              </FormGroup>
+            </Col>
+            <Col>
+              <FormGroup>
+                <Label for="time" className='d-flex justify-content-start'>Hora (Opcional)</Label>
+                <Input type="time" name="time" id="time" onChange={this.onChange} value={this.state.time === null ? '' : this.state.time}  placeholder="Hora" />
+              </FormGroup>
+            </Col>
+          </Row>
+          </div>
           <Col>
-          <Button className='btn-block' style={{marginTop: '20px', marginBottom:'20px'}}>Submit</Button>
+          <div className="d-flex justify-content-end">
+          <Button className='btn-horizontal d-flex justify-content-center' style={{marginTop: '20px', marginBottom:'20px', backgroundColor:'#fff', padding:'0px', fontWeight:'bold', letterSpacing: '2px'}}>Submit</Button>
+          </div>
+          
           </Col>
         </Form>
+        </div>
       );
     }
   }

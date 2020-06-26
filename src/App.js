@@ -6,12 +6,8 @@ import AuthService from "./Services/auth.service";
 import Login from "./Components/Forms/login-user-form";
 import CalendarioView from "./Components/Views/calendarView";
 import Register from "./Components/Forms/registration";
-<<<<<<< HEAD
-import EmotionsView from './Components/Views/emotionsView';
-=======
 import agendaView from "./Components/Views/agendaView";
 import emotionsView from "./Components/Views/emotionsView"
->>>>>>> amanda-new
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -81,12 +77,8 @@ const App = () => {
             <Route exact path={["/", "/login"]} component={Login} />
             <Route path="/profile" component={CalendarioView} />
             <Route path="/singup" component={Register} />
-<<<<<<< HEAD
-            <Route path='/try' component={EmotionsView}/>
-=======
             <Route path="/agenda" component={agendaView} />
             <Route path="/emotions" component={emotionsView} />
->>>>>>> amanda-new
           </Switch>
           
       </div>

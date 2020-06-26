@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Quote = () => {
+const Taskquote = () => {
 
     return (
       <>
@@ -10,12 +10,12 @@ const Quote = () => {
             <div class="corner" id="left_bottom"></div>
             <div class="corner" id="right_top"></div>
             <div class="corner" id="right_bottom"></div>
-            <span className='claseSpan'>Albus Dumbledore</span>
+            <span className='claseSpan'>Walt Disney</span>
             <blockquote>
-                <p><i>&ldquo;"La felicidad se puede hallar hasta en los más oscuros momentos, si somos capaces de usar bien la luz" &rdquo; </i></p>
+                <p><i>&ldquo;La mejor manera de empezar algo es dejar de hablar de ello y empezar a hacerlo &rdquo; </i></p>
             </blockquote>
         </div>
         </div>
       </>
     );
-  }; export default Quote;
+  }; export default Taskquote;

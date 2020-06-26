@@ -16,13 +16,17 @@ const CalendarView = () =>{
                     <div className='col-1'>
                     </div>
                     <div className ='col-4' style={{paddingTop:'25px'}}>
-                        <TasksForm/>
+                        <div className = 'buttonArrow'>
+                            <a className="link" href="/agenda" style={{textTransform: 'uppercase'}}>Nueva Tarea</a>
+                        </div>
                     </div>
                     <div className='col-1'>
                         
                     </div>
                     <div className ='col-5' style={{paddingTop:'25px'}}>
-                        <EmotionsForm/>
+                        <div className = 'buttonArrow fit-to-content'>
+                            <a className="link" href="/emotions" style={{textTransform: 'uppercase'}}>¿CÓMO TE SIENTES HOY?</a>
+                        </div>
                     </div>
                     <div className='col-1'>
                         
