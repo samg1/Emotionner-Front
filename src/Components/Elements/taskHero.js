@@ -4,11 +4,11 @@ const TasksHero = () => {
 
     return (
       <>
-      <div class="hero-nav-task">
-        <div class="hero-nav__inner">
+      <div className="hero-nav-task">
+        <div className="hero-nav__inner">
                 <h1 style={{fontWeight:'lighter'}}>Mi Agenda</h1>
-                <div class="hero-nav__button">
-                <a href="#" class="btn"></a>
+                <div className="hero-nav__button">
+                <a className="btn"></a>
                 </div>
             </div>
         </div>
