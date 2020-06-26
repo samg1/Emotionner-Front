@@ -92,11 +92,7 @@ const Register = (props) => {
     const birthdate = e.target.value;
     setBirthdate(birthdate);
   };
-  const onChangeOcupation = (e) => {
-    const ocupation = e.target.value;
-    setOcupation(ocupation);
-  };
-
+ 
 
   const onChangePassword = (e) => {
     const password = e.target.value;
@@ -114,7 +110,7 @@ const Register = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(name,lastname,email,birthdate,ocupation,premium,password).then(
         (response) => {
-          setMessage(response.data.message);
+          alert(response.data.message);
           setSuccessful(true);
         },
         (error) => {
@@ -125,7 +121,7 @@ const Register = (props) => {
             error.message ||
             error.toString();
 
-          setMessage(resMessage);
+          alert(resMessage);
           setSuccessful(false);
         }
       );
@@ -144,7 +140,7 @@ const Register = (props) => {
         </div>
         <div className="form-reg sign-up">
           <h2 className="h2">¡Regístrate ya!</h2>
-          <Form onSubmit={handleRegister} ref={form}>
+          <Form onSubmit={handleRegister} ref={form} autocomplete='off'>
             {!successful && (
               <div >
                 <div className="label-1">
