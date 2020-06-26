@@ -11,6 +11,8 @@ import emotionsView from "./Components/Views/emotionsView";
 import Navbar_ from "./Components/Elements/navbar";
 import  PrivateRoute from "./Services/privateRoute";
 import HomePage from "./Components/Views/homePage";
+import LoginAdminForm from "./Components/Forms/login-admin-form";
+import addArticleView from "./Components/Views/addArticle";
 
 const App = () => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -32,6 +34,8 @@ const App = () => {
             <Route exact path={"/login"} component={Login} />
             <Route exact path="/" component={HomePage} />
             <Route exact path="/singup" component={Register} />
+            <Route exact path="/admin" component={LoginAdminForm} />
+            <Route exact path="/admin/create" component={addArticleView} />
             <PrivateRoute exact path="/profile" component={CalendarioView} />
             <PrivateRoute exact path="/agenda" component={agendaView} />
             <PrivateRoute exact path="/mood" component={emotionsView} />

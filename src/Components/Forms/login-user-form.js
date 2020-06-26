@@ -5,7 +5,6 @@ import CheckButton from "react-validation/build/button";
 import Footer from "../Elements/footerInside";
 import AuthService from "../../Services/auth.service";
 import {FormGroup} from 'reactstrap';
-import {Redirect} from "react-router-dom";
 const required = (value) => {
   if (!value) {
     return (
