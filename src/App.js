@@ -30,56 +30,6 @@ const App = () => {
     <>
     <Navbar_/>
     <Router>
-<<<<<<< HEAD
-      <div>
-        <nav className="navbar navbar-expand navbar-light bg-light">
-          <Link to={"/"} className="navbar-brand" style={{fontWeight: "light"}}>
-            Emotionner
-          </Link>
-          <div className="navbar-nav mr-auto">
-          </div>
-
-          {currentUser ? (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={"/profile"} className="nav-link">
-                  Mi Calendario
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/agenda"} className="nav-link">
-                  Mi Agenda
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/emotions"} className="nav-link">
-                  Mood Journal
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a href="/login" className="nav-link" onClick={logOut}>
-                  Cerrar Sesión
-                </a>
-              </li>
-            </div>
-          ) : (
-            <div className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <Link to={["/", "/login"]} className="nav-link">
-                  Iniciar Sesión
-                </Link>
-              </li>
-
-              <li className="nav-item">
-                <Link to={"/singup"} className="nav-link">
-                  Crea una cuenta
-                </Link>
-              </li>
-            </div>
-          )}
-        </nav>
-=======
->>>>>>> amanda-new
             <Switch>
             <Route exact path={"/login"} component={Login} />
             <Route exact path="/" component={HomePage} />

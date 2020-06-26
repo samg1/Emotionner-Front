@@ -726,6 +726,7 @@ Login:
 }
 
 table, ::after{
+  vertical-align: middle;
   color:black !important;
 }
 
@@ -976,12 +977,13 @@ margin:0
 
 table{
   width:100%;
+  vertical-align: middle;
   table-layout: fixed;
-  background-color: #818a9100 !important;
+  background-color: #ffffff21 !important;
 }
 
 .table-responsive{
-  background-color: #818a9100 !important;
+  background-color: #ffffff25 !important;
 }
 
 thead{
@@ -994,17 +996,18 @@ thead{
   border: 1px solid rgba(255,255,255,0.3);
 }
 th{
+  vertical-align: middle;
   padding: 20px 15px;
   text-align: left;
-  font-family: monospace;
+  font-family: 'Roboto', sans-serif;
   font-weight: lighter;
   font-size: 18px;
   text-transform: uppercase;
 }
 td{
+  vertical-align: middle !important;
   padding: 15px;
   text-align: left;
-  vertical-align:middle;
   font-family: 'Roboto', sans-serif;
   font-weight: normal;
   font-size: 15px;
@@ -1046,7 +1049,7 @@ section{
 
 #ct{height:150px; 
   width:370px;
-  border:1px solid #c341d4; 
+  border:1px solid #ededed; 
   border-width: 2px; 
   margin: 100px auto;
   text-align:center;
@@ -1054,52 +1057,57 @@ section{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: large;
   color:rgb(0, 0, 0);
-  padding:15px;}
+  font-family: serif;
+  font-size: 18px;
+  padding:10px;}
+  
 .claseSpan{
-  background:#ededed;
+  background:#c6a7c7;
   color:#000000;
   padding:0 10px;
   font-size:20px;
   position:relative; 
   top:-28px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   border-width: 2px;
 }
 .corner{height:30px;
   width:30px;
   border-radius:50%;
-  border:1px solid #fff;
+  border:1px solid #ededed;
   transform:rotate(-45deg);  
   position:absolute;
-  background:#ededed;
+  background:#c6a7c7;
   border-width: 2px;
 }
 
 #left_top{
   top:-16px;
   left:-16px;
-  border-color:transparent transparent #c341d4 transparent;
+  border-color:transparent transparent #ededed transparent;
   border-width: 2px;
 }
 #right_top{
   top:-16px;
   right:-16px;
-  border-color:transparent transparent transparent #c341d4;
+  border-color:transparent transparent transparent #ededed;
   border-width: 2px;
 }
 #left_bottom{
   bottom:-16px;
   left:-16px;
-  border-color:transparent #c341d4 transparent transparent ;
+  border-color:transparent #ededed transparent transparent ;
   border-width: 2px;
 }
 #right_bottom{
   bottom:-16px;
   right:-16px;
-  border-color:#c341d4 transparent transparent transparent;
+  border-color:#ededed transparent transparent transparent;
   border-width: 2px;
 }
 
 .back-white{
-  background-color: #ededed;
+  background-color: #c6a7c7;
   width: 100%;
+  margin:0px;
 }

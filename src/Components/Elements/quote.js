@@ -12,7 +12,7 @@ const Quote = () => {
             <div class="corner" id="right_bottom"></div>
             <span className='claseSpan'>Albus Dumbledore</span>
             <blockquote>
-                <p><i>&ldquo;"La felicidad se puede hallar hasta en los más oscuros momentos, si somos capaces de usar bien la luz" &rdquo; </i></p>
+                <p><i>&ldquo;La felicidad se puede hallar hasta en los más oscuros momentos, si somos capaces de usar bien la luz &rdquo; </i></p>
             </blockquote>
         </div>
         </div>

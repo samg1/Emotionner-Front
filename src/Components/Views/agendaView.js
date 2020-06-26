@@ -4,7 +4,7 @@ import ModalForm from '../Forms/tasksModal'
 import TasksTable from '../Elements/taskTable'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
-import Footer from '../Elements/footerOutside'
+import Footer from '../Elements/footerInside'
 import TasksHero from '../Elements/taskHero';
 import Taskquote from '../Elements/taskQuote';
 import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
