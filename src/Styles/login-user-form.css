@@ -93,7 +93,7 @@
     font-size: 15px;
     cursor: pointer;
     border: 2px solid #1f2122;
-    border-radius: 30px;
+    border-radius: 5px;
   }
   
   
@@ -106,6 +106,21 @@
     align-items: center;
     width: 100%;
     height: 100%;
+  }
+  .img__btn span:hover {
+    background-color: #047cfc;
+    color:white;
+  }
+  .img__btn:hover {
+    border: 2px solid #047cfc;
+    color: white;
+  }
+
+  .a-link-color{
+    color: #1f2122;
+  }
+  .a-link-color:hover{
+    color:white;
   }
   
   h2 {
@@ -134,18 +149,12 @@
     text-align: center;
   }
   
+  
+
   .submit {
     margin-top: 40px;
     margin-bottom: 20px;
-    background: #d4af7a;
     text-transform: uppercase;
-  }
-  
-  .a-link-color{
-    color: #1f2122;
-  }
-  .a-link-color:hover{
-    color:#969696;
   }
   
   @media (max-width:950px){
@@ -200,8 +209,6 @@
       margin: 0 auto;
       font-size: 12px;
       cursor: pointer;
-      border: 2px solid #1f2122;
-      border-radius: 30px;
     }
   
     .img__btn span {
@@ -290,8 +297,6 @@
       margin: 0 auto;
       font-size: 12px;
       cursor: pointer;
-      border: 2px solid #1f2122;
-      border-radius: 30px;
       margin-top: -150px;
     }
   
@@ -321,8 +326,10 @@
     }
    
     .submit {
-      margin-top: 50px;
+      margin-top: 40px;
       margin-bottom: 20px;
+      text-transform: uppercase;
     }
+    
   
   }
