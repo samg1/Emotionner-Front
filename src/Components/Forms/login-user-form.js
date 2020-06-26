@@ -78,6 +78,7 @@ const Login = (props) => {
                         <Input 
                             type="text"
                             className="form-control input-1 input-2"
+                            placeholder="Introduzca su correo"
                             name="email"
                             value={email}
                             onChange={onChangeEmail}
@@ -91,6 +92,7 @@ const Login = (props) => {
                         <span>Contraseña</span>
                         <Input  type="password"
                                 className="form-control input-1 input-2"
+                                placeholder = "Introduzca su contraseña"
                                 name="password"
                                 value={password}
                                 onChange={onChangePassword}
@@ -101,12 +103,12 @@ const Login = (props) => {
                 </FormGroup>
                 <FormGroup>
                   <div className='row'>
-                    <button className="btn btn-primary" disabled={loading}>
+                    <button className="btn btn-primary submit" disabled={loading}>
                         {loading && (
                             <span className="spinner-border spinner-border-sm"></span>
                         )}
-                        <span>Login</span>
-                        </button>
+                        <span>Iniciar Sesión</span>
+                    </button>
                   </div>
                         
                     </FormGroup>
