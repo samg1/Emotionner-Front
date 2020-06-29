@@ -25,7 +25,7 @@ const CalendarView = () =>{
                     </div>
                     <div className ='col-5' style={{paddingTop:'25px'}}>
                         <div className = 'buttonArrow fit-to-content'>
-                            <a className="link" href="/emotions" style={{textTransform: 'uppercase'}}>¿CÓMO TE SIENTES HOY?</a>
+                            <a className="link" href="/mood" style={{textTransform: 'uppercase'}}>¿CÓMO TE SIENTES HOY?</a>
                         </div>
                     </div>
                     <div className='col-1'>

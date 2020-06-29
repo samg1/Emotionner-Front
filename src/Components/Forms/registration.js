@@ -5,9 +5,10 @@ import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
+import Footer from "../Elements/footerInside";
 
 import AuthService from "../../Services/auth.service";
-import Footer from "../Elements/footerInside";
+import { FormGroup } from "reactstrap";
 /**
  * Requeried method verifies that all the fields are filled in
  * @param {*} value 
@@ -91,11 +92,7 @@ const Register = (props) => {
     const birthdate = e.target.value;
     setBirthdate(birthdate);
   };
-  const onChangeOcupation = (e) => {
-    const ocupation = e.target.value;
-    setOcupation(ocupation);
-  };
-
+ 
 
   const onChangePassword = (e) => {
     const password = e.target.value;
@@ -113,7 +110,7 @@ const Register = (props) => {
     if (checkBtn.current.context._errors.length === 0) {
       AuthService.register(name,lastname,email,birthdate,ocupation,premium,password).then(
         (response) => {
-          setMessage(response.data.message);
+          alert(response.data.message);
           setSuccessful(true);
         },
         (error) => {
@@ -124,7 +121,7 @@ const Register = (props) => {
             error.message ||
             error.toString();
 
-          setMessage(resMessage);
+          alert(resMessage);
           setSuccessful(false);
         }
       );
@@ -134,97 +131,110 @@ const Register = (props) => {
   return (
     <>
     <div className="container">
-      <div className="card card-signin my-5">
-        <div className="card-body">
-            <div className='form-icon'>
-              <span ><FontAwesomeIcon icon={faUser} /></span>
-            </div>
-            <h5 className='card-title text-center text-uppercase'>Registrate</h5>
-            <Form onSubmit={handleRegister} ref={form}>
-              {!successful && (
-                <div>
-                  <div className="form-group">
-                    <label htmlFor="name">Nombre</label>
-                    <Input
-                      type="text"
-                      className="form-control"
-                      name="name"
-                      value={name}
-                      onChange={onChangeName}
-                      validations={[required]}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="lastname">Apellido</label>
-                    <Input
-                      type="text"
-                      className="form-control"
-                      name="lastname"
-                      value={lastname}
-                      onChange={onChangeLastName}
-                      validations={[required]}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <Input
-                      type="text"
-                      className="form-control"
-                      name="email"
-                      value={email}
-                      onChange={onChangeEmail}
-                      validations={[required, validEmail]}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <Input
-                      type="password"
-                      className="form-control"
-                      name="password"
-                      value={password}
-                      onChange={onChangePassword}
-                      validations={[required, vpassword]}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="birthdate">Fecha de Nacimiento</label>
-                    <Input
-                      type="date"
-                      className="form-control"
-                      name="birthdate"
-                      value={birthdate}
-                      onChange={onChangeBirthdate}
-                      validations={[required]}
-                    />
-                  </div>
-
-                  <div className="form-group">
-                    <button className="btn btn-primary btn-block">Registrarse</button>
-                  </div>
-                </div>
-              )}
-
-              {message && (
-                <div className="form-group">
-                  <div
-                    className={
-                      successful ? "alert alert-success" : "alert alert-danger"
-                    }
-                    role="alert"
-                  >
-                    {message}
-                  </div>
-                </div>
-              )}
-              <CheckButton style={{ display: "none" }} ref={checkBtn} />
-        </Form>
+      <div className="cont-reg">
+        <div className="img-reg">
+          <div className="img__text m--in">
+            <h2 className="motiv-reg-ph reg-h2">Hoy puede ser el comienzo de todo lo que te propongas</h2>
+          </div>
+          <div className="logo-text"></div>
         </div>
+        <div className="form-reg sign-up">
+          <h2 className="h2">¡Regístrate ya!</h2>
+          <Form onSubmit={handleRegister} ref={form} autocomplete='off'>
+            {!successful && (
+              <div >
+                <div className="label-1">
+                  <label htmlFor="name">Nombre</label>
+                  <Input
+                    placeholder="Introduzca su nombre"
+                    type="text"
+                    className="form-control input-1 input-2"
+                    name="name"
+                    value={name}
+                    onChange={onChangeName}
+                    validations={[required]}
+                  />
+                </div>
 
-        
+                <div className="label-1">
+                  <label htmlFor="lastname">Apellido</label>
+                  <Input
+                    placeholder="Introduzca su apellido"
+                    type="text"
+                    className="form-control input-1 input-2"
+                    name="lastname"
+                    value={lastname}
+                    onChange={onChangeLastName}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="label-1">
+                  <label htmlFor="email">Correo Electrónico</label>
+                  <Input
+                    placeholder="Introduzca su correo"
+                    type="text"
+                    className="form-control input-1 input-2"
+                    name="email"
+                    value={email}
+                    onChange={onChangeEmail}
+                    validations={[required, validEmail]}
+                  />
+                </div>
+
+                <div className="label-1">
+                  <label htmlFor="password">Contraseña</label>
+                  <Input
+                    placeholder="Introduzca su contraseña"
+                    type="password"
+                    className="form-control input-1 input-2"
+                    name="password"
+                    value={password}
+                    onChange={onChangePassword}
+                    validations={[required, vpassword]}
+                  />
+                </div>
+
+                <div className="label-1">
+                  <label htmlFor="birthdate">Fecha de Nacimiento</label>
+                  <Input
+                    placeholder="Introduzca su fecha de nacimiento"
+                    type="date"
+                    className="form-control input-1 input-2"
+                    name="birthdate"
+                    value={birthdate}
+                    onChange={onChangeBirthdate}
+                    validations={[required]}
+                  />
+                </div>
+
+                <div className="label-1">
+                  <button className="btn btn-primary btn-block submitreg">Registrarse</button>
+                </div>
+              </div>
+            )}
+            {message && (
+              <div className="form-group">
+                <div
+                  className={
+                    successful ? "alert alert-success" : "alert alert-danger"
+                  }
+                  role="alert"
+                >
+                  {message}
+                </div>
+              </div>
+            )}
+            <CheckButton style={{ display: "none" }} ref={checkBtn} />
+          </Form>
+        </div>
       </div>
+    </div>
+    <div>
+      <p >.</p>
+      <p >.</p>
+      <p >.</p>
+      <p >.</p>
     </div>
     <Footer/>
     </>
