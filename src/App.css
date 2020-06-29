@@ -914,6 +914,10 @@ margin:0
 
 }
 
+.navbar-inverse{
+  box-shadow: 0 0.5rem 1rem 0 rgba(102, 99, 99, 0) !important;
+}
+
 /* hero*/
 
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
