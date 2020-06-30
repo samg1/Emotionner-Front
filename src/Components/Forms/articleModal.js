@@ -25,7 +25,7 @@ class ModalInfo extends Component {
       let button = ''
 
         button = <>
-            <p class="read-more">
+            <p className="read-more">
                 <a className="link" style={{cursor:'pointer'}} onClick={this.toggle } title='Articulo'>Leer más</a>
             </p>
          </>

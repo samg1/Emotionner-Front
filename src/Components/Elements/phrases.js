@@ -7,8 +7,8 @@ class Phrases extends Component {
     
     const items = this.props.items.map(item => {
     return (
-        <section key={item.id} class="quotes">
-        <div class="bubble">
+        <section key={item.id} className="quotes">
+        <div className="bubble">
             <blockquote>{item.phrase}</blockquote>
             <div></div>
             <cite></cite> </div>

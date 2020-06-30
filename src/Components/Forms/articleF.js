@@ -27,20 +27,51 @@ class ArticleView extends Component {
      */
     axios.get(`https://emotionner.herokuapp.com/users/getLastEmotion/${id}`)
     .then(response => {
-      emotionid = response.data.emotion[0].emotion_id
-      var id2 = parseInt(emotionid)
+      var emotionArray = response.data.emotion
+      
       /**
        * Then we do another axios call to get all the articles that match the emotion id
+       * if the user has registered an emotion we only fetch the articles that are linked to thar emotion
+       * else we fetch all the articles.
        */
-      axios.get(`https://emotionner.herokuapp.com/articles/selectArticle/${id2}`)
-      .then(response => {
-        let articles = response.data.article;
-        this.setState({
-            items : articles
-        })
-      }).catch(function (error) {
-        console.log(error);
-      });
+      if (Array.isArray(emotionArray) && emotionArray.length) {
+        var emotionid = response.data.emotion[0].emotion_id
+        var id2 = parseInt(emotionid)
+        axios.get(`https://emotionner.herokuapp.com/articles/selectArticle/${id2}`)
+        .then(response => {
+          let articles = response.data.article;
+          this.setState({
+              items : articles
+          })
+        }).catch(function (error) {
+          console.log(error);
+        });
+
+      }else { //else
+        /**
+         * We validate that we reciving an array from the bd
+         */
+        axios.get(`https://emotionner.herokuapp.com/articles/findAll`)
+          .then(response => {
+            let resArray = response.data;
+            if(Array.isArray(resArray) && resArray.length){
+              let articles = response.data;
+              this.setState({
+                items : articles
+            })
+            }else {
+              //If we recive a null object because we dont have articles in our bd the array will be null
+              let articles = [];
+              this.setState({
+                items : articles
+            })
+            }
+          }).catch(function (error) {
+            console.log(error);
+          });
+        
+      }
+     
     }). catch(function (error) {
       console.log(error);
     });
