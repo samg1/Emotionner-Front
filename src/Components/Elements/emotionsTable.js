@@ -68,7 +68,6 @@ class EmotionsTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr key={item.id}>
-          <th scope="row">{item.id}</th>
           <td><a  className=' d-flex justify-content-center'  role="button" ><i className={this.setIcon(item.emotion_id)}></i></a>
           <p className='text-center'>{this.setMood(item.emotion_id)}</p>
           </td>
@@ -85,7 +84,6 @@ class EmotionsTable extends Component {
       <Table bordered responsive hover style={{backgroundColor:'#fff'}}>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Mood</th>
             <th>Descripcion</th>
             <th>Fecha</th>

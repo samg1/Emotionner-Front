@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Col, Row, Input} from 'reactstrap';
 import AuthService from '../../Services/auth.service';
 import axios from 'axios';
 
-const TaskForm = () => {
+const Task = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     const currentUser = AuthService.getCurrentUser();
     const id = currentUser.id;
@@ -142,4 +142,4 @@ const TaskForm = () => {
         </Modal>
       </>
     );
-  }; export default TaskForm;
+  }; export default Task;

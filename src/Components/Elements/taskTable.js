@@ -16,7 +16,6 @@ class TaskTable extends Component {
     const items = this.props.items.map(item => {
       return (
         <tr key={item.id}>
-          <th scope="row">{item.id}</th>
           <td>{item.title}</td>
           <td>{item.description}</td>
           <td>{item.start}</td>
@@ -32,7 +31,6 @@ class TaskTable extends Component {
       <Table bordered responsive hover style={{backgroundColor:'#fff'}}>
         <thead>
           <tr>
-            <th>ID</th>
             <th>Tarea</th>
             <th>Descripcion</th>
             <th>Fecha</th>
