@@ -25,7 +25,10 @@ const Sidebar_ = (props) => {
         <a  href="#" ><i className="fa fa-home" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Home</a>
       </li>
       <li>
-        <a  href="/addArticle" ><i className="fa fa-edit" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Artículo</a>
+        <a  href="/admin/createArticle" ><i className="fa fa-edit" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Artículo</a>
+      </li>
+      <li>
+        <a  href="/admin/createPhrase" ><i className="fas fa-pen-nib" style={{marginLeft:'7px',fontSize:'25px', marginRight:'20px'}}></i>Frases</a>
       </li>
       <li>
         <a href="/"><i className="fa fa-user" style={{marginLeft:'7px', fontSize:'25px', marginRight:'20px'}}></i>Cerrar Sesión</a>
