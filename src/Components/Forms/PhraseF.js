@@ -1,19 +1,14 @@
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import ModalForm from '../Forms/tasksModal'
-import TasksTable from '../Elements/taskTable'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import Footer from '../Elements/footerInside'
-import RecoHero from '../Elements/recomendadoHero';
-import Taskquote from '../Elements/taskQuote';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
-import addCards from '../Forms/articleCard';
+import Phrases from '../Elements/phrases';
 
 /**
- * Agenda View where all agenda components are called
+ * We call all the phrases in here
  */
-class articleView extends Component {
+class PhraseView extends Component {
   state = {
     items: []
   }
@@ -50,22 +45,14 @@ class articleView extends Component {
 
     return (
       <>
-      <RecoHero/>
-      
-      <Container className="container" style={{marginBottom: '20px'}}>
+      <Container className="container">
         <Row>
           <Col>
-            <h1 style={{margin: "20px", fontWeight:'lighter', letterSpacing: '5px', fontSize:'25px'}}> Recomendaciones según tus últimos registros</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <addCards items={this.state.items}/>
+            <Phrases items={this.state.items}/>
           </Col>
         </Row>
       </Container>
-      <Footer/>
       </>
     )
   }
-} export default articleView;
+} export default PhraseView;
