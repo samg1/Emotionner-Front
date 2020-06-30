@@ -41,12 +41,12 @@ class CreateArticle extends Component{
                         </FormGroup>
                         <FormGroup>
                             <Label for="exampleText">Breve descripción del artículo</Label>
-                            <Input type="textarea" name="text" id="exampleText" 
+                            <Input type="textarea" name="text" id="exampleText"  rows="8" cols="80"
                             value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
                             <Label for="exampleText">Artículo</Label>
-                            <Input type="textarea" name="text" id="exampleText"
+                            <Input type="textarea" name="text" id="exampleText" rows="30" cols="80"
                             value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
@@ -141,9 +141,6 @@ class CreateArticle extends Component{
             this.state.campEmotion=51
          }
         else {
-     
-          const baseUrl = "https://emotionner.herokuapp.com/articles/createArticle"
-
           const datapost = {
             title : this.state.campTitle,
             content : this.state.campContent,
@@ -156,9 +153,11 @@ class CreateArticle extends Component{
 
           console.log(datapost)
           
-          axios.post(baseUrl,datapost)
+          axios.post("https://emotionner.herokuapp.com/articles/createArticle",datapost)
           .then(response=>{
-            if (response.data.success===true) {
+            console.log(response)
+            
+            if (response.data.success) {
                 alert(response.data.message)
                 window.location.reload()
                 
@@ -166,6 +165,7 @@ class CreateArticle extends Component{
             else {
               alert(response.data.message)
             }
+            
           }).catch(error=>{
             alert(""+error)
           })

@@ -2,7 +2,6 @@ import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
-import Footer from '../Elements/footerInside'
 import AddCards from '../Forms/articleCard';
 
 /**
@@ -13,28 +12,39 @@ class ArticleView extends Component {
     items: []
   }
 
+
   /**
    * GetItems()
-   * @returns articles in the database
+   * @returns articles in the database based in the last registered emotion that the user registered in the page
    */
 
   getItems(){
     const currentUser = AuthService.getCurrentUser();
     const id = currentUser.id;
-    console.log(id)
-    //Axios call
-    axios.get(`https://emotionner.herokuapp.com/users/tasks/${id}`) //CAMBIAR
-        .then(response => {
-          console.log('ANTES')
-          console.log(response.data.tasks.tasks)
-          let articles = response.data.tasks.tasks;
-          this.setState({
+    var emotionid = ''
+    /**
+     * First we return the last emotion that the user registered 
+     */
+    axios.get(`https://emotionner.herokuapp.com/users/getLastEmotion/${id}`)
+    .then(response => {
+      emotionid = response.data.emotion[0].emotion_id
+      var id2 = parseInt(emotionid)
+      /**
+       * Then we do another axios call to get all the articles that match the emotion id
+       */
+      axios.get(`https://emotionner.herokuapp.com/articles/selectArticle/${id2}`)
+      .then(response => {
+        let articles = response.data.article;
+        this.setState({
             items : articles
-          })
         })
-        .catch(function (error) {
-          console.log(error);
-        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }). catch(function (error) {
+      console.log(error);
+    });
+   
   }
 
   componentDidMount(){

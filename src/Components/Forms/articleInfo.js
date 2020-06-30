@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
-import AddEditForm from '../Forms/taskEdit';
 import $ from 'jquery';
 
 // Sticky Header
@@ -41,26 +39,23 @@ $('nav a').click(function(event) {
 });
 
 class ArticleInfo extends Component {
-
+    formatText(text){
+        text = text.replace(new RegExp('\r?\n','g'), '<br />');
+        return text
+    }
   render() {
+      var content = this.formatText(this.props.item.content)
       return (
         <div>
-            <link href='https://fonts.googleapis.com/css?family=Montserrat|Cardo' rel='stylesheet' type='text/css'/>
-<link href='style.css' rel='stylesheet' type='text/css'/>
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+            <div className="hero" style={{background:'url('+`${this.props.item.image}`+') no-repeat center center fixed'}}>
+                <h1 className='estiloH'><span className='colorcito'>Emotionner</span><br/>{this.props.item.title}</h1>
+            </div>
 
-
-<div className="hero" style={{background:'url('+`${this.props.item.image}`+') no-repeat center center fixed'}}>
-
-      <h1 className='estiloH'><span className='colorcito'>Emotionner</span><br/>{this.props.item.title}</h1>
-
-</div>
-
-<div className="row-info content">
-    <p className="titletry d-flex justify-content-center" style={{color:'#107385'}}>{this.props.item.title}</p>
-    <p className='info'>{this.props.item.article}</p>
-</div>
-      </div>
+            <div className="row-info content">
+                <p className="titletry d-flex justify-content-center" style={{color:'#107385'}}>{this.props.item.title}</p>
+                <p className='info' style={{whiteSpace: "pre-line"}}>{this.props.item.content}</p>
+            </div>
+                </div>
     )
   }
 }

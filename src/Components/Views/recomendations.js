@@ -1,7 +1,5 @@
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import AuthService from '../../Services/auth.service'
-import axios from 'axios'
 import Footer from '../Elements/footerInside'
 import RecoHero from '../Elements/recomendadoHero';
 import ArticleView from '../Forms/articleF';
@@ -22,10 +20,10 @@ class RecomendationView extends Component {
           </Col>
         </Row>
         <Row>
-          <ArticleView/>
+          <PhraseView/>
         </Row>
         <Row>
-          <PhraseView/>
+          <ArticleView/>
         </Row>
       </Container>
       <Footer/>

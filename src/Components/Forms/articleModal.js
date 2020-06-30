@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
-import AddEditForm from '../Forms/taskEdit';
+import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import ArticleInfo from '../Forms/articleInfo';
 
 class ModalInfo extends Component {

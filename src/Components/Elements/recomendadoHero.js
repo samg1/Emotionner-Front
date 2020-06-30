@@ -4,11 +4,11 @@ const RecoHero = () => {
 
     return (
       <>
-      <div class="hero-nav">
-        <div class="hero-nav__r">
+      <div className="hero-nav">
+        <div className="hero-nav__r">
                 <h1 style={{fontWeight:'lighter'}}>Sólo para ti</h1>
-                <div class="hero-nav__button">
-                <a href="#" class="btn"></a>
+                <div className="hero-nav__button">
+                <a className="btn"></a>
                 </div>
             </div>
         </div>
