@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ModalInfo from '../Forms/articleModal';
 
 /**
  * Form for CRUD operations in Tasks table
  */
 
-class AddCards extends React.Component {
+class AddCards extends Component {
 
     render() {
       const items = this.props.items.map(item => {

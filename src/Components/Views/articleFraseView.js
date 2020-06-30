@@ -1,14 +1,11 @@
 import React, { Component, useState} from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import ModalForm from '../Forms/tasksModal'
-import TasksTable from '../Elements/taskTable'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import Footer from '../Elements/footerInside'
 import RecoHero from '../Elements/recomendadoHero';
 import Taskquote from '../Elements/taskQuote';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
-import addCards from '../Forms/articleCard';
+import AddCards from '../Forms/articleCard';
 
 /**
  * Agenda View where all agenda components are called
@@ -60,7 +57,7 @@ class articleView extends Component {
         </Row>
         <Row>
           <Col>
-            <addCards items={this.state.items}/>
+            <AddCards items={this.state.items}/>
           </Col>
         </Row>
       </Container>
