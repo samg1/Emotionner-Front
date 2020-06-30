@@ -31,6 +31,8 @@
     "react-sidebar": "^3.0.2",
     "react-validation": "^3.0.7",
     "reactstrap": "^8.4.1",
+    "slick": "^1.12.2",
+    "slick-carousel": "^1.8.1",
     "swiper": "^5.4.5",
     "validator": "^13.0.0"
   },
