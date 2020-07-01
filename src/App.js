@@ -39,7 +39,7 @@ const App = () => {
             <Route exact path="/admin" component={LoginAdminForm} />
             <Route exact path="/admin/createArticle" component={addArticleView} />
             <Route exact path="/admin/createPhrase" component={addPhraseView} />
-            <Route exact path="/articles" component={RecomendationView} />
+            <PrivateRoute exact path="/articles" component={RecomendationView} />
             <PrivateRoute exact path="/profile" component={CalendarioView} />
             <PrivateRoute exact path="/agenda" component={agendaView} />
             <PrivateRoute exact path="/mood" component={emotionsView} />

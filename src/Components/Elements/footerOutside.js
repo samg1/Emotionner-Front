@@ -26,9 +26,9 @@ return(
           <div className="col-xs-6 col-md-3">
             <h6 style = {{letterSpacing: '2px'}, {color:'#fff'}}>INTEGRANTES</h6>
             <ul className="outfooter-links">
-              <li><a href="#">Amanda Gonzalez</a></li>
-              <li><a href="#">Andrea Charles</a></li>
-              <li><a href="#">Orly Dahan</a></li>
+              <li><a >Amanda Gonzalez</a></li>
+              <li><a>Andrea Charles</a></li>
+              <li><a>Orly Dahan</a></li>
             </ul>
           </div>
           </div>
@@ -37,7 +37,7 @@ return(
             <div className="row">
           <div className="col-md-8 col-sm-6 col-xs-12">
             <p className="copyright-text">Copyright &copy; 2020 All Rights Reserved by 
-         <a href="#"> Emotionner</a>.
+         <a > Emotionner</a>.
             </p>
           </div>
 

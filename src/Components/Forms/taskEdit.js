@@ -15,6 +15,7 @@ class AddEditForm extends React.Component {
         start: '', 
         end: '', 
         time: '',
+        enabled: '',
         userId: ''
     }
     /**
@@ -32,27 +33,33 @@ class AddEditForm extends React.Component {
      */
     submitFormAdd = e => {
         e.preventDefault()
-        const currentUser = AuthService.getCurrentUser();
-        const id = currentUser.id;
-        fetch('https://emotionner.herokuapp.com/users/createTask', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            title: this.state.title,
-            description: this.state.description,
-            completed: false,
-            start: this.state.start,
-            end: this.state.start,
-            time: this.state.time,
-            userId: id
+        if(this.state.title === '' || this.state.start === '' || this.state.description === '' ){
+          alert('Porfavor rellene los campos que no son opcionales')
+        }else{
+          const currentUser = AuthService.getCurrentUser();
+          const id = currentUser.id;
+          fetch('https://emotionner.herokuapp.com/users/createTask', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+              title: this.state.title,
+              description: this.state.description,
+              completed: false,
+              start: this.state.start,
+              end: this.state.start,
+              time: this.state.time,
+              enabled: 1,
+              userId: id
+          })
         })
-      })
-        .then(response => response.json())
-        .then(item => {
-          console.log(item.data)
-          window.location.reload()
-        })
-        .catch(err => console.log(err))
+          .then(response => response.json())
+          .then(item => {
+            console.log(item.data)
+            window.location.reload()
+          })
+          .catch(err => console.log(err))
+        }
+      
       }
       /**
        * If we pass a item trough props we are editing it so we use ]
@@ -72,7 +79,8 @@ class AddEditForm extends React.Component {
         completed: false,
         start: this.state.start,
         end: this.state.start,
-        time: this.state.time
+        time: this.state.time, 
+        enable: 1
       }
       console.log(data)
       
@@ -93,8 +101,8 @@ class AddEditForm extends React.Component {
     componentDidMount(){
       // if item exists, populate the state with proper data
       if(this.props.item){
-        const { id, title, description,completed, start, end, time} = this.props.item
-        this.setState({ id, title, description,completed, start, end, time})
+        const { id, title, description,completed, start, end, time, enable} = this.props.item
+        this.setState({ id, title, description,completed, start, end, time, enable})
       }
     }
   

@@ -13,7 +13,6 @@ const localizer = momentLocalizer(moment);
 class Calendario extends Component {
   constructor(props) {
     super(props);
-    const now = new Date();
     this.state = {
       tasks: [
         //State is updated via componentDidMount
@@ -32,9 +31,9 @@ class Calendario extends Component {
       console.log(id);
       axios.get(`https://emotionner.herokuapp.com/users/tasks/${id}`)
         .then(response => {
-          console.log('ANTES')
-          console.log(response.data.tasks.tasks)
-          let appointments = response.data.tasks.tasks;
+          let aux = response.data.tasks.tasks;
+          //We filter through enabled tasks only
+          let appointments = aux.filter(x => x.enabled === 1)
           for (let i = 0; i < appointments.length; i++) {
             //Convertimos a formato date
             appointments[i].start = this.convertDate(appointments[i].start) 

@@ -29,9 +29,9 @@ class agendaView extends Component {
     //Axios call
     axios.get(`https://emotionner.herokuapp.com/users/tasks/${id}`)
         .then(response => {
-          console.log('ANTES')
-          console.log(response.data.tasks.tasks)
-          let appointments = response.data.tasks.tasks;
+          let aux = response.data.tasks.tasks;
+          //We filter through enabled tasks only
+          let appointments = aux.filter(x => x.enabled === 1)
           this.setState({
             items : appointments
           })
@@ -76,14 +76,6 @@ class agendaView extends Component {
 
   render() {
 
-    const Example = (props) => {
-      const [activeTab, setActiveTab] = useState('1');
-    
-      const toggle = tab => {
-        if(activeTab !== tab) setActiveTab(tab);
-      }
-
-    };
 
     return (
       <>

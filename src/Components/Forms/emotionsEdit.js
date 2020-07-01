@@ -39,23 +39,28 @@ class AddEditFormE extends React.Component {
      */
     submitFormAdd = e => {
         e.preventDefault()
-        const currentUser = AuthService.getCurrentUser();
-        const id = currentUser.id;
-        fetch('https://emotionner.herokuapp.com/users/registerEmotion', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          user_id: id,
-          emotion_id: parseInt(this.state.emotionId),
-          description: this.state.description
-        })
-      })
-        .then(response => response.json())
-        .then(item => {
-          console.log(item.data)
-          window.location.reload()
-        })
-        .catch(err => console.log(err))
+        if(this.state.emotionId === ''){
+          alert('Por favor elija una emoción')
+        }else {
+            const currentUser = AuthService.getCurrentUser();
+            const id = currentUser.id;
+            fetch('https://emotionner.herokuapp.com/users/registerEmotion', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              user_id: id,
+              emotion_id: parseInt(this.state.emotionId),
+              description: this.state.description
+            })
+          })
+            .then(response => response.json())
+            .then(item => {
+              console.log(item.data)
+              window.location.reload()
+            })
+            .catch(err => console.log(err))
+        }
+       
       }
       /**
        * If we pass a item trough props we are editing it so we use ]
