@@ -28,14 +28,14 @@ class ModalForm extends Component {
 
       if(label === 'Edit'){
         button = <>
-                        <div className = 'buttonArrow'>
+                        <div className = 'buttonArrow' style={{marginTop:'18px'}}>
                             <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Editar'>{label}</a>
                         </div>
                         </>
       } else {
         button = 
         <>
-        <div className = 'buttonArrow' style={{marginTop:'25px'}}>
+        <div className = 'buttonArrow' style={{marginTop:'18px'}}>
           <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Añadir Tarea'>{label}</a>
         </div>
         </>

@@ -5,7 +5,12 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import CalendarToolbar from './toolbar';
 import axios from 'axios';
 import AuthService from '../../Services/auth.service';
+// React Notification
+import { NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 require('moment/locale/es.js');
+
 
 moment.locale('es');
 const localizer = momentLocalizer(moment);
@@ -25,6 +30,7 @@ class Calendario extends Component {
       return moment.utc(date).toDate()
     }
 
+    
     componentDidMount() {
       const currentUser = AuthService.getCurrentUser();
       const id = currentUser.id;
@@ -55,8 +61,17 @@ class Calendario extends Component {
     }
 
   render() {
-    
+
     const { tasks } = this.state
+
+    let date = moment(moment.now()).format("YYYY-MM-DD")
+
+    for (let i = 0; i < tasks.length; i++) {
+      if(moment(tasks[i].start).format("YYYY-MM-DD") == date){
+        NotificationManager.info('Para hoy tienes planeado: '+ tasks[i].title, 'Recuerda tu tarea!', 80000);
+      }
+    }
+
     return (
         <div className="calendar-container">
           <Calendar
@@ -72,6 +87,7 @@ class Calendario extends Component {
             dayLayoutAlgorithm={this.state.dayLayoutAlgorithm}
             defaultDate={new Date()}
         />
+      <NotificationContainer/>
         </div>
     );
   }
