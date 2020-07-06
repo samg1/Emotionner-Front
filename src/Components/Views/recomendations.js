@@ -23,12 +23,12 @@ class RecomendationView extends Component {
           <ArticleView/>
         </Row>
         </Container>
-        <Row style={{backgroundColor: '#b39bea'}}> 
+        <Row style={{backgroundColor: '#c6a7c7'}}> 
               <Col>
                 <h1 className='d-flex justify-content-center'style={{margin: "20px",fontFamily:'Montserrat', fontSize:'25px'}}> Tu frase de hoy</h1>
               </Col>
           </Row>
-          <Row style={{backgroundColor: '#b39bea'}}>
+          <Row style={{backgroundColor: '#c6a7c7'}}>
               <PhraseView />
           </Row>
             <div className="section-container">
