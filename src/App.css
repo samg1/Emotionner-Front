@@ -126,6 +126,7 @@ Crear articulos y frases new:
 .d-flex .anim:hover {
   background: #b79ced;
   color: #fff;
+  cursor: pointer;
 }
 
 .anim span {

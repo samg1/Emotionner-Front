@@ -92,7 +92,7 @@ class CreatePhrase extends Component{
          }
         else {
      
-          const baseUrl = "https://emotionner.herokuapp.com/articles/createArticle"
+          const baseUrl = "https://emotionner.herokuapp.com/phrases/createPhrase"
 
           const datapost = {
             phrase : this.state.campPhrase,
