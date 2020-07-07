@@ -1068,9 +1068,9 @@ td{
   font-family: 'Roboto', sans-serif;
   font-weight: lighter;
   font-size: 18px;
-  text-transform: uppercase;
   opacity: 40%;
   color: #cc83eb96;
+  background-color: #d7ade996;
 }
 
 /* demo styles */
