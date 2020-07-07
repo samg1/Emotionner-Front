@@ -24,80 +24,83 @@ class CreateArticle extends Component{
       }
 
     render(){
-        return(
-          <Container fluid="md">
-            <Row>
-              <Col>
-              <div className='card card-signin my-5'>
-                <div className='card-body'>
-                    <div className='form-icon'>
-                        <span ><FontAwesomeIcon icon={faPenFancy} /></span>
+      return(
+        <Container fluid="md">
+        <Row>
+          <Col>
+          <div className='card card-signin my-5'>
+            <div className='card-body'>
+               
+                <h5 className='card-title text-center text-uppercase'>CREAR ARTÍCULO</h5>
+                <Form className='form-singin'>
+                    <FormGroup>
+                        <Label className="art-label">TÍTULO</Label>
+                        <Input className='form-control' type="title" placeholder="Introduzca el título del artículo "
+                        value={this.state.campTitle} onChange={(value)=> this.setState({campTitle:value.target.value})}></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label className="art-label" for="exampleText">DESCRIPCIÓN</Label>
+                        <Input type="textarea" name="text" id="exampleText"  rows="8" cols="80"
+                        value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label className="art-label" for="exampleText">CONTENIDO</Label>
+                        <Input type="textarea" name="text" id="exampleText" rows="30" cols="80"
+                        value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label className="art-label">AUTOR</Label>
+                        <Input className='form-control' type="title" placeholder="Introduzca el autor del artículo "
+                        value={this.state.campAuthor} onChange={(value)=> this.setState({campAuthor:value.target.value})}></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label className="art-label">ÁNIMO</Label>
+                        <Input type="select" id="exampleCustomSelect" name="customSelect"
+                        value={this.state.campEmotion} onChange={(value)=> this.setState({campEmotion:value.target.value})}>
+                        <option value="">Ánimo</option>
+                        <option>Feliz</option>
+                        <option>Bien</option>
+                        <option>Triste</option>
+                        <option>Enojado</option>
+                        <option>Ansioso</option>
+                        <option>Estresado</option>
+                        </Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label className="art-label">IMÁGEN</Label>
+                        <Input className='form-control' type="Imágen" placeholder="Introduzca una imágen para el artículo"
+                        value={this.state.campImagen} onChange={(value)=> this.setState({campImagen:value.target.value})}></Input>
+                    </FormGroup>
+                    <FormGroup>
+                        <Label className="art-label">PREMIUM</Label>
+                        <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campPremium} onChange={(value)=> this.setState({campPremium:value.target.value})}>
+                        <option value=""> Seleccione</option>
+                        <option>Premium</option>
+                        <option>No premium</option>
+                        </Input>
+                    </FormGroup>
+                    <label></label>
+                    <div className="form-group">
+                    <div className= "d-flex justify-content-center">
+                      <a className="anim" onClick={()=>this.sendSave()}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        Guardar artículo
+                      </a>
                     </div>
-                    <h5 className='card-title text-center text-uppercase'>Crear un artículo</h5>
-                    <Form className='form-singin'>
-                        <FormGroup>
-                            <Label>Título</Label>
-                            <Input className='form-control' type="title" placeholder="Introduzca el título del artículo "
-                            value={this.state.campTitle} onChange={(value)=> this.setState({campTitle:value.target.value})}></Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="exampleText">Breve descripción del artículo</Label>
-                            <Input type="textarea" name="text" id="exampleText"  rows="8" cols="80"
-                            value={this.state.campDescription} onChange={(value)=> this.setState({campDescription:value.target.value})}></Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label for="exampleText">Artículo</Label>
-                            <Input type="textarea" name="text" id="exampleText" rows="30" cols="80"
-                            value={this.state.campContent} onChange={(value)=> this.setState({campContent:value.target.value})}></Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Autor</Label>
-                            <Input className='form-control' type="title" placeholder="Introduzca el autor del artículo "
-                            value={this.state.campAuthor} onChange={(value)=> this.setState({campAuthor:value.target.value})}></Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Ánimo</Label>
-                            <Input type="select" id="exampleCustomSelect" name="customSelect"
-                            value={this.state.campEmotion} onChange={(value)=> this.setState({campEmotion:value.target.value})}>
-                            <option value="">Ánimo</option>
-                            <option>Feliz</option>
-                            <option>Bien</option>
-                            <option>Triste</option>
-                            <option>Enojado</option>
-                            <option>Ansioso</option>
-                            <option>Estresado</option>
-                            </Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Imágen</Label>
-                            <Input className='form-control' type="Imágen" placeholder="Introduzca una imágen para el artículo"
-                            value={this.state.campImagen} onChange={(value)=> this.setState({campImagen:value.target.value})}></Input>
-                        </FormGroup>
-                        <FormGroup>
-                            <Label>Selección de Premium</Label>
-                            <Input type="select" id="exampleCustomSelect" name="customSelect" value={this.state.campPremium} onChange={(value)=> this.setState({campPremium:value.target.value})}>
-                            <option value=""> Seleccione</option>
-                            <option>Premium</option>
-                            <option>No premium</option>
-                            </Input>
-                        </FormGroup>
-                        <label></label>
-                        <div className="form-group">
-                        <div className= "d-flex justify-content-center">
-                          <button className="btn btn-md text-uppercase btn-light " type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
-                        </div>
-                        </div>
-                </Form>
-                </div>
-                </div>
+                    </div>
+            </Form>
+            </div>
+            </div>
 
-              </Col>
-            </Row>
-          </Container>
-            )
-        
+          </Col>
+        </Row>
+      </Container>
+          
+      )  
     }
-
     sendSave(){
 
         if (this.state.campTitle=="") {

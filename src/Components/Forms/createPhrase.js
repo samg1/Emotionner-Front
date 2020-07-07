@@ -23,18 +23,15 @@ class CreatePhrase extends Component{
               <Col>
               <div className='card card-signin my-5'>
                 <div className='card-body'>
-                    <div className='form-icon'>
-                        <span ><FontAwesomeIcon icon={faPenFancy} /></span>
-                    </div>
-                    <h5 className='card-title text-center text-uppercase'>Sube una frase</h5>
+                    <h5 className='card-title text-center text-uppercase'>CREAR FRASE</h5>
                     <Form className='form-singin'>
                         <FormGroup>
-                            <Label>Frase</Label>
+                            <Label className="art-label">FRASE</Label>
                             <Input className='form-control' type="title" placeholder="Introduzca una frase "
                             value={this.state.campPhrase} onChange={(value)=> this.setState({campPhrase:value.target.value})}></Input>
                         </FormGroup>
                         <FormGroup>
-                            <Label>Ánimo</Label>
+                            <Label className="art-label">ÁNIMO</Label>
                             <Input type="select" id="exampleCustomSelect" name="customSelect"
                             value={this.state.campEmotion} onChange={(value)=> this.setState({campEmotion:value.target.value})}>
                             <option value="">Ánimo</option>
@@ -50,7 +47,13 @@ class CreatePhrase extends Component{
                         <label></label>
                         <div className="form-group">
                         <div className= "d-flex justify-content-center">
-                          <button className="btn btn-md text-uppercase btn-light " type= "button" style={{backgroundColor:'#b79ced'}} onClick={()=>this.sendSave()}>Guardar artículo</button>
+                          <a className="anim" onClick={()=>this.sendSave()}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            Guardar frase
+                          </a>
                         </div>
                         </div>
                 </Form>
@@ -90,7 +93,7 @@ class CreatePhrase extends Component{
          }
         else {
      
-          const baseUrl = "https://emotionner.herokuapp.com/articles/createArticle"
+          const baseUrl = "https://emotionner.herokuapp.com/phrases/createPhrase"
 
           const datapost = {
             phrase : this.state.campPhrase,
