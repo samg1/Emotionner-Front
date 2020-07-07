@@ -7,6 +7,7 @@ import axios from 'axios'
 import Footer from '../Elements/footerInside'
 import Quote from '../Elements/quote'
 import EmotionsHero from '../Elements/emotionsHero'
+import './../../App.css'
 
 /**
  * Emotions View where all agenda components are called

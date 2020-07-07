@@ -1021,7 +1021,9 @@ margin:0
   margin: 0 auto;
   line-height: 1.625;
 }
-
+/*
+Tables
+*/
 table{
   width:100%;
   vertical-align: middle;

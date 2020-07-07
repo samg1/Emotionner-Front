@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ModalInfo from '../Forms/articleModal';
+import './../../App.css'
 
 /**
  * Form for CRUD operations in Tasks table

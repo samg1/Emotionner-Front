@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Sidebar from '../Elements/sidebar';
 import CreatePhrase from '../Forms/createPhrase';
-
+import './../../App.css'
 
 class addPhraseView extends Component{
     render(){

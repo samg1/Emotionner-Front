@@ -3,8 +3,7 @@ import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser} from '@fortawesome/free-solid-svg-icons'
+import './../../App.css'
 import Footer from "../Elements/footerInside";
 
 import AuthService from "../../Services/auth.service";

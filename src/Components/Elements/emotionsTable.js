@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table} from 'reactstrap';
 import ModalFormE from '../Forms/emotionsModal';
 import all from '../Forms/all';
+import './../../App.css'
 
 
 /**

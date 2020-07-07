@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Sidebar from '../Elements/sidebar';
 import CreateArticle from '../Forms/articulo-form';
-
+import './../../App.css'
 
 class addArticleView extends Component{
     render(){
