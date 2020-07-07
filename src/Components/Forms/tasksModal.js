@@ -28,7 +28,7 @@ class ModalForm extends Component {
 
       if(label === 'Editar'){
         button = <>
-                        <div className = 'buttonArrow' style={{marginTop:'18px'}}>
+                        <div className = 'buttonArrow'>
                             <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Editar'>{label}</a>
                         </div>
                         </>
