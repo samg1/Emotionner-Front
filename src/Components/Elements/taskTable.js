@@ -68,8 +68,8 @@ class TaskTable extends Component {
      * We iterate across the items or tasks and we show them in the table
      */
     const items = this.props.items.map(item => {
-      if(`${item.start}`== date){
-        NotificationManager.info('Para hoy tienes planeado: '+ `${item.title}`, 'Recuerda tu tarea!', 80000);
+      if(`${item.start}`=== date && item.enabled === 1 && item.completed === false){
+          NotificationManager.info('Para hoy tienes planeado: '+ `${item.title}`, 'Recuerda tu tarea!', 80000);
       }
       return (
         <tr key={item.id}>
