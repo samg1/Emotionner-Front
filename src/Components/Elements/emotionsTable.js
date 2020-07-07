@@ -87,7 +87,7 @@ class EmotionsTable extends Component {
             <th>Mood</th>
             <th>Descripcion</th>
             <th>Fecha</th>
-            <th></th>
+            <th  style={{width: '15%'}}></th>
           </tr>
         </thead>
         <tbody>

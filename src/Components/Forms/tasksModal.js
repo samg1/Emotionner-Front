@@ -26,7 +26,7 @@ class ModalForm extends Component {
       let title = ''
 
 
-      if(label === 'Edit'){
+      if(label === 'Editar'){
         button = <>
                         <div className = 'buttonArrow'>
                             <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Editar'>{label}</a>
