@@ -106,9 +106,114 @@ Todo List completed
 }
 
 /*
-Cositas viejas:
+Crear articulos y frases new:
 */
 
+.d-flex .anim {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color:#b79ced;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+.d-flex .anim:hover {
+  background: #b79ced;
+  color: #fff;
+}
+
+.anim span {
+  position: absolute;
+  display: block;
+}
+
+.anim span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #b79ced);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.anim span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #b79ced);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.anim span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #b79ced);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.anim span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #b79ced);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+}
+
+
+.art-label{
+  color: rgb(218, 218, 218);
+  font-size:14px;
+  
+}
 .login-form{
   width: 100%;
   max-width: 330px;
@@ -117,23 +222,29 @@ Cositas viejas:
   height: 100%;
 }
 .card-signin {
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  box-shadow: 0 0.5rem 1rem 0 rgba(255, 255, 255, 0.1);
+  box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+  background:url(https://wallpapercave.com/wp/wp6055222.jpg) center;
 }
 
 .card-signin .card-title {
   margin-bottom: 2rem;
   font-weight: 300;
   font-size: 1.5rem;
+  color:rgb(218, 218, 218);
 }
 
 .card-signin .card-body {
   padding: 2rem;
+	background:rgba(40,57,101,.5);
 }
 
 .form-signin {
   width: 100%;
+}
+
+.form-control{
+  opacity: 60%;
+  text-align: center;
 }
 
 .form-icon{
@@ -151,7 +262,6 @@ Cositas viejas:
 
 .form-signin .btn {
   font-size: 80%;
-  border-radius: 5rem;
   letter-spacing: .1rem;
   font-weight: bold;
   padding: 1rem;
@@ -200,9 +310,7 @@ Cositas viejas:
   width: 140px;
 }
 
-/*
-Registro:
-*/
+
 
 /*SIDEBAR*/
 
@@ -446,11 +554,6 @@ a:focus {
     margin-right: 250px;
   }
 }
-
-
-/*
-Login: 
-*/
 
 
 /* FOOTER */
