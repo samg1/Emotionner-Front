@@ -9,6 +9,7 @@ import AuthService from '../../Services/auth.service';
 import { NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
+import emailjs from 'emailjs-com';
 require('moment/locale/es.js');
 
 
@@ -69,6 +70,24 @@ class Calendario extends Component {
     for (let i = 0; i < tasks.length; i++) {
       if(moment(tasks[i].start).format("YYYY-MM-DD") == date){
         NotificationManager.info('Para hoy tienes planeado: '+ tasks[i].title, 'Recuerda tu tarea!', 80000);
+        let taskTitle = tasks[i].title;
+        const currentUser = AuthService.getCurrentUser();
+        const email = currentUser.email;
+        console.log(email)
+        emailjs.send(
+          'gmailemotionner', // default email provider in your EmailJS account
+          'task',
+          {
+            email,
+            taskTitle
+          },
+          'user_L2gOmwmvGOO2fSQcOzgdn'
+        )
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        }, (err) => {
+          console.log('FAILED...', err);
+        });
       }
     }
 
