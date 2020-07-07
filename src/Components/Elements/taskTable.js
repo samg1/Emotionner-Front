@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { Table} from 'reactstrap';
 import ModalForm from '../Forms/tasksModal'
 import axios from 'axios'
+import moment from 'moment';
+// React Notification
+import { NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from 'react-notifications';
 
 
 /**
@@ -86,10 +91,15 @@ class TaskTable extends Component {
 
 
   render() {
+
+    let date = moment(moment.now()).format("YYYY-MM-DD")
     /**
      * We iterate across the items or tasks and we show them in the table
      */
     const items = this.props.items.map(item => {
+      if(`${item.start}`=== date && item.enabled === 1 && item.completed === false){
+          NotificationManager.info('Para hoy tienes planeado: '+ `${item.title}`, 'Recuerda tu tarea!', 80000);
+      }
       return (
         <tr className = {item.completed ? "td-completed" : ""}key={item.id}>
           <td ><div className ="completed" ><a  onClick={() => this.completeTask(item)} title='Marcar como completado'>{item.completed ? <i className="far fa-check-square marked" ></i> :<i className="far fa-square marked" ></i>}</a></div></td>
@@ -110,6 +120,7 @@ class TaskTable extends Component {
       })
 
     return (
+      <>
       <Table bordered responsive hover style={{backgroundColor:'#fff'}}>
         <thead>
           <tr>
@@ -126,6 +137,8 @@ class TaskTable extends Component {
           {items}
         </tbody>
       </Table>
+      <NotificationContainer/>
+      </>
     )
   }
 }

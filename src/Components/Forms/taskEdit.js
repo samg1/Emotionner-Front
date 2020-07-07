@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Col, Row} from 'reactstrap';
 import AuthService from '../../Services/auth.service';
 
+
 /**
  * Form for CRUD operations in Tasks table
  */
@@ -104,6 +105,7 @@ class AddEditForm extends React.Component {
         const { id, title, description,completed, start, end, time, enable} = this.props.item
         this.setState({ id, title, description,completed, start, end, time, enable})
       }
+
     }
   
     render() {

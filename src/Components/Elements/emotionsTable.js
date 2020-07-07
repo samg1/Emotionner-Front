@@ -74,7 +74,7 @@ class EmotionsTable extends Component {
           <td>{item.description}</td>
           <td>{this.toDate(item.createdAt)}</td>
           <td>
-              <ModalFormE buttonLabel="Edit" item={item} updateState={this.props.updateState}/>
+              <ModalFormE buttonLabel="Editar" item={item} updateState={this.props.updateState}/>
           </td>
         </tr>
         )
