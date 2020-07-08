@@ -1,6 +1,5 @@
 import {Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
-import { withRouter, Redirect, Switch } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import './../../App.css'
@@ -50,7 +49,7 @@ class LoginAdminForm extends Component{
         }
     }
     redirect(){
-            var link = window.location.href+'/create';
+            var link = window.location.href+'/dashboard';
             console.log (link);
             return window.location.replace(link)
     }
@@ -72,7 +71,7 @@ class LoginAdminForm extends Component{
                                 </FormGroup>
                                 <FormGroup>
                                     <Label>Contraseña</Label>
-                                    <Input className='form-control' type="text"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
+                                    <Input className='form-control' type="password"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
                                 </FormGroup>
                                 <div style={{margin: '20px'}}>
                                 <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced', padding: '5px'}} onClick={()=>this.singIn()}>Iniciar Sesión</button>
