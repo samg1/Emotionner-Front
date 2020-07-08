@@ -68,7 +68,7 @@ class LoginAdminForm extends Component{
                            <h5 className='card-title text-center text-uppercase'>Bienvenido Administrador</h5>
                            <Form className='form-singin'>
                                 <FormGroup>
-                                    <Label>Username</Label>
+                                    <Label className="art-label">USERNAME</Label>
                                     <Input className='form-control' type="text" value={this.state.username} onChange={(value)=> this.setState({username:value.target.value})}  placeholder="Introduzca su usuario "></Input>
                                 </FormGroup>
                                 <FormGroup>
@@ -76,7 +76,7 @@ class LoginAdminForm extends Component{
                                     <Input className='form-control' type="password"  value={this.state.campPassword} onChange={(value)=> this.setState({campPassword:value.target.value})} placeholder="Introduzca su contraseña" required></Input>
                                 </FormGroup>
                                 <div style={{margin: '20px'}}>
-                                <button type='button' className="btn btn-lg btn-block text-uppercase btn-light" style={{backgroundColor:'#b79ced', padding: '5px'}} onClick={()=>this.singIn()}>Iniciar Sesión</button>
+                                <button type='button' className="btn btn-lg btn-block text-uppercase btn-light"  onClick={()=>this.singIn()}>Iniciar Sesión</button>
                                 </div>
                         </Form>
                         </div>

@@ -109,6 +109,19 @@ Todo List completed
 Crear articulos y frases new:
 */
 
+.form-singin div .btn{
+  border-radius: 0px;
+  background-color: #047cfc;
+  color:white;
+  border: 0px;
+  padding: 5px;
+  margin-top: 25px;
+}
+.form-singin div .btn:hover{
+  background-color: #b79ced;
+  color: white;
+}
+
 .d-flex .anim {
   position: relative;
   display: inline-block;
