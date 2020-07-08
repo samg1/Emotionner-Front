@@ -1,0 +1,369 @@
+.img-reg{
+
+    overflow: hidden;
+
+    z-index: 2;
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 300px;
+
+    height: 100%;
+
+    padding-top: 360px;
+
+    background-image: url('https://wallpapercave.com/wp/wp3082483.jpg');
+
+    background-size: cover;
+
+}
+
+
+
+.submitreg {
+
+    margin-top: 70px;
+
+    margin-bottom: 20px;
+
+    text-transform: uppercase;
+
+  }
+
+
+
+  
+
+.textt_img {
+
+    content: url(https://i.imgur.com/UHbfz8D.png);
+
+}
+
+
+
+.label-1 {
+
+    display: block;
+
+    width: 260px;
+
+    transform: translateX(150px);
+
+    text-align: center;
+
+}
+
+
+
+.logo-text{
+
+    width: 300px;
+
+    height: 150px;
+
+    background-image: url(https://i.imgur.com/UHbfz8D.png);
+
+    background-size: cover;
+
+    transform: translateX(-17px);
+
+    
+
+}
+
+
+
+.logo-text img {
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+  
+
+.sign-up{
+
+    transform: translateX(250px);
+
+}
+
+.cont-reg {
+
+    overflow: hidden;
+
+    position: relative;
+
+    width: 900px;
+
+    height: 750px;
+
+    margin: 0 auto 100px;
+
+    background: #fff;
+
+    top: 110px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    
+
+}
+
+.motiv-reg-ph{
+
+    font-size: 400;
+
+    color: white;
+
+    text-shadow: 2px 2px 4px #242323;
+
+}
+
+
+
+.form-reg {
+
+    position: relative;
+
+    width: 640px;
+
+    height: 100%;
+
+    padding: 60px 30px 0;
+
+  }
+
+
+
+.reg-h2 {
+
+    margin-bottom: 40px;
+
+}
+
+
+
+@media (max-width:950px){
+
+    .label-1 {
+
+        transform: translateX(48px);
+
+    }
+
+    .img-reg{
+
+        overflow: hidden;
+
+        z-index: 2;
+
+        position: absolute;
+
+        left: 0;
+
+        top: 0;
+
+        width: 260px;
+
+        height: 100%;
+
+        padding-top: 360px;
+
+        background-size: cover;
+
+    }
+
+      
+
+    .sign-up{
+
+        transform: translateX(220px);
+
+    }
+
+    .cont-reg {
+
+        width: 600px;
+
+        height: 720px;
+
+        margin: 0 auto 100px;
+
+        top: 110px;
+
+        
+
+    }
+
+    .motiv-reg-ph{
+
+        font-size: 400;
+
+    }
+
+
+
+    .form-reg {
+
+        width: 425px;
+
+        height: 100%;
+
+        padding: 60px 30px 0;
+
+    }
+
+    .submitreg {
+
+        margin-top: 60px;
+
+        
+
+      }
+
+}
+
+
+
+@media (max-width:500px){
+
+    .img-reg{
+
+        z-index: 2;
+
+        position: absolute;
+
+        left: 0;
+
+        top: 0;
+
+        width: 300px;
+
+        height: 30%;
+
+        padding-top: 360px;
+
+        background-size: cover;
+
+    }
+
+    .form-reg {
+
+        position: relative;
+
+        width: 300px;
+
+        height: 70%;
+
+        top: 350px;
+
+        
+
+    }
+
+      
+
+    .sign-up{
+
+        transform: translateX(1px);
+
+    }
+
+    .cont-reg {
+
+        overflow: hidden;
+
+        position: relative;
+
+        width: 300px;
+
+        height: 1050px;
+
+        margin: 0 auto 100px;
+
+        top: 110px;
+
+    }
+
+    .sub-cont-reg {
+
+        position: relative;
+
+        left: 0px;
+
+        top: 0;
+
+        width: 300px;
+
+        height: 20%;
+
+
+
+    }
+
+    .motiv-reg-ph{
+
+        font-size: 300;
+
+        color: white;
+
+        text-shadow: 2px 2px 4px #242323;
+
+    }
+
+
+
+    .reg-h2 {
+
+        margin-top: 40px;
+
+    }
+
+
+
+    .logo-text{
+
+        width: 300px;
+
+        height: 150px;
+
+        background-image: url(https://i.imgur.com/UHbfz8D.png);
+
+        background-size: cover;
+
+        transform: translateX(-17px);
+
+        transform: translateY(-200px);
+
+        
+
+    }
+
+
+
+    .label-1{
+
+        transform: translateX(19px);
+
+        width: 200px;
+
+    }
+
+
+
+    .h2{
+
+        font-size: 24px;
+
+    }
+
+    
+
+}

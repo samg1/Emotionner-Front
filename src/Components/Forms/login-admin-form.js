@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { withRouter, Redirect, Switch } from "react-router";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
+import './../../App.css'
 
 let admins=[
     {username: 'admin', campPassword:'admin'},

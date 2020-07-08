@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import { Table} from 'reactstrap';
 import ModalForm from '../Forms/tasksModal'
-import axios from 'axios'
+import './../../App.css'
 import moment from 'moment';
 // React Notification
 import { NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
+
 
 /**
  * TASKS TABLE!!
@@ -57,6 +58,34 @@ class TaskTable extends Component {
 
   }
 
+  completeTask= item => {
+     var itemStatus = !item.completed;
+      let data={
+        id: item.id,
+        title: item.title,
+        description: item.description,
+        completed: itemStatus,
+        start: item.start,
+        end: item.start,
+        time: item.time, 
+        enabled: 1
+      }
+      console.log(data)
+      
+      fetch(`https://emotionner.herokuapp.com/users/updateTask`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+        .then(response => response.json())
+        .then(item => {
+          console.log(item.data)
+          window.location.reload()
+        })
+        .catch(err => console.log(err)) 
+
+  }
+
   
  
 
@@ -72,7 +101,8 @@ class TaskTable extends Component {
           NotificationManager.info('Para hoy tienes planeado: '+ `${item.title}`, 'Recuerda tu tarea!', 80000);
       }
       return (
-        <tr key={item.id}>
+        <tr className = {item.completed ? "td-completed" : ""}key={item.id}>
+          <td ><div className ="completed" ><a  onClick={() => this.completeTask(item)} title='Marcar como completado'>{item.completed ? <i className="far fa-check-square marked" ></i> :<i className="far fa-square marked" ></i>}</a></div></td>
           <td>{item.title}</td>
           <td>{item.description}</td>
           <td>{item.start}</td>
@@ -81,8 +111,8 @@ class TaskTable extends Component {
               <ModalForm buttonLabel="Editar" item={item} updateState={this.props.updateState}/>
           </td>
           <td>
-          <div className = "buttonArrow" style={{marginTop:'18px'}}>
-              <a className="link" style={{textTransform: 'uppercase'}} onClick={() => this.deleteItem(item)} title='Delete'>Eliminar</a>
+          <div className = "buttonArrow">
+              <a className="link" style={{textTransform: 'uppercase'}} onClick={() => this.deleteItem(item)} title='Eliminar'>Eliminar</a>
           </div>
           </td>
         </tr>
@@ -94,12 +124,13 @@ class TaskTable extends Component {
       <Table bordered responsive hover style={{backgroundColor:'#fff'}}>
         <thead>
           <tr>
+            <th style={{width: '5%'}}></th>
             <th>Tarea</th>
             <th>Descripcion</th>
             <th>Fecha</th>
             <th>Hora</th>
-            <th></th>
-            <th></th>
+            <th style={{width: '15%'}}></th>
+            <th style={{width: '15%'}}></th>
           </tr>
         </thead>
         <tbody>

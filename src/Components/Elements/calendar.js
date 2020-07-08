@@ -9,7 +9,9 @@ import AuthService from '../../Services/auth.service';
 import { NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
 import { NotificationContainer } from 'react-notifications';
+import './../../App.css'
 require('moment/locale/es.js');
+
 
 
 moment.locale('es');

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink} from 'reactstrap';
 import AuthService from './../../Services/auth.service'
+import './../../App.css'
 
 const Navbar_ = (props) => {
   const [isOpen, setIsOpen] = useState(false);

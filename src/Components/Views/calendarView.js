@@ -1,8 +1,7 @@
 import React from 'react';
 import Calendario from '../Elements/calendar';
 import Footer from '../Elements/footerInside'
-import TasksForm from '../Forms/Tasks'
-import EmotionsForm from '../Forms/emotionsForm'
+import './../../App.css'
 
 
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
+import './../../App.css'
 
 export const navigateContants = {
     PREVIOUS: 'PREV',

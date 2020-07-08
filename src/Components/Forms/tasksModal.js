@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 import AddEditForm from '../Forms/taskEdit';
+import './../../App.css'
+import './../../App.css'
 
 class ModalForm extends Component {
   constructor(props) {
@@ -26,9 +28,9 @@ class ModalForm extends Component {
       let title = ''
 
 
-      if(label === 'Edit'){
+      if(label === 'Editar'){
         button = <>
-                        <div className = 'buttonArrow' style={{marginTop:'18px'}}>
+                        <div className = 'buttonArrow'>
                             <a className="link" style={{textTransform: 'uppercase'}} onClick={this.toggle } title='Editar'>{label}</a>
                         </div>
                         </>

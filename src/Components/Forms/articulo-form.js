@@ -1,9 +1,10 @@
-import {Button, CustomInput, Form, FormGroup, Label, Input, col} from 'reactstrap';
+import {Form, FormGroup, Label, Input} from 'reactstrap';
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenFancy} from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios';
 import {Container, Row, Col} from 'react-bootstrap'
+import './../../App.css'
 
 
 

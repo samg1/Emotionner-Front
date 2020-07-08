@@ -4,6 +4,7 @@ import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import Footer from '../Elements/footerInside'
 import Phrases from '../Elements/phrases';
+import './../../App.css'
 
 /**
  * We call all the phrases in here

@@ -3,6 +3,7 @@ import Modal from "react-bootstrap/Modal";
 import { Form, FormGroup, Label, Col, Row, Input} from 'reactstrap';
 import AuthService from '../../Services/auth.service';
 import axios from 'axios';
+import './../../App.css'
 
 const Task = () => {
     const [isOpen, setIsOpen] = React.useState(false);

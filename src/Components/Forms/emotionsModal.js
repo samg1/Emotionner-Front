@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Modal, ModalHeader, ModalBody } from 'reactstrap'
 import AddEditFormE from './emotionsEdit';
+import './../../App.css'
 
 class ModalFormE extends Component {
   constructor(props) {
