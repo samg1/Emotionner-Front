@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap'
 import AuthService from '../../Services/auth.service'
 import axios from 'axios'
 import AddCards from '../Forms/articleCard';
+import './../../App.css'
 
 /**
  * We call all the articles in here

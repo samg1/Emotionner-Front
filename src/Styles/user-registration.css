@@ -17,8 +17,9 @@
     text-transform: uppercase;
   }
 
+  
 .textt_img {
-    content: url(../../src/Styles/logo.png);
+    content: url(https://i.imgur.com/UHbfz8D.png);
 }
 
 .label-1 {
@@ -31,7 +32,7 @@
 .logo-text{
     width: 300px;
     height: 150px;
-    background-image: url(../../src/Styles/logo.png);
+    background-image: url(https://i.imgur.com/UHbfz8D.png);
     background-size: cover;
     transform: translateX(-17px);
     
@@ -165,7 +166,7 @@
     .logo-text{
         width: 300px;
         height: 150px;
-        background-image: url(../../src/Styles/logo.png);
+        background-image: url(https://i.imgur.com/UHbfz8D.png);
         background-size: cover;
         transform: translateX(-17px);
         transform: translateY(-200px);

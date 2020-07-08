@@ -1,5 +1,6 @@
 import React from 'react'
 import Footer from '../Elements/footerInside';
+import './../../App.css'
 
 const HomePage = () => {
 

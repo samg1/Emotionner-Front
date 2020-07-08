@@ -7,8 +7,7 @@ import axios from 'axios'
 import Footer from '../Elements/footerInside'
 import TasksHero from '../Elements/taskHero';
 import Taskquote from '../Elements/taskQuote';
-import { Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
-
+import './../../App.css'
 /**
  * Agenda View where all agenda components are called
  */

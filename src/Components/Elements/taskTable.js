@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Table} from 'reactstrap';
 import ModalForm from '../Forms/tasksModal'
-import axios from 'axios'
+import './../../App.css'
 import moment from 'moment';
 // React Notification
 import { NotificationManager } from 'react-notifications';

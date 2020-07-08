@@ -4,6 +4,7 @@ import Footer from '../Elements/footerInside'
 import RecoHero from '../Elements/recomendadoHero';
 import ArticleView from '../Forms/articleF';
 import PhraseView from '../Forms/PhraseF';
+import './../../App.css'
 
 
 class RecomendationView extends Component {

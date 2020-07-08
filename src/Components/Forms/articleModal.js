@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import ArticleInfo from '../Forms/articleInfo';
+import './../../App.css'
 
 class ModalInfo extends Component {
     constructor(props) {

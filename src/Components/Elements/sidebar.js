@@ -1,6 +1,5 @@
-import React, {useState, useContext} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser} from '@fortawesome/free-solid-svg-icons'
+import React from 'react';
+import './../../App.css'
 
 const Sidebar_ = (props) => {
     const $button  = document.querySelector('#sidebar-toggle');
