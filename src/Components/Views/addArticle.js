@@ -8,12 +8,14 @@ class addArticleView extends Component{
         return(
             <>
             <Sidebar/>
+            <div className='blanco'>
             <div className='container'>
                 <div className='row justify-content-end'>
                     <div className='col col-md-10'>
                     <CreateArticle/>
                     </div>
                 </div>
+            </div>
             </div>
         </>
         )

@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser} from '@fortawesome/free-solid-svg-icons'
 import './../../App.css'
+import Footer from "../Elements/footerOutside";
 
 let admins=[
     {username: 'admin', campPassword:'admin'},
@@ -55,7 +56,8 @@ class LoginAdminForm extends Component{
     }
     render(){
         return(
-            <div className="container">
+            <>
+            <div className="blanco">
             <div className= 'row '>
                 <div className='col-sm-9 col-md-7 col-lg-5 mx-auto'>
                     <div className='card card-signin my-5'>
@@ -82,7 +84,8 @@ class LoginAdminForm extends Component{
                 </div>
             </div>
         </div>
-
+        <Footer/>
+        </>
             )
         
     }
