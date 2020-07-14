@@ -97,6 +97,41 @@ const Register = (props) => {
     setPassword(password);
   };
 
+  
+function registro (name, lastname, email, birthdate, password) {
+  setName(name);
+  setLastname(lastname);
+  setEmail(email);
+  setBirthdate(birthdate);
+  setPassword(password);
+
+  AuthService.register(name,lastname,email,birthdate,ocupation,premium,password).then(
+      (response) => {
+        alert(response.data.message);
+        setSuccessful(true);
+        return response.data.message;
+      },
+      (error) => {
+        const resMessage =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
+        alert(resMessage);
+        setSuccessful(false);
+        return resMessage;
+
+      }
+    );
+      const fallo = 'fallo wey'
+
+    return fallo
+}
+
+  module.exports = registro;
+
+
   const handleRegister = (e) => {
     e.preventDefault();
 
